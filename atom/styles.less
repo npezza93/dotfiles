@@ -1,0 +1,89 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+
+
+/*
+ * Examples
+ * (To see them, uncomment and save)
+ */
+
+// style the background color of the tree view
+.tree-view {
+  // background-color: whitesmoke;
+}
+
+// style the background and foreground colors on the atom-text-editor-element itself
+atom-text-editor {
+  // color: white;
+  // background-color: hsl(180, 24%, 12%);
+}
+
+// To style other content in the text editor's shadow DOM, use the ::shadow expression
+atom-text-editor::shadow .cursor {
+  // border-color: red;
+}
+
+.no-title-bar:not(.fullscreen).custom-inset-title-bar > atom-workspace.theme-one-light-ui atom-panel-container.left,
+  .no-title-bar:not(.fullscreen).custom-inset-title-bar > atom-workspace.theme-one-dark-ui atom-panel-container.left,
+  .no-title-bar:not(.fullscreen).custom-inset-title-bar > atom-workspace.theme-one-light-ui atom-panel-container.right,
+  .no-title-bar:not(.fullscreen).custom-inset-title-bar > atom-workspace.theme-one-dark-ui atom-panel-container.right {
+  margin-top: 0px;
+}
+
+.no-title-bar:not(.fullscreen).custom-inset-title-bar > atom-workspace.theme-one-dark-ui atom-workspace-axis.horizontal {
+  background-color: #21252b;
+}
+
+.no-title-bar:not(.fullscreen).custom-inset-title-bar > atom-workspace.theme-one-light-ui atom-workspace-axis.horizontal {
+  background-color: darken(hsl(240, 2%, 92%), 20%);
+}
+
+.no-title-bar:not(.fullscreen).custom-inset-title-bar > atom-workspace.theme-one-light-ui atom-panel-container.left atom-dock.left .title,
+  .no-title-bar:not(.fullscreen).custom-inset-title-bar > atom-workspace.theme-one-dark-ui atom-panel-container.left atom-dock.left .title {
+  display: none;
+}
+
+atom-text-editor {
+  letter-spacing: 0px;
+}
+
+atom-dock, status-bar, .tab-bar .tab {
+  // opacity: 0.3;
+  transition: 0.2s;
+  &:hover, &:focus-within {
+    opacity: 1.0;
+  }
+}
+
+.tab-bar {
+  &:hover, &:focus-within {
+    .tab {
+      opacity: 1.0;
+    }
+  }
+}
+
+.tab-bar .tab.active {
+  opacity: 1.0;
+}
+
+.results-view {
+  font-size: 13px;
+}
+
+.search-result .highlight-info {
+  color: #000;
+  background-color: yellow;
+}
+
+.tab-bar .tab.active[data-type$="ArchipelagoView"] {
+    background-color: #2d303e;
+}

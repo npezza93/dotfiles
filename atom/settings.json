@@ -1,0 +1,181 @@
+{
+	"archipelago": {
+		"bellStyle": "sound",
+		"fontFamily": "firacode-retina",
+		"fontSize": 18,
+		"keybindings": [
+			{
+				"command": "\u001bb",
+				"keystroke": "alt-left"
+			},
+			{
+				"command": "\u001bf",
+				"keystroke": "alt-right"
+			},
+			{
+				"command": "\u001bOH",
+				"keystroke": "cmd-left"
+			},
+			{
+				"command": "\u001bOF",
+				"keystroke": "cmd-right"
+			},
+			{
+				"command": "\u001b",
+				"keystroke": "alt-backspace"
+			},
+			{
+				"command": "\u001bd",
+				"keystroke": "alt-delete"
+			},
+			{
+				"command": "\u001bw",
+				"keystroke": "cmd-backspace"
+			},
+			{
+				"command": "\u0010B",
+				"keystroke": "cmd-delete"
+			}
+		],
+		"theme": {
+			"background": "#2d303e"
+		}
+	},
+	"atom-ide-ui": {
+		"hyperclick": {
+			"darwinTriggerKeys": "altKey,metaKey"
+		},
+		"use": {
+			"atom-ide-console": "never",
+			"atom-ide-debugger": "never",
+			"atom-ide-terminal": "never",
+			"hyperclick": "never"
+		}
+	},
+	"atom-package-deps": {
+		"ignored": []
+	},
+	"autocomplete-plus": {
+		"confirmCompletion": "tab"
+	},
+	"autocomplete-ruby": {
+		"suggestionPriority": true
+	},
+	"carbon": {
+		"exportSize": "4x",
+		"lineNumbers": true,
+		"watermark": true
+	},
+	"core": {
+		"GEM_PATH": "/Users/npezza/.rvm/gems/ruby-2.5.1:/Users/npezza/.rvm/gems/ruby-2.5.1@global:/Users/npezza/.rvm/gems/ruby-2.5.1/bin",
+		"PATH": "/Users/npezza/.rvm/gems/ruby-2.5.1/bin:/Users/npezza/.rvm/gems/ruby-2.5.1@global/bin:/Users/npezza/.rvm/rubies/ruby-2.5.1/bin:/usr/local/bin:/usr/bin/:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/npezza/.rvm/bin",
+		"RUBY_VERSION": "2.5.1",
+		"closeDeletedFileTabs": true,
+		"disabledPackages": [
+			"linter-haml",
+			"linter-eslint",
+			"pigments",
+			"html2haml",
+			"git-blame",
+			"linter"
+		],
+		"fileSystemWatcher": "experimental",
+		"ignoredNames": [
+			".git",
+			".hg",
+			".svn",
+			".DS_Store",
+			"._*",
+			"Thumbs.db",
+			".unison",
+			"CVS",
+			".AppleDouble",
+			".LSOverride",
+			".Spotlight-V100",
+			".Trashes",
+			"desktop.ini",
+			"*.sock",
+			"*.pid",
+			"*.sw?",
+			".unison*",
+			"*~"
+		],
+		"packagesWithKeymapsDisabled": [
+			"toggle-quotes"
+		],
+		"restorePreviousWindowsOnStart": "no",
+		"telemetryConsent": "limited",
+		"themes": [
+			"one-dark-ui",
+			"one-snazzy-syntax"
+		],
+		"titleBar": "custom-inset",
+		"useTreeSitterParsers": true,
+		"warnOnLargeFileLimit": 5
+	},
+	"editor": {
+		"fontFamily": "Fira Code ",
+		"fontSize": 20,
+		"invisibles": {},
+		"scrollPastEnd": true,
+		"softWrap": true
+	},
+	"exception-reporting": {
+		"userId": "771132ce-97f4-413e-8ef9-91a67c83138a"
+	},
+	"git-blame": {
+		"columnWidth": 330
+	},
+	"highlight-selected": {},
+	"linter": {
+		"lintOnChange": false
+	},
+	"linter-haml": {
+		"copyRubocopYml": true,
+		"executablePath": "/Users/npezza/.rvm/gems/ruby-2.5.1/bin/haml-lint"
+	},
+	"linter-rubocop": {
+		"command": "/Users/npezza/.rvm/gems/ruby-2.5.1/bin/rubocop",
+		"disableWhenNoConfigFile": true
+	},
+	"linter-ui-default": {
+		"panelHeight": 246
+	},
+	"markdown-preview": {
+		"useGitHubStyle": true
+	},
+	"no-title-bar": {},
+	"one-dark-ui": {},
+	"package-generator": {
+		"packageSyntax": "coffeescript"
+	},
+	"pigments": {},
+	"rubocop-auto-correct": {
+		"correctFile": true
+	},
+	"ruby-block": {
+		"highlightLineNumber": true
+	},
+	"split-diff": {
+		"diffWords": true,
+		"ignoreWhitespace": true,
+		"leftEditorColor": "red",
+		"rightEditorColor": "green",
+		"syncHorizontalScroll": true
+	},
+	"sync-settings": {
+		"quietUpdateCheck": true
+	},
+	"toggle-quotes": {},
+	"tool-bar": {
+		"position": "Right",
+		"useTouchBar": false
+	},
+	"tree-view": {
+		"hideIgnoredNames": true,
+		"sortFoldersBeforeFiles": false
+	},
+	"welcome": {
+		"showOnStartup": false
+	}
+}
