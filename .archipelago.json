@@ -3,7 +3,7 @@
   "profiles": {
     "1": {
       "id": 1,
-      "fontFamily": "FuraCode NF",
+      "fontFamily": "firacode-retina",
       "fontSize": "16",
       "cursorBlink": false,
       "singleTabMode": true,
