@@ -1,31 +1,36 @@
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-  required = true
+	required = true
 	process = git-lfs filter-process
 [user]
 	name = Nick Pezza
 	email = npezza93@gmail.com
 	signingkey = 10D0666849B8E3B0
 [alias]
-  co = checkout
-  br = branch
-  st = status
-  a  = add
-  ci = commit
+	co = checkout
+	br = branch
+	st = status
+	a  = add
+	ci = commit
 	d  = diff --color-moved --patience
 	can = commit --amend --no-edit
 [push]
-  default = simple
+	default = simple
 [commit]
-  gpgsign = true
+	gpgsign = true
 [fetch]
-  prune = true
+	prune = true
 [core]
-  pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+	pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+	excludesfile = /Users/nick/.gitignore
 [color]
-  ui = always
+	ui = always
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = green
 [pager]
-  branch = false
+	branch = false
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg2
