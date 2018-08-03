@@ -1,0 +1,41 @@
+{
+  "activeProfileId": 1,
+  "profiles": {
+    "1": {
+      "id": 1,
+      "fontFamily": "FuraCode NF",
+      "fontSize": "16",
+      "cursorBlink": false,
+      "singleTabMode": true,
+      "padding": "10px 0px 5px 15px",
+      "name": "Default",
+      "experimentalCharAtlas": "dynamic",
+      "useFlowControl": true,
+      "theme": {
+        "background": "rgb(45,48,62)",
+        "windowBackground": "#2d303e"
+      },
+      "windowBackground": "rgb(45,48,62)",
+      "macOptionClickForcesSelection": true
+    },
+    "2": {
+      "id": 2,
+      "fontFamily": "firacode-retina",
+      "padding": "10px 0px 5px 15px",
+      "singleTabMode": true,
+      "allowTransparency": true,
+      "windowBackground": "rgba(45,48,62,0)",
+      "theme": {
+        "background": "rgba(0,0,0,0)"
+      },
+      "cursorStyle": "block",
+      "vibrancy": "ultra-dark",
+      "name": "Vibrant",
+      "fontSize": "16",
+      "cursorBlink": false,
+      "experimentalCharAtlas": "dynamic",
+      "useFlowControl": true
+    }
+  },
+  "version": "2.2.6"
+}
