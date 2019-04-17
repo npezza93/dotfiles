@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+cp ~/.gitconfig .gitconfig
+cp ~/.gitignore .gitignore
+cp ~/.pryrc .pryrc
+cp ~/.tmux.conf .tmux.conf
+cp ~/.zshrc .zshrc
+cp /Users/nick/Library/Application\ Support/Archipelago/config.json .archipelago.json
+
+cp ~/.atom/init.coffee atom/init.coffee
+cp ~/.atom/keymap.cson atom/keymap.cson
+cp ~/.atom/styles.less atom/styles.less
