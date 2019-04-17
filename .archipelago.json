@@ -1,76 +1,170 @@
 {
-  "activeProfileId": 3,
-  "profiles": {
-    "1": {
-      "id": 1,
-      "fontFamily": "FiraCode-Retina",
-      "fontSize": "16",
-      "cursorBlink": false,
-      "singleTabMode": true,
-      "padding": "10px 0px 5px 15px",
-      "name": "Default",
-      "experimentalCharAtlas": "dynamic",
-      "useFlowControl": true,
-      "theme": {
-        "background": "rgb(45,48,62)",
-        "windowBackground": "#2d303e"
-      },
-      "windowBackground": "rgb(45,48,62)",
-      "macOptionClickForcesSelection": true
-    },
-    "2": {
-      "id": 2,
-      "fontFamily": "firacode-retina",
-      "padding": "10px 0px 5px 15px",
-      "singleTabMode": true,
-      "allowTransparency": true,
-      "windowBackground": "rgba(45,48,62,0)",
-      "theme": {
-        "background": "rgba(0,0,0,0)"
-      },
-      "cursorStyle": "block",
-      "vibrancy": "ultra-dark",
-      "name": "Vibrant",
-      "fontSize": "16",
-      "cursorBlink": false,
-      "experimentalCharAtlas": "dynamic",
-      "useFlowControl": true
-    },
-    "3": {
-      "id": 3,
-      "fontFamily": "FiraCode-Retina",
-      "fontSize": "16",
-      "cursorBlink": false,
-      "singleTabMode": true,
-      "name": "Default (No tmux)",
-      "experimentalCharAtlas": "dynamic",
-      "useFlowControl": true,
-      "theme": {
-        "background": "rgb(45,48,62)",
-        "windowBackground": "#2d303e"
-      },
-      "windowBackground": "rgb(45,48,62)",
-      "macOptionClickForcesSelection": true,
-      "padding": "30px 0px 5px 15px"
-    },
-    "4": {
-      "id": 4,
-      "fontFamily": "firacode-medium",
-      "singleTabMode": true,
-      "allowTransparency": true,
-      "windowBackground": "rgba(45,48,62,0)",
-      "theme": {
-        "background": "rgba(0,0,0,0)"
-      },
-      "cursorStyle": "block",
-      "vibrancy": "ultra-dark",
-      "name": "Vibrant (no tmux)",
-      "fontSize": "16",
-      "cursorBlink": false,
-      "experimentalCharAtlas": "dynamic",
-      "useFlowControl": true,
-      "padding": "30px 0px 5px 15px"
-    }
-  },
-  "version": "2.3.2"
+	"activeProfileId": 1,
+	"profiles": [
+		{
+			"id": 1,
+			"fontFamily": "FiraCode-Retina",
+			"fontSize": "16",
+			"cursorBlink": false,
+			"singleTabMode": true,
+			"padding": "10px 0px 5px 15px",
+			"name": "Default",
+			"experimentalCharAtlas": "dynamic",
+			"useFlowControl": true,
+			"theme": {
+				"background": "rgb(45,48,62)",
+				"windowBackground": "#2d303e"
+			},
+			"windowBackground": "rgb(45,48,62)",
+			"macOptionClickForcesSelection": true,
+			"visor": {
+				"padding": "40px 0 10px 15px"
+			},
+			"keybindings": [
+				{
+					"keystroke": "cmd-left",
+					"command": "\\x1bOH"
+				},
+				{
+					"keystroke": "cmd-right",
+					"command": "\\x1bOF"
+				},
+				{
+					"keystroke": "alt-delete",
+					"command": "\\x1bd"
+				},
+				{
+					"keystroke": "cmd-backspace",
+					"command": "\\x1bw"
+				},
+				{
+					"keystroke": "cmd-delete",
+					"command": "\\x10B"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"fontFamily": "firacode-retina",
+			"padding": "10px 0px 5px 15px",
+			"singleTabMode": true,
+			"allowTransparency": true,
+			"windowBackground": "rgba(45,48,62,0)",
+			"theme": {
+				"background": "rgba(0,0,0,0)"
+			},
+			"cursorStyle": "block",
+			"vibrancy": "ultra-dark",
+			"name": "Vibrant",
+			"fontSize": "16",
+			"cursorBlink": false,
+			"experimentalCharAtlas": "dynamic",
+			"useFlowControl": true,
+			"visor": {},
+			"keybindings": [
+				{
+					"keystroke": "cmd-left",
+					"command": "\\x1bOH"
+				},
+				{
+					"keystroke": "cmd-right",
+					"command": "\\x1bOF"
+				},
+				{
+					"keystroke": "alt-delete",
+					"command": "\\x1bd"
+				},
+				{
+					"keystroke": "cmd-backspace",
+					"command": "\\x1bw"
+				},
+				{
+					"keystroke": "cmd-delete",
+					"command": "\\x10B"
+				}
+			]
+		},
+		{
+			"id": 3,
+			"fontFamily": "FiraCode-Retina",
+			"fontSize": "16",
+			"cursorBlink": false,
+			"singleTabMode": false,
+			"name": "Default (No tmux)",
+			"experimentalCharAtlas": "dynamic",
+			"useFlowControl": true,
+			"theme": {
+				"background": "rgb(45,48,62)",
+				"windowBackground": "#2d303e"
+			},
+			"windowBackground": "rgb(45,48,62)",
+			"macOptionClickForcesSelection": true,
+			"padding": "5px 0px 10px 15px",
+			"visor": {},
+			"keybindings": [
+				{
+					"keystroke": "cmd-left",
+					"command": "\\x1bOH"
+				},
+				{
+					"keystroke": "cmd-right",
+					"command": "\\x1bOF"
+				},
+				{
+					"keystroke": "alt-delete",
+					"command": "\\x1bd"
+				},
+				{
+					"keystroke": "cmd-backspace",
+					"command": "\\x1bw"
+				},
+				{
+					"keystroke": "cmd-delete",
+					"command": "\\x10B"
+				}
+			]
+		},
+		{
+			"id": 4,
+			"fontFamily": "firacode-medium",
+			"singleTabMode": true,
+			"allowTransparency": true,
+			"windowBackground": "rgba(45,48,62,0)",
+			"theme": {
+				"background": "rgba(0,0,0,0)"
+			},
+			"cursorStyle": "block",
+			"vibrancy": "ultra-dark",
+			"name": "Vibrant (no tmux)",
+			"fontSize": "16",
+			"cursorBlink": false,
+			"experimentalCharAtlas": "dynamic",
+			"useFlowControl": true,
+			"padding": "30px 0px 5px 15px",
+			"visor": {},
+			"keybindings": [
+				{
+					"keystroke": "cmd-left",
+					"command": "\\x1bOH"
+				},
+				{
+					"keystroke": "cmd-right",
+					"command": "\\x1bOF"
+				},
+				{
+					"keystroke": "alt-delete",
+					"command": "\\x1bd"
+				},
+				{
+					"keystroke": "cmd-backspace",
+					"command": "\\x1bw"
+				},
+				{
+					"keystroke": "cmd-delete",
+					"command": "\\x10B"
+				}
+			]
+		}
+	],
+	"version": "3.2.2"
 }

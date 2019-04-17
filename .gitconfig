@@ -13,7 +13,7 @@
 	st = status
 	a  = add
 	ci = commit
-	d  = diff --color-moved --patience
+	d  = diff --color-moved --patience -w
 	can = commit --amend --no-edit
 [push]
 	default = simple
@@ -24,6 +24,8 @@
 [core]
 	pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 	excludesfile = /Users/nick/.gitignore
+[diff]
+	compactionHeuristic = true
 [color]
 	ui = always
 [color "status"]
@@ -34,3 +36,5 @@
 	branch = false
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg2
+# [interactive]
+# 	diffFilter = diff-highlight

@@ -31,3 +31,12 @@
   'f9': 'code-peek:peekFunction'
 'atom-text-editor[data-grammar~="ruby"]':
   'cmd-1': 'rubocop-auto-correct:current-file'
+'.tree-view':
+  'cmd-shift-backspace': 'tree-view:remove-project-folder'
+  'r': 'tree-view:move'
+'atom-text-editor:not([mini])':
+  'alt-shift-up': 'editor:select-larger-syntax-node'
+  'alt-shift-down': 'editor:select-smaller-syntax-node'
+'.platform-darwin atom-text-editor':
+  'ctrl-[': 'ruby-block-converter:to-curly-brackets'
+  'ctrl-]': 'ruby-block-converter:to-do-end'

@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/nick/.oh-my-zsh
-export GIT_EDITOR='atom-beta --wait'
+# zmodload zsh/zprof
+export GIT_EDITOR='vim'
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -17,7 +17,7 @@ HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
-
+# ZSH_DISABLE_COMPFIX="true"
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
@@ -49,11 +49,11 @@ HYPHEN_INSENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails gitfast tmux fast-syntax-highlighting)
-
+export ZSH=/Users/nick/.oh-my-zsh
+plugins=(git rails fast-syntax-highlighting zsh-syntax-highlighting)
+source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 # export GEM_PATH=PATH/Users/nick/.rvm/gems/
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -75,39 +75,71 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias zshconf="atom-beta ~/.zshrc"
-alias ohmyzsh="atom-beta ~/.oh-my-zsh"
-alias ns="npm start"
+alias zshconf="atom-nightly ~/.zshrc"
+
+alias atom="atom-nightly"
+alias apm="apm-nightly"
 
 alias r="rails"
+alias rgmo="rails generate model"
+
 alias "b/c"="bin/console"
+
 alias "glg"="g log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)' --abbrev-commit --date=relative"
 alias "gll"="g log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --numstat"
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-. `brew --prefix`/etc/profile.d/z.sh
+alias gcleanup='g remote prune origin && git br -vv | grep gone | awk "{print $1}" | xargs -n 1 git branch -D'
+alias gcleanuplocals="g branch -vv | cut -c 3- | awk '\$3 !~/\[/ { print \$1 }' | xargs -n 1 git branch -D"
+alias gd='g diff --color-moved --patience'
+alias gcan="g ci --amend --no-edit"
 
 alias mb='bundle exec middleman build'
 alias md='bundle exec middleman deploy'
 alias ms='bundle exec middleman server'
 
-alias gcleanup='g remote prune origin && git br -vv | grep gone | awk "{print $1}" | xargs -n 1 git branch -D'
-alias gcleanuplocals="g branch -vv | cut -c 3- | awk '\$3 !~/\[/ { print \$1 }' | xargs -n 1 git branch -D"
-alias gd='g diff --color-moved --patience'
-alias weather='curl wttr.in'
-alias gcan="g ci --amend --no-edit"
-alias atom="atom-beta"
-alias apm="apm-beta"
-alias rgmo="rails generate model"
+alias ta='tmux attach -t'
+alias tad='tmux attach -d -t'
+alias ts='tmux new-session -s'
+alias tl='tmux list-sessions'
+alias tksv='tmux kill-server'
+alias tkss='tmux kill-session -t'
+
+alias l='exa -lah --git'
+alias ll='exa -lh --git'
+alias ls='exa -G'
+alias lsa='exa -lah --git'
+alias cat='bat --pager="less -FR" --theme="Sublime Snazzy" --style="numbers,changes,header"'
+
+alias ctags='/usr/local/bin/ctags -R --exclude=public --exclude=tmp --exclude=.git --exclude=node_modules --exclude=vendor --exclude=dist'
+alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kill -9"
 
 export PATH="$HOME/.yarn/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
-autoload -U promptinit; promptinit
-prompt pure
+source /usr/local/etc/profile.d/z.sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.git-completion.bash
+
+export fpath=(
+  /usr/local/share/zsh-completions/zsh-completions.plugin.zsh
+  ~/.zsh
+  $fpath
+)
+
+if [ -z "$TMUX" ]
+then
+  autoload -Uz promptinit && promptinit
+  prompt pure
+else
+  # PROMPT=$'\n'"%(?.%F{magenta}.%F{red})❯%f "
+  autoload -Uz promptinit && promptinit
+  prompt pure
+fi
+
+function override_icons() {
+  cp ~/.icon-overrides/atom.icns /Applications/Atom\ Nightly.app/Contents/Resources/atom.icns
+  touch /Applications/Atom\ Nightly.app
+  sudo killall Finder && sudo killall Dock
+}

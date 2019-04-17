@@ -1,36 +1,3 @@
-/*
- * Your Stylesheet
- *
- * This stylesheet is loaded when Atom starts up and is reloaded automatically
- * when it is changed and saved.
- *
- * Add your own CSS or Less to fully customize Atom.
- * If you are unfamiliar with Less, you can read more about it here:
- * http://lesscss.org
- */
-
-
-/*
- * Examples
- * (To see them, uncomment and save)
- */
-
-// style the background color of the tree view
-.tree-view {
-  // background-color: whitesmoke;
-}
-
-// style the background and foreground colors on the atom-text-editor-element itself
-atom-text-editor {
-  // color: white;
-  // background-color: hsl(180, 24%, 12%);
-}
-
-// To style other content in the text editor's shadow DOM, use the ::shadow expression
-atom-text-editor::shadow .cursor {
-  // border-color: red;
-}
-
 .no-title-bar:not(.fullscreen).custom-inset-title-bar > atom-workspace.theme-one-light-ui atom-panel-container.left,
   .no-title-bar:not(.fullscreen).custom-inset-title-bar > atom-workspace.theme-one-dark-ui atom-panel-container.left,
   .no-title-bar:not(.fullscreen).custom-inset-title-bar > atom-workspace.theme-one-light-ui atom-panel-container.right,
@@ -56,7 +23,6 @@ atom-text-editor {
 }
 
 atom-dock, status-bar, .tab-bar .tab {
-  // opacity: 0.3;
   transition: 0.2s;
   &:hover, &:focus-within {
     opacity: 1.0;
@@ -79,15 +45,53 @@ atom-dock, status-bar, .tab-bar .tab {
   font-size: 13px;
 }
 
-.search-result .highlight-info {
-  color: #000;
-  background-color: yellow;
+// .theme-one-snazzy-syntax.theme-one-light-ui atom-pane {
+//   background-color: #282a36;
+// }
+
+li[is="tabs-tab"] {
+  max-width: none !important;
+}
+atom-text-editor {
+  text-rendering: optimizeLegibility;
+}
+atom-workspace {
+  font-weight: 500;
+}
+.tree-view span {
+  font-weight: 500 !important;
 }
 
-.tab-bar .tab.active[data-type$="ArchipelagoView"] {
+.theme-one-snazzy-syntax.theme-one-dark-ui {
+  .tab-bar .tab.active[data-type$="AboutView"],
+  .tab-bar .tab.active[data-type$="TimecopView"],
+  .tab-bar .tab.active[data-type$="StyleguideView"],
+  .tab-bar .tab.active[data-type="MarkdownPreviewView"],
+  .tab-bar .tab.active[data-type$="ArchipelagoView"] {
+    background-color: #2b2d3b;
+  }
+
+  .tab-bar .tab.active[data-type$="Editor"] {
     background-color: #2d303e;
+  }
+
+  .github-FilePatchView-container .github-AtomTextEditor-container atom-text-editor, .github-FilePatchView .github-FilePatchView-controlBlock, .github-FilePatchView-container {
+    background-color: #2b2d3b;
+  }
+
+  .item-views {
+    background-color: #242632;
+  }
 }
 
-atom-pane {
-  background-color: #242632;
+.settings-view .config-menu {
+  border-image: none;
+}
+
+.github-FilePatchView .gutter.old .line-number, .github-FilePatchView .gutter.new .line-number {
+  min-width: 4ch;
+}
+
+.atom-dock-toggle-button.right {
+  margin-right: -1px;
 }
