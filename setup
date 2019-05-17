@@ -102,3 +102,13 @@ cp .pryrc ~/.pryrc
 cp .archipelago.json /Users/nick/Library/Application\ Support/Archipelago/config.json
 
 chsh -s /bin/zsh
+
+brew tap caskroom/fonts
+brew cask install font-fira-code
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+git clone https://github.com/zdharma/fast-syntax-highlighting.git \
+  ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
