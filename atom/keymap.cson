@@ -40,3 +40,5 @@
 '.platform-darwin atom-text-editor':
   'ctrl-[': 'ruby-block-converter:to-curly-brackets'
   'ctrl-]': 'ruby-block-converter:to-do-end'
+'body':
+  'ctrl-escape': 'toggle-footer'

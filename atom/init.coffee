@@ -45,3 +45,5 @@
 #   # if findNode && findNode.parentNode.style.display != "none"
 # #  atom.commands.dispatch(atom.workspace.getElement(), 'find-and-replace:toggle')
 # , true
+atom.commands.add 'body', 'toggle-footer', ->
+  document.querySelector('.footer').classList.toggle('hide')

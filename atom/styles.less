@@ -49,14 +49,8 @@ atom-dock, status-bar, .tab-bar .tab {
 //   background-color: #282a36;
 // }
 
-li[is="tabs-tab"] {
-  max-width: none !important;
-}
 atom-text-editor {
   text-rendering: optimizeLegibility;
-}
-atom-workspace {
-  font-weight: 500;
 }
 .tree-view span {
   font-weight: 500 !important;
@@ -82,6 +76,13 @@ atom-workspace {
   .item-views {
     background-color: #242632;
   }
+
+  .syntax--keyword.syntax--other.syntax--special-method {
+    color: #ff70c3;
+  }
+  .syntax--keyword.syntax--operator {
+    font-weight: 600;
+  }
 }
 
 .settings-view .config-menu {
@@ -94,4 +95,19 @@ atom-workspace {
 
 .atom-dock-toggle-button.right {
   margin-right: -1px;
+}
+
+/* This will change how font-smoothing is applied to the entire Atom application */
+atom-workspace {
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
+}
+
+html, body, .tree-view, .tooltip, .tab-bar .tab, .find-and-replace .find-meta-container, atom-text-editor[mini], .btn, .status-bar, .list-tree li.list-nested-item > .list-item, .settings-view, .github-Git, .github-GitHub, .github-IssueishDetailView {
+  font-size: @font-size;
+  font-family: 'Inter';
+}
+.github-PrTimeline .commit .commit-sha {
+  font-size: @font-size;
+  font-family: 'FiraCode-Retina'
 }
