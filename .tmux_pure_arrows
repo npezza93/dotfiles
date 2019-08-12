@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+echo $(cd $1;arrow_status=(${(ps:\t:)"$(command git rev-list --left-right --count HEAD...@'{u}' 2>/dev/null)"});(( ${arrow_status[2]:-0} > 0 )) && printf "⇣";(( ${arrow_status[1]:-0} > 0 )) && printf "⇡")
