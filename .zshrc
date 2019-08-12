@@ -109,11 +109,10 @@ alias ls='exa -G'
 alias lsa='exa -lah --git'
 alias cat='bat --pager="less -FR" --theme="Sublime Snazzy" --style="numbers,changes,header"'
 
-alias ctags='/usr/local/bin/ctags -R --exclude=public --exclude=tmp --exclude=.git --exclude=node_modules --exclude=vendor --exclude=dist'
+alias ctags='/usr/local/bin/ctags -R --exclude=public --exclude=tmp --exclude=.git --exclude=node_modules --exclude=vendor --exclude=dist --exclude=coverage'
 alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kill -9"
 
 export PATH="$HOME/.yarn/bin:$PATH"
-export PATH="$PATH:$HOME/.rvm/bin"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
@@ -133,13 +132,23 @@ then
   autoload -Uz promptinit && promptinit
   prompt pure
 else
-  # PROMPT=$'\n'"%(?.%F{magenta}.%F{red})❯%f "
-  autoload -Uz promptinit && promptinit
-  prompt pure
+  PROMPT=$'\n'"%(?.%F{magenta}.%F{red})❯%f "
 fi
 
 function override_icons() {
   cp ~/.icon-overrides/atom.icns /Applications/Atom\ Nightly.app/Contents/Resources/atom.icns
   touch /Applications/Atom\ Nightly.app
   sudo killall Finder && sudo killall Dock
+}
+
+export PATH="$PATH:/Users/nick/.rvm/gems/ruby-2.6.3/bin:/Users/nick/.rvm/gems/ruby-2.6.3@global/bin:/Users/nick/.rvm/rubies/ruby-2.6.3/bin:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/nick/.rvm/bin:/Users/nick/.vimpkg/bin"
+
+export PATH="$PATH:$HOME/.rvm/bin"
+
+cd() {
+  builtin cd $1
+  if [ "$TMUX" ]
+  then
+    tmux refresh-client -S
+  fi
 }
