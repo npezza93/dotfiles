@@ -91,7 +91,9 @@ alias gcleanup='g remote prune origin && git br -vv | grep gone | awk "{print $1
 alias gcleanuplocals="g branch -vv | cut -c 3- | awk '\$3 !~/\[/ { print \$1 }' | xargs -n 1 git branch -D"
 alias gd='g diff --color-moved --patience'
 alias gcan="g ci --amend --no-edit"
-
+alias sw="g br --format='%(refname:short)' | fzy | command xargs -n 1 git switch"
+alias swa="gbr --format='%(refname:short)' | fzy | command xargs -n 1 git switch"
+ 
 alias mb='bundle exec middleman build'
 alias md='bundle exec middleman deploy'
 alias ms='bundle exec middleman server'
