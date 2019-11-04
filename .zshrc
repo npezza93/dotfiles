@@ -50,7 +50,7 @@ HYPHEN_INSENSITIVE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 export ZSH=/Users/nick/.oh-my-zsh
-plugins=(git rails fast-syntax-highlighting zsh-syntax-highlighting)
+plugins=(git rails zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions zsh-fzy)
 source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 # export GEM_PATH=PATH/Users/nick/.rvm/gems/
@@ -83,17 +83,19 @@ alias apm="apm-nightly"
 alias r="rails"
 alias rgmo="rails generate model"
 
-alias "b/c"="bin/console"
+alias "console"="bin/console"
 
-alias "glg"="g log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)' --abbrev-commit --date=relative"
-alias "gll"="g log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --numstat"
+alias glg="g log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)' --abbrev-commit --date=relative"
+alias gll="g log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --numstat"
 alias gcleanup='g remote prune origin && git br -vv | grep gone | awk "{print $1}" | xargs -n 1 git branch -D'
 alias gcleanuplocals="g branch -vv | cut -c 3- | awk '\$3 !~/\[/ { print \$1 }' | xargs -n 1 git branch -D"
 alias gd='g diff --color-moved --patience'
 alias gcan="g ci --amend --no-edit"
+alias gsw="g switch"
+alias grs="g restore"
 alias sw="g br --format='%(refname:short)' | fzy | command xargs -n 1 git switch"
 alias swa="gbr --format='%(refname:short)' | fzy | command xargs -n 1 git switch"
- 
+
 alias mb='bundle exec middleman build'
 alias md='bundle exec middleman deploy'
 alias ms='bundle exec middleman server'
@@ -109,18 +111,21 @@ alias l='exa -lah --git'
 alias ll='exa -lh --git'
 alias ls='exa -G'
 alias lsa='exa -lah --git'
-alias cat='bat --pager="less -FR" --theme="Sublime Snazzy" --style="numbers,changes,header"'
+alias cat='bat  --theme="Sublime Snazzy" --style="numbers,changes,header"'
 
 alias ctags='/usr/local/bin/ctags -R --exclude=public --exclude=tmp --exclude=.git --exclude=node_modules --exclude=vendor --exclude=dist --exclude=coverage'
 alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kill -9"
 
-export PATH="$HOME/.yarn/bin:$PATH"
+alias vim="nvim"
+alias vimf="vim \$(rg -l . | fzy)"
+alias kp="ps -ef | sed 1d | eval "fzy" | awk '{print $2}' | xargs kill $1"
+
+eval "$(hub alias -s)"
+
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 source /usr/local/etc/profile.d/z.sh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.git-completion.bash
 
 export fpath=(
@@ -143,10 +148,6 @@ function override_icons() {
   sudo killall Finder && sudo killall Dock
 }
 
-export PATH="$PATH:/Users/nick/.rvm/gems/ruby-2.6.3/bin:/Users/nick/.rvm/gems/ruby-2.6.3@global/bin:/Users/nick/.rvm/rubies/ruby-2.6.3/bin:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/nick/.rvm/bin:/Users/nick/.vimpkg/bin"
-
-export PATH="$PATH:$HOME/.rvm/bin"
-
 cd() {
   builtin cd $1
   if [ "$TMUX" ]
@@ -154,3 +155,9 @@ cd() {
     tmux refresh-client -S
   fi
 }
+
+export PATH="$PATH:/Users/nick/.rvm/gems/ruby-2.6.4/bin:/Users/nick/.rvm/gems/ruby-2.6.4@global/bin:/Users/nick/.rvm/rubies/ruby-2.6.4/bin:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/nick/.rvm/bin:/Users/nick/.vimpkg/bin"
+export PATH="$PATH:$HOME/.rvm/bin"
+source ~/.rvm/scripts/rvm
+
+bindkey '^R'  fzy-history-widget

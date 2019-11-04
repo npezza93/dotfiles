@@ -63,30 +63,29 @@ imap    <C-S> <Plug>Isurround
 imap      <C-G>s <Plug>Isurround
 imap <C-G>S <Plug>ISurround<Paste>
 
-function! FzyCommand(choice_command, vim_command) abort
-    let l:callback = {
-                \ 'window_id': win_getid(),
-                \ 'filename': tempname(),
-                \  'vim_command':  a:vim_command
-                \ }
+function! s:completed(winid, filename, action, ...) abort
+    bdelete!
+    call win_gotoid(a:winid)
+    if filereadable(a:filename)
+      let lines = readfile(a:filename)
+      if !empty(lines)
+        exe a:action . ' ' . lines[0]
+      endif
+      call delete(a:filename)
+    endif
+endfunction
 
-    function! l:callback.on_exit(job_id, data, event) abort
-        bdelete!
-        call win_gotoid(self.window_id)
-        if filereadable(self.filename)
-            try
-                let l:selected_filename = readfile(self.filename)[0]
-                exec self.vim_command . l:selected_filename
-            catch /E684/
-            endtry
-        endif
-        call delete(self.filename)
-    endfunction
-
+function! FzyCommand(choice_command, vim_command)
+    let file = tempname()
+    let winid = win_getid()
+    let cmd = split(&shell) + split(&shellcmdflag) + [a:choice_command . ' | fzy > ' . file]
+    let F = function('s:completed', [winid, file, a:vim_command])
     botright 10 new
-    let l:term_command = a:choice_command . ' | fzy > ' .  l:callback.filename
-    silent call termopen(l:term_command, l:callback)
-    setlocal nonumber norelativenumber
+    if has('nvim')
+        call termopen(cmd, {'on_exit': F})
+    else
+        call term_start(cmd, {'exit_cb': F, 'curwin': 1})
+    endif
     startinsert
 endfunction
 
@@ -94,7 +93,16 @@ nnoremap <leader>e :call FzyCommand("rg -l .", ":e ")<cr>
 nnoremap <leader>v :call FzyCommand("rg -l .", ":vs ")<cr>
 nnoremap <leader>s :call FzyCommand("rg -l .", ":sp ")<cr>
 nnoremap <leader>t :call FzyCommand("rg -l .", ":tabedit ")<cr>
+nnoremap <leader>f :call FzyCommand("rg --column --line-number --hidden --ignore-case --no-heading --color=always . ", ":e")<cr>
+" nnoremap <leader>/ :call 
+" command! -nargs=* -complete=file Rg :call FzyCommand("rg --column --line-number --hidden --ignore-case --no-heading --color=always . ", ":e")(<q-args>)
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+set grepprg=rg\ --vimgrep\ --no-heading
+set grepformat^=%f:%l:%c:%m
+command -nargs=+ -complete=file Rg silent! grep! <args> | copen | redraw!
+nmap <silent> <leader>a :Rg "\b<C-R><C-W>\b"<CR>
+
