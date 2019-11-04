@@ -33,14 +33,28 @@ Plug 'tpope/vim-commentary'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-endwise'
 Plug 'Townk/vim-autoclose'
+Plug 'tpope/vim-fugitive'
+Plug 'ntpeters/vim-better-whitespace'
 
 call plug#end()
 
 let g:SnazzyTransparent = 1
 let g:lightline = {
 \ 'colorscheme': 'snazzy',
+\ 'component_function': {
+\   'filename': 'LightlineFilename',
+\ }
 \ }
 colorscheme snazzy
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
+
 
 let g:surround_no_mappings = 1
 
@@ -94,15 +108,25 @@ nnoremap <leader>v :call FzyCommand("rg -l .", ":vs ")<cr>
 nnoremap <leader>s :call FzyCommand("rg -l .", ":sp ")<cr>
 nnoremap <leader>t :call FzyCommand("rg -l .", ":tabedit ")<cr>
 nnoremap <leader>f :call FzyCommand("rg --column --line-number --hidden --ignore-case --no-heading --color=always . ", ":e")<cr>
-" nnoremap <leader>/ :call 
+" nnoremap <leader>/ :call
 " command! -nargs=* -complete=file Rg :call FzyCommand("rg --column --line-number --hidden --ignore-case --no-heading --color=always . ", ":e")(<q-args>)
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-set grepprg=rg\ --vimgrep\ --no-heading
-set grepformat^=%f:%l:%c:%m
-command -nargs=+ -complete=file Rg silent! grep! <args> | copen | redraw!
-nmap <silent> <leader>a :Rg "\b<C-R><C-W>\b"<CR>
+let g:better_whitespace_enabled=1
+let g:better_whitespace_guicolor='#ff5c57'
+function! s:StripWhiteSpaces()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
 
+    :%s/\s\+$//e
+    :%s#\($\n\s*\)\+\%$##e
+
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfunction
+autocmd BufWritePre * call s:StripWhiteSpaces()
+nnoremap <C-S> :w<cr>
+nnoremap <C-W> :q<cr>
