@@ -75,7 +75,7 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias zshconf="atom-nightly ~/.zshrc"
+alias zshrc="vim ~/.zshrc"
 
 alias atom="atom-nightly"
 alias apm="apm-nightly"
@@ -118,6 +118,7 @@ alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kil
 
 alias vim="nvim"
 alias vimf='nvim `rg -l . | fzy`'
+alias vimrc='vim ~/.config/nvim/init.vim'
 alias kp="ps -ef | sed 1d | eval "fzy" | awk '{print $2}' | xargs kill $1"
 
 eval "$(hub alias -s)"
