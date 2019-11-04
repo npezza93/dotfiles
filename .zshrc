@@ -117,7 +117,7 @@ alias ctags='/usr/local/bin/ctags -R --exclude=public --exclude=tmp --exclude=.g
 alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kill -9"
 
 alias vim="nvim"
-alias vimf="vim \$(rg -l . | fzy)"
+alias vimf='nvim `rg -l . | fzy`'
 alias kp="ps -ef | sed 1d | eval "fzy" | awk '{print $2}' | xargs kill $1"
 
 eval "$(hub alias -s)"
