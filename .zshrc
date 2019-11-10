@@ -75,8 +75,6 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias zshrc="vim ~/.zshrc"
-
 alias atom="atom-nightly"
 alias apm="apm-nightly"
 
@@ -93,8 +91,8 @@ alias gd='g diff --color-moved --patience'
 alias gcan="g ci --amend --no-edit"
 alias gsw="g switch"
 alias grs="g restore"
-alias sw="g br --format='%(refname:short)' | fzy | command xargs -n 1 git switch"
-alias swa="gbr --format='%(refname:short)' | fzy | command xargs -n 1 git switch"
+alias sw="g br --format='%(refname:short)' | fzy --prompt='❯ ' | command xargs -n 1 git switch"
+alias swa="gbr --format='%(refname:short)' | fzy --promot='❯ '| command xargs -n 1 git switch"
 
 alias mb='bundle exec middleman build'
 alias md='bundle exec middleman deploy'
@@ -117,8 +115,9 @@ alias ctags='/usr/local/bin/ctags -R --exclude=public --exclude=tmp --exclude=.g
 alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kill -9"
 
 alias vim="nvim"
-alias vimf='nvim `rg -l . | fzy`'
-alias vimrc='vim ~/.config/nvim/init.vim'
+alias vimrc="vim ~/.config/nvim/init.vim"
+alias zshrc="vim ~/.zshrc"
+alias vimf="vim \$(rg -l . | fzy --prompt='❯ ')"
 alias kp="ps -ef | sed 1d | eval "fzy" | awk '{print $2}' | xargs kill $1"
 
 eval "$(hub alias -s)"
