@@ -112,33 +112,6 @@ imap <C-S> <Plug>Isurround
 imap <C-G>s <Plug>Isurround
 imap <C-G>S <Plug>ISurround<Paste>
 
-function! s:completed(winid, filename, action, ...) abort
-    bdelete!
-    call win_gotoid(a:winid)
-    if filereadable(a:filename)
-      let lines = readfile(a:filename)
-      if !empty(lines)
-        exe a:action . ' ' . lines[0]
-      endif
-      call delete(a:filename)
-    endif
-endfunction
-
-function! FzyCommand(choice_command, vim_command)
-    let file = tempname()
-    let winid = win_getid()
-    let cmd = split(&shell) + split(&shellcmdflag) + [a:choice_command . ' | fzy --prompt="❯ " > ' . file]
-    let F = function('s:completed', [winid, file, a:vim_command])
-    botright 10 new
-    call termopen(cmd, {'on_exit': F})
-    setlocal nonumber norelativenumber
-    startinsert
-endfunction
-
-nnoremap <leader>e :call FzyCommand("rg -l .", ":e ")<cr>
-nnoremap <leader>v :call FzyCommand("rg -l .", ":vs ")<cr>
-nnoremap <leader>s :call FzyCommand("rg -l .", ":sp ")<cr>
-nnoremap <leader>t :call FzyCommand("rg -l .", ":tabedit ")<cr>
 " nnoremap <leader>f :call FzyCommand("rg --column --line-number --hidden --ignore-case --no-heading --color=always . ", ":e")<cr>
 " nnoremap <leader>/ :call
 " command! -nargs=* -complete=file Rg :call FzyCommand("rg --column --line-number --hidden --ignore-case --no-heading --color=always . ", ":e")(<q-args>)
@@ -165,3 +138,79 @@ nnoremap <C-S> :w<cr>
 
 highlight CursorLineNR guifg='#6494ed'
 runtime macros/matchit.vim
+
+function! FzyCommand(choice_command, vim_command, winid)
+    let file = tempname()
+    let cmd = split(&shell) + split(&shellcmdflag) + [a:choice_command . ' | fzy --lines=15 --prompt="❯ " > ' . file]
+    let F = function('s:completed', [a:winid, file, a:vim_command])
+    call termopen(cmd, {'on_exit': F})
+    setlocal nonumber norelativenumber
+    startinsert
+endfunction
+function! s:completed(winid, filename, action, ...) abort
+    call win_gotoid(a:winid)
+    if filereadable(a:filename)
+      let lines = readfile(a:filename)
+      if !empty(lines)
+        exe a:action . ' ' . lines[0]
+      endif
+      call delete(a:filename)
+    endif
+endfunction
+function! FzyWindow(choice_command, vim_command)
+  let width = float2nr(&columns)
+
+  let row = 1
+  let col = width * 1 / 3
+  let width = width * 1 / 3
+  let height = 15
+
+  let padding_opts = {
+        \ 'relative': 'editor',
+        \ 'row': row - 1,
+        \ 'col': col - 2,
+        \ 'width': width + 4,
+        \ 'height': height + 2,
+        \ 'style': 'minimal'
+        \ }
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': row,
+        \ 'col': col,
+        \ 'width': width,
+        \ 'height': height,
+        \ 'style': 'minimal'
+        \ }
+
+  let winid = win_getid()
+  let pbuf = nvim_create_buf(v:false, v:true)
+  let s:float_term_padding_win = nvim_open_win(pbuf, v:true, padding_opts)
+
+  let buf = nvim_create_buf(v:false, v:true)
+  let win = nvim_open_win(buf, v:true, opts)
+
+  "Set Floating Window Highlighting
+  call setwinvar(win, '&winhl', 'Normal:Pmenu')
+
+  call FzyCommand(a:choice_command, a:vim_command, winid)
+  autocmd TermClose * ++once :bd! | call nvim_win_close(s:float_term_padding_win, v:true)
+  setlocal
+        \ nobuflisted
+        \ bufhidden=hide
+        \ nonumber
+        \ norelativenumber
+        \ signcolumn=no
+endfunction
+function! FzyTag()
+  let command = 'ctags -f - ' . expand('%:p') . ' | cut -f 1'
+
+  call FzyWindow(command, ":tag ")
+endfunction
+nnoremap <leader>e :call FzyWindow("rg -l .", ":e ")<cr>
+nnoremap <leader>v :call FzyWindow("rg -l .", ":vs ")<cr>
+nnoremap <leader>s :call FzyWindow("rg -l .", ":sp ")<cr>
+nnoremap <leader>t :call FzyWindow("rg -l .", ":tabedit ")<cr>
+nnoremap <leader>r :call FzyTag()<cr>
+nnoremap <leader>R :call FzyWindow("grep -v \"^\!_TAG_\" tags \| cut -f 1", ":tjump ")<cr>
+
+inoremap <c-x><c-]> <c-]>
