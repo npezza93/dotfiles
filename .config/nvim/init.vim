@@ -25,7 +25,7 @@ set termguicolors
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'yuttie/comfortable-motion.vim'
+Plug 'terryma/vim-smooth-scroll'
 Plug 'connorholyday/vim-snazzy'
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
@@ -41,6 +41,8 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'vim-ruby/vim-ruby'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-rails'
+" Plug 'mhinz/vim-signify'
 
 call plug#end()
 
@@ -214,3 +216,8 @@ nnoremap <leader>r :call FzyTag()<cr>
 nnoremap <leader>R :call FzyWindow("grep -v \"^\!_TAG_\" tags \| cut -f 1", ":tjump ")<cr>
 
 inoremap <c-x><c-]> <c-]>
+
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 30, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 30, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 30, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 30, 4)<CR>
