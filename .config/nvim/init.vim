@@ -42,6 +42,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails'
+Plug 'jgdavey/vim-blockle'
 " Plug 'mhinz/vim-signify'
 
 call plug#end()
@@ -208,10 +209,10 @@ function! FzyTag()
 
   call FzyWindow(command, ":tag ")
 endfunction
-nnoremap <leader>e :call FzyWindow("rg -l .", ":e ")<cr>
-nnoremap <leader>v :call FzyWindow("rg -l .", ":vs ")<cr>
-nnoremap <leader>s :call FzyWindow("rg -l .", ":sp ")<cr>
-nnoremap <leader>t :call FzyWindow("rg -l .", ":tabedit ")<cr>
+nnoremap <leader>e :call FzyWindow("fd -H -E .git --type file .", ":e ")<cr>
+nnoremap <leader>v :call FzyWindow("fd -H -E .git --type file .", ":vs ")<cr>
+nnoremap <leader>s :call FzyWindow("fd -H -E .git --type file .", ":sp ")<cr>
+nnoremap <leader>t :call FzyWindow("fd -H -E .git --type file .", ":tabedit ")<cr>
 nnoremap <leader>r :call FzyTag()<cr>
 nnoremap <leader>R :call FzyWindow("grep -v \"^\!_TAG_\" tags \| cut -f 1", ":tjump ")<cr>
 
