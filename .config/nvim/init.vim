@@ -43,6 +43,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails'
 Plug 'jgdavey/vim-blockle'
+Plug 'pbrisbin/vim-mkdir'
 " Plug 'mhinz/vim-signify'
 
 call plug#end()
