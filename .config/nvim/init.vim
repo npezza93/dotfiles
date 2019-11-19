@@ -8,6 +8,7 @@ source $HOME/.config/nvim/floating_windows.vimrc
 source $HOME/.config/nvim/fuzzy_file.vimrc
 source $HOME/.config/nvim/fuzzy_tags.vimrc
 source $HOME/.config/nvim/scrolling.vimrc
+source $HOME/.config/nvim/linters.vimrc
 
 inoremap <c-x><c-]> <c-]>
 nnoremap <C-J> <C-W><C-J>
