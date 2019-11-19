@@ -24,7 +24,7 @@ function! FzyFileWindow(choice_command, vim_command)
   let winid = win_getid()
   let s:float_term_padding_win = FloatingPaddingWindow(width, 15, 1, width)
 
-  call CreateFloatingWindow(width)
+  call CreateFloatingWindow(width, width)
 
   call FzyFileCommand(a:choice_command, a:vim_command, winid)
   autocmd TermClose * ++once :bd! | call nvim_win_close(s:float_term_padding_win, v:true)

@@ -21,13 +21,11 @@ function! s:tag_completed(winid, filename, ...) abort
     endif
 endfunction
 
-function! FzyTagWindow(choice_command)
-  let width = float2nr(&columns) * 1 / 3
-
+function! FzyTagWindow(choice_command, width, col)
   let winid = win_getid()
-  let s:float_term_padding_win = FloatingPaddingWindow(width, 15, 1, width)
+  let s:float_term_padding_win = FloatingPaddingWindow(a:width, 15, 1, a:col)
 
-  call CreateFloatingWindow(width)
+  call CreateFloatingWindow(a:width, a:col)
 
   call FzyTagCommand(a:choice_command, winid)
   autocmd TermClose * ++once :bd! | call nvim_win_close(s:float_term_padding_win, v:true)
@@ -39,5 +37,5 @@ function! FzyTagWindow(choice_command)
         \ signcolumn=no
 endfunction
 
-nnoremap <leader>r :call FzyTagWindow('~/Documents/tty-fzy/bin/fzy-ctags --lines=15 ' . expand('%:p'))<cr>
-nnoremap <leader>R :call FzyTagWindow('~/Documents/tty-fzy/bin/fzy-ctags --lines=15')<cr>
+nnoremap <leader>r :call FzyTagWindow('fzy-ctags --lines=15 ' . expand('%:p'), float2nr(&columns) * 1 / 3, float2nr(&columns) * 1 / 3)<cr>
+nnoremap <leader>R :call FzyTagWindow('fzy-ctags --lines=15', float2nr(&columns) * 1 / 2, float2nr(&columns) * 1 / 4)<cr>
