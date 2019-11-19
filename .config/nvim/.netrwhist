@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/nick/.zsh'
+let g:netrw_dirhist_6='/Users/nick/Documents/revery-quick-start'
+let g:netrw_dirhist_5='/Users/nick'
+let g:netrw_dirhist_4='/Users/nick/Documents/qira'
+let g:netrw_dirhist_3='/Users/nick/.zsh'
+let g:netrw_dirhist_2='/Users/nick/Documents/qira'
+let g:netrw_dirhist_1='/Users/nick/Documents/scrapinator-studio'
