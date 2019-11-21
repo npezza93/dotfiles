@@ -9,6 +9,7 @@ source $HOME/.config/nvim/fuzzy_file.vimrc
 source $HOME/.config/nvim/fuzzy_tags.vimrc
 source $HOME/.config/nvim/scrolling.vimrc
 source $HOME/.config/nvim/linters.vimrc
+source $HOME/.config/nvim/complete.vimrc
 
 inoremap <c-x><c-]> <c-]>
 nnoremap <C-J> <C-W><C-J>

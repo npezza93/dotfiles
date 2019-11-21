@@ -20,6 +20,9 @@ Plug 'tpope/vim-rails'
 Plug 'jgdavey/vim-blockle'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'dense-analysis/ale'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 " Plug 'mhinz/vim-signify'
 
 call plug#end()

@@ -1,5 +1,6 @@
 let g:ale_linters = {
 \   'ruby': ['rubocop'],
+\   'rust': ['rls'],
 \}
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],
