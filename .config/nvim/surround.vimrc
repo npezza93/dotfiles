@@ -13,8 +13,3 @@ endfunction
 
 omap <expr> s '<esc>'.SurroundOp('s')
 omap <expr> S '<esc>'.SurroundOp('S')
-
-" Copied from vim-surround surround.vim:
-imap <C-S> <Plug>Isurround
-imap <C-G>s <Plug>Isurround
-imap <C-G>S <Plug>ISurround<Paste>

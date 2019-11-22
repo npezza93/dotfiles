@@ -1,3 +1,5 @@
+let mapleader = "\<Space>"
+
 source $HOME/.config/nvim/general.vimrc
 source $HOME/.config/nvim/plugins.vimrc
 source $HOME/.config/nvim/lightline.vimrc
@@ -17,3 +19,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <esc> :noh<return><esc>
+nnoremap <C-S> :w<cr>
+inoremap <C-S> <esc>:w<cr>
+
+nmap k gk
+nmap j gj

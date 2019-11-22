@@ -11,5 +11,3 @@ function! s:StripWhiteSpaces()
     call setreg('/', old_query)
 endfunction
 autocmd BufWritePre * call s:StripWhiteSpaces()
-nnoremap <C-S> :w<cr>
-inoremap <C-S> <c-o>:w<cr>
