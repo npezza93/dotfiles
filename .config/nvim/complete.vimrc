@@ -1,9 +1,11 @@
 let g:deoplete#enable_at_startup = 1
 
-let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-call deoplete#custom#source('ultisnips', 'rank', 1000)
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
+
+call deoplete#custom#source("ultisnips", "rank", 1000)
 
 imap <expr><TAB>
      \ neosnippet#expandable_or_jumpable() ? :
