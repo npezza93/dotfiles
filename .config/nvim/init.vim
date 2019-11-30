@@ -2,8 +2,8 @@ let mapleader = "\<Space>"
 
 source $HOME/.config/nvim/general.vimrc
 source $HOME/.config/nvim/plugins.vimrc
-source $HOME/.config/nvim/lightline.vimrc
 source $HOME/.config/nvim/theme.vimrc
+source $HOME/.config/nvim/lightline.vimrc
 source $HOME/.config/nvim/surround.vimrc
 source $HOME/.config/nvim/whitespace.vimrc
 source $HOME/.config/nvim/floating_windows.vimrc

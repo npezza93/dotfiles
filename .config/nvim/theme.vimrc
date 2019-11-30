@@ -20,12 +20,15 @@ let g:onedark_color_overrides = {
 \ "visual_black": { "gui": "NONE", "cterm": "NONE", "cterm16": "0" },
 \ "comment_grey": { "gui": "#5C6370", "cterm": "59", "cterm16": "15" },
 \ "gutter_fg_grey": { "gui": "#4B5263", "cterm": "238", "cterm16": "15" },
-\ "cursor_grey": { "gui": "#313545", "cterm": "236", "cterm16": "8" },
-\ "visual_grey": { "gui": "#3E4452", "cterm": "237", "cterm16": "15" },
+\ "cursor_grey": { "gui": "#262626", "cterm": "236", "cterm16": "8" },
+\ "visual_grey": { "gui": "#262626", "cterm": "237", "cterm16": "15" },
 \ "menu_grey": { "gui": "#3E4452", "cterm": "237", "cterm16": "8" },
 \ "special_grey": { "gui": "#3B4048", "cterm": "238", "cterm16": "15" },
 \ "vertsplit": { "gui": "#181A1F", "cterm": "59", "cterm16": "15" },
 \}
+" \ "cursor_grey": { "gui": "#313545", "cterm": "236", "cterm16": "8" },
+" \ "visual_grey": { "gui": "#3E4452", "cterm": "237", "cterm16": "15" },
+" \ "menu_grey": { "gui": "#3E4452", "cterm": "237", "cterm16": "8" },
 
 colorscheme onedark
 

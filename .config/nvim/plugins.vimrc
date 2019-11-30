@@ -1,7 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'terryma/vim-smooth-scroll'
-Plug 'connorholyday/vim-snazzy'
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
