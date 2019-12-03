@@ -11,6 +11,7 @@ source $HOME/.config/nvim/fuzzy_file.vimrc
 source $HOME/.config/nvim/fuzzy_tags.vimrc
 source $HOME/.config/nvim/scrolling.vimrc
 source $HOME/.config/nvim/linters.vimrc
+source $HOME/.config/nvim/ctags.vimrc
 source $HOME/.config/nvim/complete.vimrc
 
 inoremap <c-x><c-]> <c-]>
@@ -21,6 +22,7 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <esc> :noh<return><esc>
 nnoremap <C-S> :w<cr>
 inoremap <C-S> <esc>:w<cr>
+map <leader>gf :e <cfile><cr>
 
 nmap k gk
 nmap j gj

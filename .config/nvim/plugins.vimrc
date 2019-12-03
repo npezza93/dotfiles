@@ -22,6 +22,8 @@ Plug 'dense-analysis/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'tpope/vim-bundler'
+Plug 'craigemery/vim-autotag'
 " Plug 'mhinz/vim-signify'
 
 call plug#end()
