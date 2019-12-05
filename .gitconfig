@@ -8,13 +8,15 @@
 	email = npezza93@gmail.com
 	signingkey = 10D0666849B8E3B0
 [alias]
-	co = checkout
-	br = branch
-	st = status
-	a  = add
-	ci = commit
-	d  = diff --color-moved --patience -w
-	can = commit --amend --no-edit
+  co = checkout
+  br = branch
+  st = status
+  a  = add
+  ci = commit
+  d  = diff --color-moved --patience -w
+  can = commit --amend --no-edit
+  sw = switch
+  ctags = !.git/hooks/ctags
 [push]
 	default = simple
 [commit]
@@ -36,5 +38,5 @@
 	branch = false
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg2
-# [interactive]
-# 	diffFilter = diff-highlight
+[init]
+	templatedir = ~/.git_template
