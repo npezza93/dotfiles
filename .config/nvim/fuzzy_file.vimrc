@@ -1,6 +1,6 @@
 function! FzyFileCommand(choice_command, vim_command, winid)
     let file = tempname()
-    let cmd = split(&shell) + split(&shellcmdflag) + [a:choice_command . ' | fuzzy --lines=15 > ' . file]
+    let cmd = split(&shell) + split(&shellcmdflag) + [a:choice_command . ' | fzy --prompt="❯ " --lines=15 > ' . file]
     let F = function('s:fuzzy_file_completed', [a:winid, file, a:vim_command])
     call termopen(cmd, {'on_exit': F})
     setlocal nonumber norelativenumber
@@ -19,7 +19,11 @@ function! s:fuzzy_file_completed(winid, filename, action, ...) abort
 endfunction
 
 function! FzyFileWindow(choice_command, vim_command)
-  let width = float2nr(&columns) * 1 / 3
+  if (float2nr(&columns) < 80)
+    let width = 60
+  else
+    let width = float2nr(&columns) * 1 / 3
+  endif
 
   let winid = win_getid()
   let s:float_term_padding_win = FloatingPaddingWindow(width, 15, 1, width)
@@ -36,7 +40,7 @@ function! FzyFileWindow(choice_command, vim_command)
         \ signcolumn=no
 endfunction
 
-nnoremap <leader>e :call FzyFileWindow("fd -H -E .git --type file --color=always .", ":e ")<cr>
-nnoremap <leader>v :call FzyFileWindow("fd -H -E .git --type file --color=always .", ":vs ")<cr>
-nnoremap <leader>s :call FzyFileWindow("fd -H -E .git --type file --color=always .", ":sp ")<cr>
-nnoremap <leader>t :call FzyFileWindow("fd -H -E .git --type file --color=always .", ":tabedit ")<cr>
+nnoremap <leader>e :call FzyFileWindow("fd -H -E .git --type file --color=never .", ":e ")<cr>
+nnoremap <leader>v :call FzyFileWindow("fd -H -E .git --type file --color=never .", ":vs ")<cr>
+nnoremap <leader>s :call FzyFileWindow("fd -H -E .git --type file --color=never .", ":sp ")<cr>
+nnoremap <leader>t :call FzyFileWindow("fd -H -E .git --type file --color=never .", ":tabedit ")<cr>

@@ -1,5 +1,3 @@
-let g:deoplete#enable_at_startup = 1
-
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
@@ -13,3 +11,6 @@ imap <expr><TAB>
      \ pumvisible()? "\<C-y>" :
      \ <SID>check_back_space() ? "\<TAB>" :
      \ deoplete#mappings#manual_complete()
+
+autocmd InsertEnter * call deoplete#enable()
+" let g:deoplete#enable_at_startup = 1

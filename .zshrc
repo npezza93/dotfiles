@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 # zmodload zsh/zprof
-export GIT_EDITOR='vim'
+export GIT_EDITOR='nvim'
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -75,8 +75,6 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias zshrc="vim ~/.zshrc"
-
 alias atom="atom-nightly"
 alias apm="apm-nightly"
 
@@ -87,7 +85,7 @@ alias "console"="bin/console"
 
 alias glg="g log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)' --abbrev-commit --date=relative"
 alias gll="g log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --numstat"
-alias gcleanup='g remote prune origin && git br -vv | grep gone | awk "{print $1}" | xargs -n 1 git branch -D'
+alias gcleanup="g remote prune origin && git br -vv | grep gone | cut -d' ' -f3 | sed -e 's/'\$(echo \"\033\[m\")'//g' | xargs -n 1 git branch -D"
 alias gcleanuplocals="g branch -vv | cut -c 3- | awk '\$3 !~/\[/ { print \$1 }' | xargs -n 1 git branch -D"
 alias gd='g diff --color-moved --patience'
 alias gcan="g ci --amend --no-edit"
@@ -113,13 +111,13 @@ alias ls='exa -G'
 alias lsa='exa -lah --git'
 alias cat='bat  --theme="Sublime Snazzy" --style="numbers,changes,header"'
 
-alias ctags='/usr/local/bin/ctags -R --exclude=public --exclude=tmp --exclude=.git --exclude=node_modules --exclude=vendor --exclude=dist --exclude=coverage'
+alias ctags='/usr/local/bin/ctags -R --exclude=public --exclude=tmp --exclude=.git --exclude=node_modules --exclude=vendor --exclude=dist --exclude=coverage --exclude=README.md --exclude=CODE_OF_CONDUCT.md'
 alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kill -9"
 
 alias vim="nvim"
 alias vimrc="vim ~/.config/nvim/init.vim"
 alias zshrc="vim ~/.zshrc"
-alias vimf="vim \$(rg -l . | fzy --prompt='❯ ')"
+alias vimf="vim \$(fd -H -E .git --type file --color=never . | fzy --prompt='❯ ')"
 alias kp="ps -ef | sed 1d | eval "fzy" | awk '{print $2}' | xargs kill $1"
 
 eval "$(hub alias -s)"
@@ -158,8 +156,32 @@ cd() {
   fi
 }
 
-export PATH="$PATH:/Users/nick/.rvm/gems/ruby-2.6.4/bin:/Users/nick/.rvm/gems/ruby-2.6.4@global/bin:/Users/nick/.rvm/rubies/ruby-2.6.4/bin:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/nick/.rvm/bin:/Users/nick/.vimpkg/bin"
+export EDITOR=nvim
+export PATH="$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/nick/.rvm/bin:/Users/nick/.vimpkg/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 source ~/.rvm/scripts/rvm
 
-bindkey '^R'  fzy-history-widget
+_tmuxinator() {
+  local commands projects
+  commands=(${(f)"$(tmuxinator commands zsh)"})
+  projects=(${(f)"$(tmuxinator completions start)"})
+
+  if (( CURRENT == 2 )); then
+    _alternative \
+      'commands:: _describe -t commands "tmuxinator subcommands" commands' \
+      'projects:: _describe -t projects "tmuxinator projects" projects'
+  elif (( CURRENT == 3)); then
+    case $words[2] in
+      copy|cp|c|debug|delete|rm|open|o|start|s|edit|e)
+        _arguments '*:projects:($projects)'
+      ;;
+    esac
+  fi
+
+  return
+}
+
+compdef _tmuxinator tmuxinator mux
+alias mux="tmuxinator"
+
+# bindkey '^R'  fzy-history-widget

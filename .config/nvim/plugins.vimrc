@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
@@ -18,12 +19,16 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails'
 Plug 'jgdavey/vim-blockle'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale', { 'on': [] }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-bundler'
-Plug 'craigemery/vim-autotag'
-" Plug 'mhinz/vim-signify'
+Plug 'craigemery/vim-autotag', { 'on': [] }
+Plug 'jremmen/vim-ripgrep'
+Plug 'mhinz/vim-signify'
+Plug 'rust-lang/rust.vim'
+
+autocmd InsertEnter * call plug#load('ultisnips', 'ale', 'vim-autotag')
 
 call plug#end()

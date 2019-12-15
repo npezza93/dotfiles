@@ -11,7 +11,6 @@ source $HOME/.config/nvim/fuzzy_file.vimrc
 source $HOME/.config/nvim/fuzzy_tags.vimrc
 source $HOME/.config/nvim/scrolling.vimrc
 source $HOME/.config/nvim/linters.vimrc
-source $HOME/.config/nvim/ctags.vimrc
 source $HOME/.config/nvim/complete.vimrc
 
 inoremap <c-x><c-]> <c-]>
@@ -26,3 +25,5 @@ map <leader>gf :e <cfile><cr>
 
 nmap k gk
 nmap j gj
+
+let g:signify_sign_show_count = 1
