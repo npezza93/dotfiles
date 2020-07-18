@@ -19,15 +19,16 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails'
 Plug 'jgdavey/vim-blockle'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'dense-analysis/ale', { 'on': [] }
+Plug 'dense-analysis/ale', { 'on': [], 'tag': 'v2.6.0' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-bundler'
-Plug 'craigemery/vim-autotag', { 'on': [] }
+Plug 'craigemery/vim-autotag'
 Plug 'jremmen/vim-ripgrep'
 Plug 'mhinz/vim-signify'
 Plug 'rust-lang/rust.vim'
+Plug 'npezza93/fozzie.vim'
 
 autocmd InsertEnter * call plug#load('ultisnips', 'ale', 'vim-autotag')
 

@@ -1,0 +1,7 @@
+
+[default]
+  device_name = "Nicks-MacBook-Pro.local"
+  live_mode_api_key = "rk_live_dPcqSTetXNV4SrRjTRFpUR6v004SSSounU"
+  live_mode_publishable_key = "pk_live_Qvk7HEbSl3JgXd9jSMqKbCli"
+  test_mode_api_key = "rk_test_EMPHCjNdxeWNnbaT1qviMH0J00zI0XhykR"
+  test_mode_publishable_key = "pk_test_5WpHy18hMqNbgFqIijChztjc"

@@ -50,7 +50,7 @@ HYPHEN_INSENSITIVE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 export ZSH=/Users/nick/.oh-my-zsh
-plugins=(git rails zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions zsh-fzy)
+plugins=(git rails zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions fozzie)
 source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 # export GEM_PATH=PATH/Users/nick/.rvm/gems/
@@ -91,8 +91,8 @@ alias gd='g diff --color-moved --patience'
 alias gcan="g ci --amend --no-edit"
 alias gsw="g switch"
 alias grs="g restore"
-alias sw="g br --format='%(refname:short)' | fzy --prompt='❯ ' | command xargs -n 1 git switch"
-alias swa="gbr --format='%(refname:short)' | fzy --promot='❯ '| command xargs -n 1 git switch"
+alias sw="g br --format='%(refname:short)' | fozzie | command xargs -n 1 git switch"
+alias swa="gbr --format='%(refname:short)' | fozzie | command xargs -n 1 git switch"
 
 alias mb='bundle exec middleman build'
 alias md='bundle exec middleman deploy'
@@ -117,10 +117,9 @@ alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kil
 alias vim="nvim"
 alias vimrc="vim ~/.config/nvim/init.vim"
 alias zshrc="vim ~/.zshrc"
-alias vimf="vim \$(fd -H -E .git --type file --color=never . | fzy --prompt='❯ ')"
-alias kp="ps -ef | sed 1d | eval "fzy" | awk '{print $2}' | xargs kill $1"
-
-eval "$(hub alias -s)"
+alias vimf="vim \$(fd -H -E .git --type file --color=never . | fozzie)"
+alias vimm="vim \$(git ls-files --others --exclude-standard -m | fozzie)"
+alias kp="ps -ef | sed 1d | eval "fozzie" | awk '{print $2}' | xargs kill $1"
 
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -185,3 +184,6 @@ compdef _tmuxinator tmuxinator mux
 alias mux="tmuxinator"
 
 # bindkey '^R'  fzy-history-widget
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

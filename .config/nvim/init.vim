@@ -6,9 +6,7 @@ source $HOME/.config/nvim/theme.vimrc
 source $HOME/.config/nvim/lightline.vimrc
 source $HOME/.config/nvim/surround.vimrc
 source $HOME/.config/nvim/whitespace.vimrc
-source $HOME/.config/nvim/floating_windows.vimrc
 source $HOME/.config/nvim/fuzzy_file.vimrc
-source $HOME/.config/nvim/fuzzy_tags.vimrc
 source $HOME/.config/nvim/scrolling.vimrc
 source $HOME/.config/nvim/linters.vimrc
 source $HOME/.config/nvim/complete.vimrc
@@ -27,3 +25,8 @@ nmap k gk
 nmap j gj
 
 let g:signify_sign_show_count = 1
+
+" Folding settings
+" set foldmethod=syntax   "fold based on syntax (except for haml below)
+" set foldnestmax=10      "deepest fold is 10 levels
+" set nofoldenable        "dont fold by default

@@ -1,3 +1,4 @@
+let mapleader = "\<Space>"
 syntax on
 filetype plugin indent on
 
@@ -11,21 +12,28 @@ set showmatch
 set smartindent
 set autoindent
 
-highlight LineNr guifg=#636883 ctermfg=Grey
-highlight CursorLineNr guifg=#abaebf ctermfg=White
+highlight LineNr guifg=#636883
+highlight CursorLineNr guifg=#abaebf
 
-function! FzyCommand(choice_command, vim_command)
-  try
-    let output = system(a:choice_command . " | fzy ")
-  catch /Vim:Interrupt/
-    " Swallow errors from ^C, allow redraw! below
-  endtry
-  redraw!
-  if v:shell_error == 0 && !empty(output)
-    exec a:vim_command . ' ' . output
-  endif
-endfunction
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'npezza93/fozzie.vim'
+call plug#end()
 
-nnoremap <leader>e :call FzyCommand("find . -type f", ":e")<cr>
-nnoremap <leader>v :call FzyCommand("find . -type f", ":vs")<cr>
-nnoremap <leader>s :call FzyCommand("find . -type f", ":sp")<cr>
+inoremap <c-x><c-]> <c-]>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <esc> :noh<return><esc>
+nnoremap <C-S> :w<cr>
+inoremap <C-S> <esc>:w<cr>
+map <leader>gf :e <cfile><cr>
+
+nmap k gk
+nmap j gj
+
+nnoremap <leader>r :call FozzieCommand('ctags -f - --sort=no --excmd=number ' . expand('%:p'), ":", "split --delimiter=\"\t\" -f0 -o2")<cr>
+nnoremap <leader>e :call FozzieCommand("fd -H -E .git --type file --color=never .", ":e", "--lines=9")<cr>
+nnoremap <leader>v :call FozzieCommand("fd -H -E .git --type file --color=never .", ":vs", "--lines=14")<cr>
+nnoremap <leader>s :call FozzieCommand("fd -H -E .git --type file --color=never .", ":sp", "--lines=14")<cr>
+nnoremap <leader>t :call FozzieCommand("fd -H -E .git --type file --color=never .", ":tabe", "--lines=14")<cr>

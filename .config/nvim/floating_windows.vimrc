@@ -12,8 +12,8 @@ function! FloatingPaddingWindow(width, height, row, col)
   return nvim_open_win(buf, v:true, opts)
 endfunction
 
-function! CreateFloatingWindow(width, col)
-  let row = 1
+function! CreateFloatingWindow(width, col, row)
+  let row = a:row
   let col = a:col
   let width = a:width
   let height = 15

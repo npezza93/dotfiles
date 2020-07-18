@@ -23,7 +23,7 @@ let s:p.visual.left = [ [ s:black, s:purple ], [ s:white, s:grey ] ]
 let s:p.command.left = [ [ s:black, s:yellow ], [ s:white, s:grey ] ]
 let s:p.inactive.left =  [ [ s:black, s:grey2 ], [s:white, s:grey] ]
 let s:p.tabline.left = [ [ s:white, s:grey ] ]
-let s:p.tabline.tabsel = [ [ s:white, s:grey2 ] ]
+let s:p.tabline.tabsel = [ [ s:black, s:white ] ]
 let s:p.tabline.middle = [ [ s:white, s:black ] ]
 let s:p.tabline.right = [ [ s:black, s:black ] ]
 

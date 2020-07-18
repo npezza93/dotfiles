@@ -5,18 +5,18 @@
 	process = git-lfs filter-process
 [user]
 	name = Nick Pezza
-	email = npezza93@gmail.com
-	signingkey = 10D0666849B8E3B0
+	email = pezza@hey.com
+	signingkey = DD16D8FE96F6761D
 [alias]
-  co = checkout
-  br = branch
-  st = status
-  a  = add
-  ci = commit
-  d  = diff --color-moved --patience -w
-  can = commit --amend --no-edit
+	co = checkout
+	br = branch
+	st = status
+	a  = add
+	ci = commit
+	d  = diff --color-moved --patience -w
+	can = commit --amend --no-edit
   sw = switch
-  ctags = !.git/hooks/ctags
+	ctags = !.git/hooks/ctags
 [push]
 	default = simple
 [commit]
@@ -33,7 +33,8 @@
 [color "status"]
 	added = green
 	changed = yellow
-	untracked = green
+	untracked = magenta
+  deleted = red
 [pager]
 	branch = false
 [gpg]
