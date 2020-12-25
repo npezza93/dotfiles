@@ -121,6 +121,38 @@ alias vimf="vim \$(fd -H -E .git --type file --color=never . | fozzie)"
 alias vimm="vim \$(git ls-files --others --exclude-standard -m | fozzie)"
 alias kp="ps -ef | sed 1d | eval "fozzie" | awk '{print $2}' | xargs kill $1"
 
+alias rc='bundle exec rails console'
+alias rcs='bundle exec rails console --sandbox'
+alias rd='bundle exec rails destroy'
+alias rdb='bundle exec rails dbconsole'
+alias rgen='bundle exec rails generate'
+alias rgm='bundle exec rails generate migration'
+alias rp='bundle exec rails plugin'
+alias ru='bundle exec rails runner'
+alias rs='bundle exec rails server'
+alias rsd='bundle exec rails server --debugger'
+alias rsp='bundle exec rails server --port'
+
+# Rake aliases
+alias rdm='bundle exec rails db:migrate'
+alias rdms='bundle exec rails db:migrate:status'
+alias rdr='bundle exec rails db:rollback'
+alias rdc='bundle exec rails db:create'
+alias rds='bundle exec rails db:seed'
+alias rdd='bundle exec rails db:drop'
+alias rdrs='bundle exec rails db:reset'
+alias rdtc='bundle exec rails db:test:clone'
+alias rdtp='bundle exec rails db:test:prepare'
+alias rdmtc='bundle exec rails db:migrate db:test:clone'
+alias rdsl='bundle exec rails db:schema:load'
+alias rlc='bundle exec rails log:clear'
+alias rn='bundle exec rails notes'
+alias rr='bundle exec rails routes'
+alias rrg='bundle exec rails routes | grep'
+alias rt='bundle exec rails test'
+alias rmd='bundle exec rails middleware'
+alias rsts='bundle exec rails stats'
+
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
