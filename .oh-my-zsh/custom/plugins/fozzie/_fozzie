@@ -1,0 +1,87 @@
+#compdef fozzie
+
+autoload -U is-at-least
+
+_fozzie() {
+    typeset -A opt_args
+    typeset -a _arguments_options
+    local ret=1
+
+    if is-at-least 5.2; then
+        _arguments_options=(-s -S -C)
+    else
+        _arguments_options=(-s -C)
+    fi
+
+    local context curcontext="$curcontext" state line
+    _arguments "${_arguments_options[@]}" \
+'-l+[Specify how many lines of results to show]' \
+'--lines=[Specify how many lines of results to show]' \
+'-p+[Input prompt]' \
+'--prompt=[Input prompt]' \
+'-q+[Initial search string]' \
+'--query=[Initial search string]' \
+'-s[Show the scores of each match]' \
+'--show-scores[Show the scores of each match]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+":: :_fozzie_commands" \
+"*::: :->fozzie" \
+&& ret=0
+    case $state in
+    (fozzie)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:fozzie-command-$line[1]:"
+        case $line[1] in
+            (split)
+_arguments "${_arguments_options[@]}" \
+'-d+[Use to split the line into fields]' \
+'--delimiter=[Use to split the line into fields]' \
+'-f+[Field to be matched]' \
+'--field=[Field to be matched]' \
+'-o+[Field to be returned once selected \[default: FIELD\]]' \
+'--output=[Field to be returned once selected \[default: FIELD\]]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+&& ret=0
+;;
+(benchmark)
+_arguments "${_arguments_options[@]}" \
+'-q+[Initial search string]' \
+'--query=[Initial search string]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+}
+
+(( $+functions[_fozzie_commands] )) ||
+_fozzie_commands() {
+    local commands; commands=(
+        "split:Splits lines into fields" \
+"benchmark:Disables iteractivity to allow benchmarking" \
+    )
+    _describe -t commands 'fozzie commands' commands "$@"
+}
+(( $+functions[_fozzie__benchmark_commands] )) ||
+_fozzie__benchmark_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'fozzie benchmark commands' commands "$@"
+}
+(( $+functions[_fozzie__split_commands] )) ||
+_fozzie__split_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'fozzie split commands' commands "$@"
+}
+
+_fozzie "$@"
