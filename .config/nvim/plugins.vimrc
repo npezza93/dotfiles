@@ -17,6 +17,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-haml'
 Plug 'jgdavey/vim-blockle'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'dense-analysis/ale', { 'on': [], 'tag': 'v2.6.0' }

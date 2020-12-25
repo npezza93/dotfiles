@@ -33,3 +33,4 @@ let g:onedark_color_overrides = {
 colorscheme onedark
 
 highlight CursorLineNR guifg='#6494ed'
+highlight Visual gui=reverse
