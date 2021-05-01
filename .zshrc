@@ -1,3 +1,11 @@
+autoload -Uz compinit
+
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+
+compinit -C
+
 # Path to your oh-my-zsh installation.
 # zmodload zsh/zprof
 export GIT_EDITOR='nvim'
@@ -50,7 +58,7 @@ HYPHEN_INSENSITIVE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 export ZSH=/Users/nick/.oh-my-zsh
-plugins=(git rails zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions fozzie)
+plugins=(git rails zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 # export GEM_PATH=PATH/Users/nick/.rvm/gems/
@@ -75,9 +83,6 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias atom="atom-nightly"
-alias apm="apm-nightly"
-
 alias r="rails"
 alias rgmo="rails generate model"
 
@@ -172,12 +177,6 @@ then
 else
   PROMPT=$'\n'"%(?.%F{magenta}.%F{red})❯%f "
 fi
-
-function override_icons() {
-  cp ~/.icon-overrides/atom.icns /Applications/Atom\ Nightly.app/Contents/Resources/atom.icns
-  touch /Applications/Atom\ Nightly.app
-  sudo killall Finder && sudo killall Dock
-}
 
 cd() {
   builtin cd $1

@@ -42,3 +42,7 @@
 	program = /usr/local/MacGPG2/bin/gpg2
 [init]
 	templatedir = ~/.git_template
+[rebase]
+	autoStash = true
+[pull]
+	rebase = true
