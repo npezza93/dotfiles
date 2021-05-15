@@ -22,5 +22,15 @@ set incsearch
 set cc=80
 set cursorline
 set termguicolors
+set mouse=n
 
 runtime macros/matchit.vim
+
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000  "maximum number of changes that can be undone
+set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
+
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
+nnoremap <leader>R :source $MYVIMRC<CR>
