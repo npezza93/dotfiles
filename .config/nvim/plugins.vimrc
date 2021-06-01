@@ -1,36 +1,58 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'tpope/vim-repeat'
-Plug 'terryma/vim-smooth-scroll'
-Plug 'joshdick/onedark.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-surround'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-user'
-Plug 'tpope/vim-commentary'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'vim-ruby/vim-ruby'
-Plug 'jiangmiao/auto-pairs'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-haml'
-Plug 'jgdavey/vim-blockle'
-Plug 'pbrisbin/vim-mkdir'
-Plug 'dense-analysis/ale', { 'on': [] }
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'honza/vim-snippets'
-Plug 'tpope/vim-bundler'
-Plug 'craigemery/vim-autotag'
-Plug 'jremmen/vim-ripgrep'
-Plug 'mhinz/vim-signify'
-Plug 'rust-lang/rust.vim'
-Plug 'npezza93/fozzie.vim'
-Plug 'justinmk/vim-sneak'
+" General
+Plug 'tpope/vim-repeat'                                                        " Makes dot work with everything
+Plug 'terryma/vim-smooth-scroll'                                               " Makes scrolling smoooooth
+Plug 'tpope/vim-surround'                                                      " Adds surround motion
+Plug 'tpope/vim-commentary'                                                    " Adds gcc for turning line into comment
+Plug 'tpope/vim-endwise'                                                       " Auto adds end for if's or classes etc.
+Plug 'ntpeters/vim-better-whitespace'                                          " Highlights whitespace and removes on save
+Plug 'pbrisbin/vim-mkdir'                                                      " When creating a file, automatically creates directory tree if missing
+Plug 'justinmk/vim-sneak'                                                      " Two letter motion
+Plug 'jiangmiao/auto-pairs'                                                    " Add quote, paren, etc. pairs
+" Plug 'sheerun/vim-polyglot'                                                    " Adds language packs for random file types on demand
+Plug 'christoomey/vim-tmux-navigator'                                          " Makes navigating in tmux and vim easier
+Plug 'tpope/vim-fugitive'                                                      " Git support inside vim
+Plug 'mhinz/vim-signify'                                                       " Indicates added, modified and removed lines in a file
+" Plug 'ludovicchabant/vim-gutentags'                                            " Keeps tags file up to date
 
-autocmd InsertEnter * call plug#load('ale', 'vim-autotag')
+" Theme
+Plug 'joshdick/onedark.vim'
+" Plug 'navarasu/onedark.nvim'
+Plug 'itchyny/lightline.vim'
+
+" Tree view
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+
+" Tree sitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
+
+" LSP like features
+Plug 'dense-analysis/ale', { 'on': [] }
+Plug 'neovim/nvim-lspconfig'                                                   " Quickstart configurations for the LSP client
+Plug 'hrsh7th/nvim-compe'
+Plug 'SirVer/ultisnips'
+Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
+
+" Ruby
+Plug 'tpope/vim-rails'                                                         " Bunch of rails helpers
+Plug 'tpope/vim-bundler'                                                       " Makes working with gem source code easier to navigate
+Plug 'jgdavey/vim-blockle'                                                     " Toggles ruby blocks. Rewrite with tree sitter
+
+" Searching
+Plug 'mileszs/ack.vim'                                                         " Search across project
+Plug 'npezza93/fozzie.vim'                                                     " Fuzzy file searching
+
+" Rust
+Plug 'rust-lang/rust.vim'                                                      " Standard rust stuff
+
+" Plug 'kana/vim-textobj-line'
+" Plug 'kana/vim-textobj-user'
+" Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'honza/vim-snippets'
+
+autocmd InsertEnter * call plug#load('ale')
 
 call plug#end()

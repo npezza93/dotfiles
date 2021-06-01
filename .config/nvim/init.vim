@@ -10,6 +10,9 @@ source $HOME/.config/nvim/fuzzy_file.vimrc
 source $HOME/.config/nvim/scrolling.vimrc
 source $HOME/.config/nvim/linters.vimrc
 source $HOME/.config/nvim/complete.vimrc
+source $HOME/.config/nvim/tree.vimrc
+source $HOME/.config/nvim/search.vimrc
+source $HOME/.config/nvim/treesitter.vimrc
 
 inoremap <c-x><c-]> <c-]>
 nnoremap <C-J> <C-W><C-J>

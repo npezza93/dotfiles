@@ -34,3 +34,12 @@ colorscheme onedark
 
 highlight CursorLineNR guifg='#6494ed'
 highlight Visual gui=reverse
+
+lua <<EOF
+  require'nvim-treesitter.configs'.setup {
+    ensure_installed = { "bash", "ruby", "rust", "javascript", "c", "css", "dockerfile", "html", "json", "python", "query", "scss", "toml", "yaml" },
+    highlight = {
+      enable = true,
+    },
+  }
+EOF

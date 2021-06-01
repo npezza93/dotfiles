@@ -1,15 +1,13 @@
-let s:colors = onedark#GetColors()
-
-let s:red = [ s:colors.red.gui, s:colors.red.cterm16 ]
-let s:green = [ s:colors.green.gui, s:colors.green.cterm16 ]
-let s:yellow = [ s:colors.yellow.gui, s:colors.yellow.cterm16 ]
-let s:blue = [ s:colors.blue.gui, s:colors.blue.cterm16 ]
-let s:cyan = [ s:colors.cyan.gui, s:colors.cyan.cterm16 ]
-let s:purple = [ s:colors.purple.gui, s:colors.purple.cterm16 ]
-let s:white = [ s:colors.white.gui, s:colors.white.cterm16 ]
-let s:black = [ '#000000', 0 ]
-let s:grey = [ s:colors.visual_grey.gui, s:colors.cursor_grey.cterm16 ]
-let s:grey2 = [ s:colors.menu_grey.gui, s:colors.cursor_grey.cterm16 ]
+let s:red = [ "#FF5C57", "1" ]
+let s:green = [ "#5AF78E", "2" ]
+let s:yellow = [ "#F3F99D", "3" ]
+let s:blue = [ "#57C7FF", "4" ]
+let s:cyan = [ "#9AEDFE", "6" ]
+let s:purple = [ "#FF6AC1", "5" ]
+let s:white = [ "#F1F1F0", "7" ]
+let s:black = [ "#000000", 0 ]
+let s:grey = [ "#262626", "8" ]
+let s:grey2 = [ "#3E4452", "8" ]
 
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}, 'command': {}}
 let s:p.normal.left = [ [ s:black, s:blue ], [ s:white, s:grey ] ]

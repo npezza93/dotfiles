@@ -23,6 +23,7 @@ set cc=80
 set cursorline
 set termguicolors
 set mouse=n
+set completeopt=menuone,noselect
 
 runtime macros/matchit.vim
 
@@ -34,3 +35,5 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
 nnoremap <leader>R :source $MYVIMRC<CR>
+
+let g:loaded_ruby_provider = 0
