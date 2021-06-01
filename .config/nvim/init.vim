@@ -1,18 +1,18 @@
 let mapleader = "\<Space>"
 
-source $HOME/.config/nvim/general.vimrc
-source $HOME/.config/nvim/plugins.vimrc
-source $HOME/.config/nvim/theme.vimrc
-source $HOME/.config/nvim/lightline.vimrc
-source $HOME/.config/nvim/surround.vimrc
-source $HOME/.config/nvim/whitespace.vimrc
-source $HOME/.config/nvim/fuzzy_file.vimrc
-source $HOME/.config/nvim/scrolling.vimrc
-source $HOME/.config/nvim/linters.vimrc
-source $HOME/.config/nvim/complete.vimrc
-source $HOME/.config/nvim/tree.vimrc
-source $HOME/.config/nvim/search.vimrc
-source $HOME/.config/nvim/treesitter.vimrc
+source  $HOME/.config/nvim/general.vimrc
+source  $HOME/.config/nvim/plugins.vimrc
+source  $HOME/.config/nvim/theme.vimrc
+source  $HOME/.config/nvim/lightline.vimrc
+source  $HOME/.config/nvim/surround.vimrc
+source  $HOME/.config/nvim/whitespace.vimrc
+source  $HOME/.config/nvim/fuzzy_file.vimrc
+source  $HOME/.config/nvim/scrolling.vimrc
+source  $HOME/.config/nvim/linters.vimrc
+source  $HOME/.config/nvim/complete.vimrc
+source  $HOME/.config/nvim/tree.vimrc
+source  $HOME/.config/nvim/search.vimrc
+luafile $HOME/.config/nvim/treesitter.lua
 
 inoremap <c-x><c-]> <c-]>
 nnoremap <C-J> <C-W><C-J>
@@ -30,6 +30,7 @@ nmap j gj
 let g:signify_sign_show_count = 1
 
 " Folding settings
-" set foldmethod=syntax   "fold based on syntax (except for haml below)
-" set foldnestmax=10      "deepest fold is 10 levels
-" set nofoldenable        "dont fold by default
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()

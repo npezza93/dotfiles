@@ -15,7 +15,14 @@ lua <<EOF
   }
 
   -- Rust language server setup
-  require'lspconfig'.rls.setup {}
+  require'lspconfig'.rls.setup {
+    settings = {
+      rust = {
+        unstable_features = true,
+        clippy_preference = "on",
+      },
+    },
+  }
 EOF
 
 let g:compe = {}
@@ -83,3 +90,8 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+sign define LspDiagnosticsSignError text=• texthl=LspDiagnosticsSignError linehl= numhl=
+sign define LspDiagnosticsSignWarning text=• texthl=LspDiagnosticsSignWarning linehl= numhl=
+sign define LspDiagnosticsSignInformation text=• texthl=LspDiagnosticsSignInformation linehl= numhl=
+sign define LspDiagnosticsSignHint text=• texthl=LspDiagnosticsSignHint linehl= numhl=

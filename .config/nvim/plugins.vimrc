@@ -17,17 +17,17 @@ Plug 'mhinz/vim-signify'                                                       "
 " Plug 'ludovicchabant/vim-gutentags'                                            " Keeps tags file up to date
 
 " Theme
-Plug 'joshdick/onedark.vim'
-" Plug 'navarasu/onedark.nvim'
-Plug 'itchyny/lightline.vim'
+Plug 'joshdick/onedark.vim'                                                    " One dark regex theme
+" Plug 'navarasu/onedark.nvim'                                                   " One dark treesitter theme
+Plug 'itchyny/lightline.vim'                                                   " Adds status bar at bottom
 
 " Tree view
 Plug 'kyazdani42/nvim-web-devicons'                                            " Adds devicon integration on tree viewer
 Plug 'kyazdani42/nvim-tree.lua'                                                " Adds tree viewer
 
 " Tree sitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}                    " Enables tree sitter features
+Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
 
 " LSP like features
 Plug 'dense-analysis/ale', { 'on': [] }                                        " Runs rubocop
@@ -48,10 +48,6 @@ Plug 'npezza93/fozzie.vim'                                                     "
 
 " Rust
 Plug 'rust-lang/rust.vim'                                                      " Standard rust stuff
-
-" Plug 'kana/vim-textobj-line'
-" Plug 'kana/vim-textobj-user'
-" Plug 'nelstrom/vim-textobj-rubyblock'
 
 autocmd InsertEnter * call plug#load('ale', 'ultisnips', 'nvim-compe')
 
