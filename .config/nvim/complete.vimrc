@@ -1,30 +1,3 @@
-lua <<EOF
-  -- JSON language server setup
-  require'lspconfig'.jsonls.setup {
-    cmd = { "/Users/nick/.config/nvim/language-servers/node_modules/.bin/vscode-json-languageserver", "--stdio" },
-    filetypes = { 'json' },
-    root_dir = require'lspconfig'.util.root_pattern(".git", vim.fn.getcwd()),
-    init_options = {
-      provideFormatter = true,
-    },
-  }
-
-  -- YAML language server setup
-  require'lspconfig'.yamlls.setup {
-    cmd = { "/Users/nick/.config/nvim/language-servers/node_modules/.bin/yaml-language-server", "--stdio" }
-  }
-
-  -- Rust language server setup
-  require'lspconfig'.rls.setup {
-    settings = {
-      rust = {
-        unstable_features = true,
-        clippy_preference = "on",
-      },
-    },
-  }
-EOF
-
 let g:compe = {}
 let g:compe.enabled = v:true
 let g:compe.autocomplete = v:true
@@ -90,8 +63,3 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-sign define LspDiagnosticsSignError text=• texthl=LspDiagnosticsSignError linehl= numhl=
-sign define LspDiagnosticsSignWarning text=• texthl=LspDiagnosticsSignWarning linehl= numhl=
-sign define LspDiagnosticsSignInformation text=• texthl=LspDiagnosticsSignInformation linehl= numhl=
-sign define LspDiagnosticsSignHint text=• texthl=LspDiagnosticsSignHint linehl= numhl=

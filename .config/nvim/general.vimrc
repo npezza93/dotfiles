@@ -25,15 +25,34 @@ set termguicolors
 set mouse=n
 set completeopt=menuone,noselect
 
+" Folding settings
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
 runtime macros/matchit.vim
 
 set undodir=~/.vim/undodir
 set undofile
-set undolevels=1000  "maximum number of changes that can be undone
-set undoreload=10000 "maximum number lines to save for undo on a buffer reload"
+set undolevels=1000  " maximum number of changes that can be undone
+set undoreload=10000 " maximum number lines to save for undo on a buffer reload
 
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
-nnoremap <leader>R :source $MYVIMRC<CR>
-
 let g:loaded_ruby_provider = 0
+
+let mapleader = "\<Space>"
+nnoremap <leader>R :source $MYVIMRC<CR>
+inoremap <c-x><c-]> <c-]>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <esc> :noh<return><esc>
+nnoremap <C-S> :w<cr>
+inoremap <C-S> <esc>:w<cr>
+map <leader>gf :e <cfile><cr>
+
+nmap k gk
+nmap j gj

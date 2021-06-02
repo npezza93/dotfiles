@@ -30,10 +30,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}                    "
 Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
 
 " LSP like features
-Plug 'dense-analysis/ale', { 'on': [] }                                        " Runs rubocop
 Plug 'neovim/nvim-lspconfig'                                                   " Quickstart configurations for the LSP client
-Plug 'hrsh7th/nvim-compe', { 'on': [] }                                        " Completion engine
-Plug 'SirVer/ultisnips', { 'on': [] }                                          " Snippet engine
+Plug 'hrsh7th/nvim-compe'                                                      " Completion engine
+Plug 'SirVer/ultisnips'                                                        " Snippet engine
 Plug 'honza/vim-snippets'                                                      " Snippet collection
 Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }                         " Add tabnine completions to nvim-compe
 
@@ -48,7 +47,5 @@ Plug 'npezza93/fozzie.vim'                                                     "
 
 " Rust
 Plug 'rust-lang/rust.vim'                                                      " Standard rust stuff
-
-autocmd InsertEnter * call plug#load('ale', 'ultisnips', 'nvim-compe')
 
 call plug#end()
