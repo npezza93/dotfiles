@@ -34,3 +34,79 @@ colorscheme onedark
 
 highlight CursorLineNR guifg='#6494ed'
 highlight Visual gui=reverse
+
+" Cyan
+highlight TSAttribute guifg='#9AEDFE'
+highlight TSField guifg='#9AEDFE'
+highlight TSFuncBuiltin guifg='#9AEDFE'
+highlight TSProperty guifg='#9AEDFE'
+highlight TSSymbol guifg='#9AEDFE'
+highlight TSStringRegex guifg='#9AEDFE'
+highlight TSStringEscape guifg='#9AEDFE'
+
+" Purple
+highlight TSConditional guifg='#FF6AC1'
+highlight TSException guifg='#FF6AC1'
+highlight TSInclude guifg='#FF6AC1'
+highlight TSKeyword guifg='#FF6AC1'
+highlight TSKeywordFunction guifg='#FF6AC1'
+highlight TSKeywordOperator guifg='#FF6AC1'
+highlight TSRepeat guifg='#FF6AC1'
+highlight TSOperator guifg='#FF6AC1'
+
+" Yellow
+highlight TSConstructor guifg='#F3F99D'
+highlight TSType guifg='#F3F99D'
+highlight TSConstant guifg='#F3F99D'
+highlight TSBoolean guifg='#F3F99D'
+highlight TSFloat guifg='#F3F99D'
+highlight TSNumber guifg='#F3F99D'
+highlight TSConstBuiltin guifg='#F3F99D'
+highlight TSConstMacro guifg='#F3F99D'
+highlight TSTypeBuiltin guifg='#F3F99D'
+
+" Blue
+highlight TSMethod guifg='#57C7FF'
+highlight TSFunction guifg='#57C7FF'
+
+" Red
+highlight TSLabel guifg='#FF5C57'
+highlight TSTag guifg='#FF5C57'
+highlight TSTagDelimiter guifg='#FF5C57'
+highlight TSVariableBuiltin guifg='#FF5C57'
+highlight TSGlobalVariable guifg='#FF5C57'
+highlight TSPunctSpecial guifg='#FF5C57'
+highlight TSPunctBracket guifg='#ABB2BF'
+
+" Green
+highlight TSString guifg='#5AF78E'
+highlight TSLiteral guifg='#5AF78E'
+
+" Dark grey
+highlight TSComment guifg='#5C6370'
+
+" White
+highlight TSParameter guifg='#ABB2BF'
+highlight TSAnnotation guifg='#ABB2BF'
+highlight TSCharacter guifg='#ABB2BF'
+highlight TSError guifg='#ABB2BF'
+highlight TSFuncMacro guifg='#ABB2BF'
+highlight TSNamespace guifg='#ABB2BF'
+highlight TSNone guifg='#ABB2BF'
+highlight TSParameterReference guifg='#ABB2BF'
+highlight TSPunctDelimiter guifg='#ABB2BF'
+highlight TSText guifg='#ABB2BF'
+highlight TSStrong guifg='#ABB2BF'
+highlight TSEmphasis guifg='#ABB2BF'
+highlight TSUnderline guifg='#ABB2BF'
+highlight TSStrike guifg='#ABB2BF'
+highlight TSTitle guifg='#ABB2BF'
+highlight TSURI guifg='#ABB2BF'
+highlight TSMath guifg='#ABB2BF'
+highlight TSTextReference guifg='#ABB2BF'
+highlight TSEnviroment guifg='#ABB2BF'
+highlight TSEnviromentName guifg='#ABB2BF'
+highlight TSNote guifg='#ABB2BF'
+highlight TSWarning guifg='#ABB2BF'
+highlight TSDanger guifg='#ABB2BF'
+highlight TSVariable guifg='#ABB2BF'

@@ -69,16 +69,8 @@ require'lspconfig'.diagnosticls.setup {
   }
 }
 
-function echo_current_diagnostic_message()
-  bufnr = 0
+function current_diagnostic_messages()
   line_nr = (vim.api.nvim_win_get_cursor(0)[1] - 1)
 
-  local diagnostic = vim.lsp.diagnostic.get_line_diagnostics(bufnr, line_nr, {}, nil)[1]
-
-  -- return diagnostic
-  if diagnostic then
-    vim.cmd("echo '" .. diagnostic.message .. "'")
-  else
-    vim.cmd("redraw | echo")
-  end
+  return vim.lsp.diagnostic.get_line_diagnostics(0, line_nr, {}, nil)
 end

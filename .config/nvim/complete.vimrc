@@ -24,34 +24,33 @@ let g:UltiSnipsJumpForwardTrigger="<NOP>"
 let g:UltiSnipsJumpBackwardTrigger="<NOP>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
 
-let g:ulti_back_jump_res = 0
 function! CleverTab()
-    if UltiSnips#CanExpandSnippet() || UltiSnips#CanJumpForwards()
-        call UltiSnips#ExpandSnippetOrJump()
-        return ""
+  if UltiSnips#CanExpandSnippet() || UltiSnips#CanJumpForwards()
+    call UltiSnips#ExpandSnippetOrJump()
+    return ""
+  else
+    if pumvisible()
+      return "\<c-n>"
+    elseif s:check_back_space()
+      return "\<TAB>"
     else
-        if pumvisible()
-            return "\<c-n>"
-        elseif s:check_back_space()
-            return "\<TAB>"
-        else
-            call compe#complete('')
-            return ""
-        endif
+      call compe#complete('')
+      return ""
     endif
+  endif
 endfunction
 
 function! CleverShiftTab()
+  if UltiSnips#CanJumpBackwards()
     call UltiSnips#JumpBackwards()
-    if g:ulti_back_jump_res
-        return ""
+    return ""
+  else
+    if pumvisible()
+      return "\<c-p>"
     else
-        if pumvisible()
-            return "\<c-p>"
-        else
-            return "\<S-TAB>"
-        endif
+      return "\<S-TAB>"
     endif
+  endif
 endfunction
 
 inoremap <silent> <tab>    <c-r>=CleverTab()<cr>

@@ -26,10 +26,10 @@ set mouse=n
 set completeopt=menuone,noselect
 
 " Folding settings
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
+" set foldnestmax=10      "deepest fold is 10 levels
+" set nofoldenable        "dont fold by default
+" set foldmethod=expr
+" set foldexpr=nvim_treesitter#foldexpr()
 
 runtime macros/matchit.vim
 
@@ -49,7 +49,7 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-nnoremap <esc> :noh<return><esc>
+nnoremap <silent><esc> :noh<return><esc>
 nnoremap <C-S> :w<cr>
 inoremap <C-S> <esc>:w<cr>
 map <leader>gf :e <cfile><cr>

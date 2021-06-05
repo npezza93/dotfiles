@@ -13,12 +13,11 @@ Plug 'jiangmiao/auto-pairs'                                                    "
 Plug 'christoomey/vim-tmux-navigator'                                          " Makes navigating in tmux and vim easier
 Plug 'tpope/vim-fugitive'                                                      " Git support inside vim
 Plug 'mhinz/vim-signify'                                                       " Indicates added, modified and removed lines in a file
-" Plug 'sheerun/vim-polyglot'                                                    " Adds language packs for random file types on demand
 " Plug 'ludovicchabant/vim-gutentags'                                            " Keeps tags file up to date
+" Plug 'sheerun/vim-polyglot'                                                    " Adds language packs for random file types on demand
 
 " Theme
-Plug 'joshdick/onedark.vim'                                                    " One dark regex theme
-" Plug 'navarasu/onedark.nvim'                                                   " One dark treesitter theme
+Plug 'joshdick/onedark.vim'                                                    " One dark theme
 Plug 'itchyny/lightline.vim'                                                   " Adds status bar at bottom
 
 " Tree view
@@ -32,7 +31,7 @@ Plug 'nvim-treesitter/playground'                                              "
 " LSP like features
 Plug 'neovim/nvim-lspconfig'                                                   " Quickstart configurations for the LSP client
 Plug 'hrsh7th/nvim-compe'                                                      " Completion engine
-Plug 'SirVer/ultisnips'                                                        " Snippet engine
+Plug 'SirVer/ultisnips', { 'on': [] }                                          " Snippet engine
 Plug 'honza/vim-snippets'                                                      " Snippet collection
 Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }                         " Add tabnine completions to nvim-compe
 
@@ -49,3 +48,13 @@ Plug 'npezza93/fozzie.vim'                                                     "
 Plug 'rust-lang/rust.vim'                                                      " Standard rust stuff
 
 call plug#end()
+
+let g:lazy_load_ulti_snips = 0
+function! LazyLoadUltiSnips()
+  if !get(g:, 'lazy_load_ulti_snips', 0)
+    call plug#load('ultisnips')
+    lua require'compe'.register_source('ultisnips', require'compe_ultisnips')
+    let g:lazy_load_ulti_snips = 1
+  endif
+endfunction
+autocmd InsertEnter * call LazyLoadUltiSnips()

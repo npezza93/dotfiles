@@ -10,7 +10,17 @@ highlight LspDiagnosticsSignHint guifg=#FF6AC1
 highlight SpellCap guifg=NONE gui=undercurl guisp=#72b7b5
 highlight LspDiagnosticsUnderlineError gui=undercurl guifg=NONE guisp=#FF5C57
 
-autocmd CursorMoved,CursorHold * lua echo_current_diagnostic_message()
+function! EchoCurrentDiagnosticMessage()
+  let diagnostics = luaeval("current_diagnostic_messages()")
+
+  if len(diagnostics) > 0
+    echom diagnostics[0]['message']
+  else
+    redraw | echo "\r\r"
+  endif
+endfunction
+
+" autocmd CursorMoved,CursorHold * call EchoCurrentDiagnosticMessage()
 
 command RubocopFix call system('rubocop -A '.@%) | :checktime
 nnoremap <leader>1 :RubocopFix<cr>
