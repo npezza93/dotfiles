@@ -13,4 +13,4 @@ source  $HOME/.config/nvim/tree.vimrc
 source  $HOME/.config/nvim/search.vimrc
 luafile $HOME/.config/nvim/treesitter.lua
 source  $HOME/.config/nvim/git.vimrc
-" source  $HOME/.config/nvim/ctags.vimrc
+source  $HOME/.config/nvim/ctags.vimrc

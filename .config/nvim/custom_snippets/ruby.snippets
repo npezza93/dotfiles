@@ -23,6 +23,10 @@
 #		endsnippet
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+snippet bi "binding.b"
+binding.b
+endsnippet
+
 snippet pry "binding.pry"
 binding.pry
 endsnippet
@@ -75,4 +79,14 @@ endsnippet
 
 snippet are "Test Assert Response (are)"
 assert_response :${1:success}
+endsnippet
+
+snippet concern "Make concern"
+# frozen_string_literal: true
+
+module ${1:`!v substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`}
+	extend ActiveSupport::Concern
+
+	$0
+end
 endsnippet

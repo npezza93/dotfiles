@@ -22,8 +22,10 @@ set incsearch
 set cc=80
 set cursorline
 set termguicolors
-set mouse=n
 set completeopt=menuone,noselect
+set wrap
+
+syntax on
 
 " Folding settings
 " set foldnestmax=10      "deepest fold is 10 levels
@@ -56,3 +58,8 @@ map <leader>gf :e <cfile><cr>
 
 nmap k gk
 nmap j gj
+
+let g:ruby_default_path = "/Users/nick/.rbenv/shims/ruby"
+let g:ruby_path = "/Users/nick/.rbenv/shims/ruby"
+
+noremap <leader>m :MaximizerToggle<CR>

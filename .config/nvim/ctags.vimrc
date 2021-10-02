@@ -1,1 +1,1 @@
-let g:gutentags_ctags_exclude = ["public", "tmp", ".git", "node_modules", "vendor", "dist", "coverage", "README.md", "CODE_OF_CONDUCT.md" ]
+" autocmd FileType ruby let &l:tags = &tags . ',' . system("fd tags $(rbenv prefix)/lib/ruby --glob -t f | paste -sd ',' -")

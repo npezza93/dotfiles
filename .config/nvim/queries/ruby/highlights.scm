@@ -82,9 +82,14 @@
    (#vim-match? @include "^(include|extend)$"))
 
 ((identifier) @keyword
- (#vim-match? @keyword "^(block_given\?|iterator\?|alias_method)"))
+ (#vim-match? @keyword "^(block_given\?|iterator\?|alias_method|loop)"))
 
 (class
+  (call
+    (identifier) @keyword)
+   (#vim-match? @keyword "^(attr_reader|attr_writer|attr_accessor)$"))
+
+(module
   (call
     (identifier) @keyword)
    (#vim-match? @keyword "^(attr_reader|attr_writer|attr_accessor)$"))

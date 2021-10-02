@@ -20,7 +20,7 @@ function! EchoCurrentDiagnosticMessage()
   endif
 endfunction
 
-" autocmd CursorMoved,CursorHold * call EchoCurrentDiagnosticMessage()
+autocmd CursorMoved,CursorHold * call EchoCurrentDiagnosticMessage()
 
 command RubocopFix call system('rubocop -A '.@%) | :checktime
 nnoremap <leader>1 :RubocopFix<cr>

@@ -15,9 +15,19 @@ let g:compe.documentation = v:true
 let g:compe.source = {}
 let g:compe.source.path = v:true
 let g:compe.source.buffer = v:true
-let g:compe.source.nvim_lsp = v:true
+let g:compe.source.tags = v:false
+let g:compe.source.treesitter = v:false
+let g:compe.source.nvim_lsp = v:false
 let g:compe.source.ultisnips = v:true
-let g:compe.source.tabnine = v:true
+let g:compe.source.tabnine = v:false
+
+let g:compe.source.tabnine = {}
+let g:compe.source.tabnine.max_line = 1000
+let g:compe.source.tabnine.max_num_results = 5
+let g:compe.source.tabnine.priority = 5000
+let g:compe.source.tabnine.sort = v:false
+let g:compe.source.tabnine.show_prediction_strength = v:false
+let g:compe.source.tabnine.ignore_pattern = ''
 
 let g:UltiSnipsExpandTrigger="<NOP>"
 let g:UltiSnipsJumpForwardTrigger="<NOP>"
