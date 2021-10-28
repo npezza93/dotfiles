@@ -25,7 +25,7 @@ set termguicolors
 set completeopt=menuone,noselect
 set wrap
 
-syntax on
+syntax off
 
 " Folding settings
 " set foldnestmax=10      "deepest fold is 10 levels
@@ -33,7 +33,7 @@ syntax on
 " set foldmethod=expr
 " set foldexpr=nvim_treesitter#foldexpr()
 
-runtime macros/matchit.vim
+" runtime macros/matchit.vim
 
 set undodir=~/.vim/undodir
 set undofile
@@ -55,11 +55,16 @@ nnoremap <silent><esc> :noh<return><esc>
 nnoremap <C-S> :w<cr>
 inoremap <C-S> <esc>:w<cr>
 map <leader>gf :e <cfile><cr>
-
+nnoremap <leader><Tab> >>
+nnoremap <S-Tab> <<
+vnoremap <leader><Tab> >
+vnoremap <S-Tab> <
 nmap k gk
 nmap j gj
 
 let g:ruby_default_path = "/Users/nick/.rbenv/shims/ruby"
 let g:ruby_path = "/Users/nick/.rbenv/shims/ruby"
 
-noremap <leader>m :MaximizerToggle<CR>
+noremap <leader>f :MaximizerToggle<CR>
+
+let g:matchup_matchparen_offscreen = {}

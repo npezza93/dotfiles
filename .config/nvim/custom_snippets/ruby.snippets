@@ -90,3 +90,15 @@ module ${1:`!v substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')
 	$0
 end
 endsnippet
+
+snippet testclahelper "Make helper test class"
+# frozen_string_literal: true
+
+require "test_helper"
+
+class ${1:`!v substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} < ActionView::TestCase
+	test "${2:test_name}" do
+		$0
+	end
+end
+endsnippet

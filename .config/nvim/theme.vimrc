@@ -110,3 +110,12 @@ highlight TSNote guifg='#ABB2BF'
 highlight TSWarning guifg='#ABB2BF'
 highlight TSDanger guifg='#ABB2BF'
 highlight TSVariable guifg='#ABB2BF'
+
+highlight MatchParen gui=undercurl guifg=NONE
+
+highlight RubyModelMacro guifg='#FF6AC1'
+highlight RubyModelCallback guifg='#FF6AC1'
+highlight RubyModelValidations guifg='#FF6AC1'
+
+highlight def link rubyHelper Macro
+highlight def link rubyViewHelper Macro

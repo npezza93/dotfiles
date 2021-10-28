@@ -5,10 +5,17 @@ end
 
 local vim_ts_queries = require("vim.treesitter.query")
 
+-- if vim.fn.tr(vim.fn.expand('%:p'), '\\', '/')  =~# '/app/models/.*\.rb$'
+--   vim_ts_queries.set_query("ruby", "highlights", get_ft_query("ruby", "models"))
+-- else
 vim_ts_queries.set_query("ruby", "highlights", get_ft_query("ruby", "highlights"))
+-- end
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "bash", "ruby", "rust", "javascript", "c", "css", "dockerfile", "html", "json", "python", "query", "scss", "toml", "yaml" },
+  matchup = {
+    enable = true,
+  },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -19,6 +26,7 @@ require'nvim-treesitter.configs'.setup {
     },
   },
   highlight = {
+    additional_vim_regex_highlighting = true,
     enable = true,
   },
   indent = {
@@ -34,16 +42,16 @@ require'nvim-treesitter.configs'.setup {
       enable = true,
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
-        ["]m"] = "@function.outer",
-        ["]M"] = "@class.outer",
+        ["<leader>m"] = "@function.outer",
+        -- ["]M"] = "@class.outer",
       },
       -- goto_next_end = {
       --   ["]M"] = "@function.outer",
       --   ["]["] = "@class.outer",
       -- },
       goto_previous_start = {
-        ["[m"] = "@function.outer",
-        ["[M"] = "@class.outer",
+        ["<leader>M"] = "@function.outer",
+        -- ["[M"] = "@class.outer",
       },
       -- goto_previous_end = {
       --   ["[M"] = "@function.outer",
@@ -60,6 +68,7 @@ require'nvim-treesitter.configs'.setup {
 
         ["im"] = "@function.inner",
         ["am"] = "@function.outer",
+
         ["ab"] = "@block.outer",
         ["ib"] = "@block.inner",
       },
@@ -67,10 +76,12 @@ require'nvim-treesitter.configs'.setup {
     swap = {
       enable = true,
       swap_next = {
-        ["<leader>j"] = "@method",
+        ["<leader>j"] = "@function.outer",
+        ["<leader>l"] = "@parameter.inner",
       },
       swap_previous = {
-        ["<leader>k"] = "@method",
+        ["<leader>k"] = "@function.outer",
+        ["<leader>h"] = "@parameter.inner",
       },
     },
   },
