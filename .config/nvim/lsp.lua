@@ -24,50 +24,50 @@ require'lspconfig'.rls.setup {
 }
 
 -- Diagnostic language server setup for linters
--- require'lspconfig'.diagnosticls.setup {
---   cmd = { "/Users/nick/.config/nvim/language-servers/node_modules/.bin/diagnostic-languageserver", "--stdio" },
---   handlers = {
---     ["textDocument/publishDiagnostics"] = vim.lsp.with(
---       vim.lsp.diagnostic.on_publish_diagnostics, {
---         -- Disable virtual_text
---         virtual_text = false
---       }
---     ),
---   },
---   filetypes = {
---     "ruby"
---   },
---   init_options = {
---     filetypes = {
---       ruby = "rubocop",
---     },
---     linters = {
---       rubocop = {
---         rootPatterns = { '.git' },
---         command = "rubocop",
---         sourceName = "rubocop",
---         debounce = 100,
---         args = {
---           "--format",
---           "DiagnosticlsFormatter",
---           "--require",
---           "/Users/nick/.config/nvim/language-servers/diagnosticls_formatter.rb",
---           "--force-exclusion",
---           "%filepath"
---         },
---         parseJson = {
---           errorsRoot = "files[0].offenses",
---           line = "location.start_line",
---           column = "location.start_column",
---           endLine = "location.last_line",
---           endColumn = "location.last_column",
---           message = "${message}",
---           security = "severity"
---         }
---       }
---     }
---   }
--- }
+require'lspconfig'.diagnosticls.setup {
+  cmd = { "/Users/nick/.config/nvim/language-servers/node_modules/.bin/diagnostic-languageserver", "--stdio" },
+  handlers = {
+    ["textDocument/publishDiagnostics"] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        -- Disable virtual_text
+        virtual_text = false
+      }
+    ),
+  },
+  filetypes = {
+    "ruby"
+  },
+  init_options = {
+    filetypes = {
+      ruby = "rubocop",
+    },
+    linters = {
+      rubocop = {
+        rootPatterns = { '.git' },
+        command = "rubocop",
+        sourceName = "rubocop",
+        debounce = 10000,
+        args = {
+          "--format",
+          "DiagnosticlsFormatter",
+          "--require",
+          "/Users/nick/.config/nvim/language-servers/diagnosticls_formatter.rb",
+          "--force-exclusion",
+          "%filepath"
+        },
+        parseJson = {
+          errorsRoot = "files[0].offenses",
+          line = "location.start_line",
+          column = "location.start_column",
+          endLine = "location.last_line",
+          endColumn = "location.last_column",
+          message = "${message}",
+          security = "severity"
+        }
+      }
+    }
+  }
+}
 
 function current_diagnostic_messages()
   line_nr = (vim.api.nvim_win_get_cursor(0)[1] - 1)

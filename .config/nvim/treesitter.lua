@@ -5,14 +5,10 @@ end
 
 local vim_ts_queries = require("vim.treesitter.query")
 
--- if vim.fn.tr(vim.fn.expand('%:p'), '\\', '/')  =~# '/app/models/.*\.rb$'
---   vim_ts_queries.set_query("ruby", "highlights", get_ft_query("ruby", "models"))
--- else
 vim_ts_queries.set_query("ruby", "highlights", get_ft_query("ruby", "highlights"))
--- end
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "bash", "ruby", "rust", "javascript", "c", "css", "dockerfile", "html", "json", "python", "query", "scss", "toml", "yaml" },
+  ensure_installed = { "bash", "ruby", "rust", "javascript", "c", "comment", "css", "dockerfile", "hcl", "html", "json", "lua", "python", "query", "regex", "scss", "toml", "yaml", "typescript", "vim" },
   matchup = {
     enable = true,
   },

@@ -17,7 +17,6 @@
  "rescue"
  "retry"
  "return"
- "then"
  "yield"
  "undef"
  ] @keyword
@@ -49,14 +48,6 @@
 ((identifier) @keyword
  (#vim-match? @keyword "^(private|protected|public)$"))
 
-[
- "rescue"
- "ensure"
- ] @exception
-
-((identifier) @exception (#eq? @exception "fail"))
-((identifier) @exception (#eq? @exception "raise"))
-
 ; Function calls
 
 (call
@@ -67,41 +58,16 @@
             ] @function
    )
 
-((identifier) @include (#eq? @include "require"))
-((identifier) @include (#eq? @include "require_relative"))
-((identifier) @include (#eq? @include "load"))
-((identifier) @include (#eq? @include "using"))
-((identifier) @keyword.function (#eq? @keyword.function "define_method"))
-((identifier) @keyword.function (#eq? @keyword.function "define_singleton_method"))
-((identifier) @keyword.function (#eq? @keyword.function "remove_method"))
-((identifier) @keyword.function (#eq? @keyword.function "undef_method"))
-((identifier) @keyword.function (#eq? @keyword.function "class_eval"))
-((identifier) @keyword.function (#eq? @keyword.function "instance_eval"))
-((identifier) @keyword.function (#eq? @keyword.function "module_eval"))
-((identifier) @keyword.function (#eq? @keyword.function "block_given?"))
-((identifier) @keyword.function (#eq? @keyword.function "iterator?"))
-((identifier) @keyword (#eq? @keyword "alias_method"))
-((identifier) @repeat (#eq? @repeat "loop"))
+((identifier) @keyword (#vim-match? @keyword "^(fail|raise|require|require_relative|load|using|define_method|define_singleton_method|remove_method|undef_method|class_eval|instance_eval|module_eval|block_given\?|iterator\?|alias_method|loop|then)$"))
 
+((identifier) @include (#vim-match? @include "^(include|extend|prepend)$"))
+((identifier) @include (#vim-match? @include "^(attr_reader|attr_writer|attr_accessor)$"))
 
-(class
-  (call
-    (identifier) @include)
-   (#vim-match? @include "^(include|extend|prepend)$"))
-(module
-  (call
-    (identifier) @include)
-   (#vim-match? @include "^(include|extend|prepend)$"))
+((identifier) @RubyModelMacro (#vim-match? @keyword "^(belongs_to|has_many|has_one|accepts_nested_attributes_for|attr_readonly|attribute|enum|serialize|store|store_accessor|default_scope|scope|has_rich_text|has_secure_password|has_secure_token|has_one_attached|has_many_attached|delegated_type|with_options|delegate|delegate_missing_to)$"))
 
-(class
-  (call
-    (identifier) @keyword)
-   (#vim-match? @keyword "^(attr_reader|attr_writer|attr_accessor)$"))
+((identifier) @RubyModelCallback (#vim-match? @keyword "^(before_validation|after_validation|before_create|before_destroy|before_save|before_update|after_create|after_destroy|after_save|after_update|around_create|around_destroy|around_save|around_update|after_commit|after_create_commit|after_update_commit|after_save_commit|after_destroy_commit|after_rollback|after_find|after_initialize|after_touch)$"))
 
-(module
-  (call
-    (identifier) @keyword)
-   (#vim-match? @keyword "^(attr_reader|attr_writer|attr_accessor)$"))
+((identifier) @RubyModelValidations (#vim-match? @keyword "^(validates|validates_acceptance_of|validates_associated|validates_confirmation_of|validates_each|validates_exclusion_of|validates_format_of|validates_inclusion_of|validates_length_of|validates_numericality_of|validates_presence_of|validates_absence_of|validates_size_of|validates_with|validates_associated|validates_uniqueness_of|validate)$"))
 
 ; Function definitions
 
@@ -253,75 +219,3 @@
 (interpolation
   "#{" @punctuation.special
   "}" @punctuation.special) @none
-
-(class
-  (call
-    (identifier) @RubyModelMacro)
-   (#vim-match? @RubyModelMacro "^(belongs_to|has_many|has_one|accepts_nested_attributes_for|attr_readonly|attribute|enum|serialize|store|store_accessor|default_scope|scope|has_rich_text|has_secure_password|has_secure_token|has_one_attached|has_many_attached|delegated_type|with_options|delegate|delegate_missing_to)$"))
-
-(class
-  (call
-    (identifier) @RubyModelCallback)
-   (#vim-match? @RubyModelCallback "^(before_validation|after_validation|before_create|before_destroy|before_save|before_update|after_create|after_destroy|after_save|after_update|around_create|around_destroy|around_save|around_update|after_commit|after_create_commit|after_update_commit|after_save_commit|after_destroy_commit|after_rollback|after_find|after_initialize|after_touch)$"))
-
-(class
-  (call
-    (identifier) @RubyModelValidations)
-   (#vim-match? @RubyModelValidations "^(validates|validates_acceptance_of|validates_associated|validates_confirmation_of|validates_each|validates_exclusion_of|validates_format_of|validates_inclusion_of|validates_length_of|validates_numericality_of|validates_presence_of|validates_absence_of|validates_size_of|validates_with|validates_associated|validates_uniqueness_of|validate)$"))
-
-(class
-  (call
-    (do_block
-      (call
-        (identifier) @RubyModelMacro)
-       (#vim-match? @RubyModelMacro "^(belongs_to|has_many|has_one|accepts_nested_attributes_for|attr_readonly|attribute|enum|serialize|store|store_accessor|default_scope|scope|has_rich_text|has_secure_password|has_secure_token|has_one_attached|has_many_attached|delegated_type|with_options|delegate|delegate_missing_to)$"))))
-
-(class
-  (call
-    (do_block
-      (call
-        (identifier) @RubyModelCallback)
-       (#vim-match? @RubyModelCallback "^(before_validation|after_validation|before_create|before_destroy|before_save|before_update|after_create|after_destroy|after_save|after_update|around_create|around_destroy|around_save|around_update|after_commit|after_create_commit|after_update_commit|after_save_commit|after_destroy_commit|after_rollback|after_find|after_initialize|after_touch)$"))))
-
-(class
-  (call
-    (do_block
-      (call
-        (identifier) @RubyModelValidations)
-       (#vim-match? @RubyModelValidations "^(validates|validates_acceptance_of|validates_associated|validates_confirmation_of|validates_each|validates_exclusion_of|validates_format_of|validates_inclusion_of|validates_length_of|validates_numericality_of|validates_presence_of|validates_absence_of|validates_size_of|validates_with|validates_associated|validates_uniqueness_of|validate)$"))))
-
-(module
-  (call
-    (identifier) @RubyModelMacro)
-   (#vim-match? @RubyModelMacro "^(belongs_to|has_many|has_one|accepts_nested_attributes_for|attr_readonly|attribute|enum|serialize|store|store_accessor|default_scope|scope|has_rich_text|has_secure_password|has_secure_token|has_one_attached|has_many_attached|delegated_type|with_options|delegate|delegate_missing_to)$"))
-
-(module
-  (call
-    (identifier) @RubyModelCallback)
-   (#vim-match? @RubyModelCallback "^(before_validation|after_validation|before_create|before_destroy|before_save|before_update|after_create|after_destroy|after_save|after_update|around_create|around_destroy|around_save|around_update|after_commit|after_create_commit|after_update_commit|after_save_commit|after_destroy_commit|after_rollback|after_find|after_initialize|after_touch)$"))
-
-(module
-  (call
-    (identifier) @RubyModelValidations)
-   (#vim-match? @RubyModelValidations "^(validate|validates|validates_acceptance_of|validates_associated|validates_confirmation_of|validates_each|validates_exclusion_of|validates_format_of|validates_inclusion_of|validates_length_of|validates_numericality_of|validates_presence_of|validates_absence_of|validates_size_of|validates_with|validates_associated|validates_uniqueness_of)$"))
-
-(module
-  (call
-    (do_block
-      (call
-        (identifier) @RubyModelMacro)
-       (#vim-match? @RubyModelMacro "^(belongs_to|has_many|has_one|accepts_nested_attributes_for|attr_readonly|attribute|enum|serialize|store|store_accessor|default_scope|scope|has_rich_text|has_secure_password|has_secure_token|has_one_attached|has_many_attached|delegated_type|with_options|delegate|delegate_missing_to)$"))))
-
-(module
-  (call
-    (do_block
-      (call
-    (identifier) @RubyModelCallback)
-   (#vim-match? @RubyModelCallback "^(before_validation|after_validation|before_create|before_destroy|before_save|before_update|after_create|after_destroy|after_save|after_update|around_create|around_destroy|around_save|around_update|after_commit|after_create_commit|after_update_commit|after_save_commit|after_destroy_commit|after_rollback|after_find|after_initialize|after_touch)$"))))
-
-(module
-  (call
-    (do_block
-      (call
-        (identifier) @RubyModelValidations)
-       (#vim-match? @RubyModelValidations "^(validate|validates|validates_acceptance_of|validates_associated|validates_confirmation_of|validates_each|validates_exclusion_of|validates_format_of|validates_inclusion_of|validates_length_of|validates_numericality_of|validates_presence_of|validates_absence_of|validates_size_of|validates_with|validates_associated|validates_uniqueness_of)$"))))

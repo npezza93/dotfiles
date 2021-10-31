@@ -2,7 +2,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " General
 Plug 'tpope/vim-repeat'                                                        " Makes dot work with everything
-Plug 'terryma/vim-smooth-scroll'                                               " Makes scrolling smoooooth
+Plug 'karb94/neoscroll.nvim'                                                   " Makes scrolling smoooooth
 Plug 'tpope/vim-surround'                                                      " Adds surround motion
 Plug 'tpope/vim-commentary'                                                    " Adds gcc for turning line into comment
 Plug 'tpope/vim-endwise'                                                       " Auto adds end for if's or classes etc.
@@ -13,10 +13,13 @@ Plug 'jiangmiao/auto-pairs'                                                    "
 Plug 'christoomey/vim-tmux-navigator'                                          " Makes navigating in tmux and vim easier
 Plug 'tpope/vim-fugitive'                                                      " Git support inside vim
 Plug 'mhinz/vim-signify'                                                       " Indicates added, modified and removed lines in a file
-" Plug 'craigemery/vim-autotag'                                                  " Keeps tags file up to date
-Plug 'sheerun/vim-polyglot'                                                    " Adds language packs for random file types on demand
 Plug 'christoomey/vim-system-copy'                                             " Copy nad paste with clipboard. cp(copy) and cv(paste)
 Plug 'szw/vim-maximizer'                                                       " Maximize splits
+
+" Ruby (Tags and such)
+" Plug 'craigemery/vim-autotag'                                                  " Keeps tags file up to date
+Plug 'npezza93/vim-tags'
+Plug 'vim-ruby/vim-ruby'
 
 " Theme
 Plug 'tpope/vim-haml'
@@ -30,10 +33,9 @@ Plug 'kyazdani42/nvim-tree.lua'                                                "
 " Tree sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}                    " Enables tree sitter features
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'                             " Adds tree sitter text objects
-Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
 Plug 'andymass/vim-matchup'
 
-" LSP like features
+" LSP like features and snippets
 Plug 'neovim/nvim-lspconfig'                                                   " Quickstart configurations for the LSP client
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
@@ -45,7 +47,6 @@ Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }                           "
 
 " Ruby
 Plug 'tpope/vim-rails'                                                         " Bunch of rails helpers
-Plug 'tpope/vim-bundler'                                                       " Makes working with gem source code easier to navigate
 " Plug 'jgdavey/vim-blockle'                                                     " Toggles ruby blocks. Rewrite with tree sitter
 
 " Searching
@@ -55,7 +56,9 @@ Plug 'npezza93/fozzie.vim'                                                     "
 " Rust
 Plug 'rust-lang/rust.vim'                                                      " Standard rust stuff
 
-Plug 'dstein64/vim-startuptime'
+" Debugging vim stuff
+" Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
+" Plug 'dstein64/vim-startuptime'
 
 call plug#end()
 
