@@ -6,9 +6,9 @@ done
 
 compinit -C
 
-# Path to your oh-my-zsh installation.
-# zmodload zsh/zprof
 export GIT_EDITOR='nvim'
+export LANG='en-US.UTF-8'
+export DIRENV_LOG_FORMAT=
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -24,8 +24,8 @@ ZSH_THEME=""
 HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-# ZSH_DISABLE_COMPFIX="true"
+DISABLE_AUTO_UPDATE="true"
+ZSH_DISABLE_COMPFIX="true"
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
@@ -41,10 +41,6 @@ HYPHEN_INSENSITIVE="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
@@ -58,20 +54,10 @@ HYPHEN_INSENSITIVE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 export ZSH=/Users/nick/.oh-my-zsh
-plugins=(git rails zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions)
+# plugins=(git rails zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions)
+plugins=(rails zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions direnv)
 source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
-# export GEM_PATH=PATH/Users/nick/.rvm/gems/
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -83,11 +69,37 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+# function _rails_command () {
+#   if [ -e "bin/rails" ]; then
+#     bin/rails $@
+#   else
+#     command rails $@
+#   fi
+# }
+
+# function _rake_command () {
+#   if [ -e "bin/rake" ]; then
+#     bin/rake $@
+#   elif type bundle &> /dev/null && ([ -e "Gemfile" ] || [ -e "gems.rb" ]); then
+#     bundle exec rake $@
+#   else
+#     command rake $@
+#   fi
+# }
+
+# alias rails='_rails_command'
+# compdef _rails_command=rails
+# compdef _rails=rails
+
+# alias rake='_rake_command'
+# compdef _rake_command=rake
+
 alias r="rails"
 alias rgmo="rails generate model"
 
 alias "console"="bin/console"
 
+alias g='git'
 alias glg="g log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)' --abbrev-commit --date=relative"
 alias gll="g log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --numstat"
 alias gcleanup="g remote prune origin && git br -vv | grep gone | cut -d' ' -f3 | sed -e 's/'\$(echo \"\033\[m\")'//g' | xargs -n 1 git branch -D"
@@ -96,8 +108,15 @@ alias gd='g diff --color-moved --patience'
 alias gcan="g ci --amend --no-edit"
 alias gsw="g switch"
 alias grs="g restore"
+alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
+alias gst='git status'
+alias glog='git log --oneline --decorate --graph'
 alias sw="g br --format='%(refname:short)' | fozzie | command xargs -n 1 git switch"
 alias swa="gbr --format='%(refname:short)' | fozzie | command xargs -n 1 git switch"
+alias gcp='git cherry-pick'
+alias gci='g commit'
+alias gco='g checkout'
+alias grbi='g rebase -i'
 
 alias mb='bundle exec middleman build'
 alias md='bundle exec middleman deploy'
@@ -116,15 +135,28 @@ alias ls='exa -G'
 alias lsa='exa -lah --git'
 alias cat='bat  --theme="Sublime Snazzy" --style="numbers,changes,header"'
 
-alias ctags='/usr/local/bin/ctags -R --exclude=public --exclude=tmp --exclude=.git --exclude=node_modules --exclude=vendor --exclude=dist --exclude=coverage --exclude=README.md --exclude=CODE_OF_CONDUCT.md'
+alias ctags='/usr/local/bin/ctags-ripper -R --exclude=public --exclude=tmp --exclude=.git --exclude=node_modules --exclude=vendor --exclude=dist --exclude=coverage --exclude=README.md --exclude=CODE_OF_CONDUCT.md'
 alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kill -9"
 
 alias vim="nvim"
-alias vimrc="vim ~/.config/nvim/init.vim"
+alias vimrc="cd ~/.config/nvim; vim ~/.config/nvim/init.vim; cd -"
 alias zshrc="vim ~/.zshrc"
-alias vimf="vim \$(fd -H -E .git --type file --color=never . | fozzie)"
+function vimf() {
+  emulate -L zsh
+  zle -I
+  FFILE="$(fd -H -E .git --type file --color=never . | fozzie)"
+  if [[ -z ${FFILE} ]] ; then
+    return 1
+  else
+    vim $FFILE
+  fi
+}
 alias vimm="vim \$(git ls-files --others --exclude-standard -m | fozzie)"
 alias kp="ps -ef | sed 1d | eval "fozzie" | awk '{print $2}' | xargs kill $1"
+
+alias -g RED='RAILS_ENV=development'
+alias -g REP='RAILS_ENV=production'
+alias -g RET='RAILS_ENV=test'
 
 alias rc='bundle exec rails console'
 alias rcs='bundle exec rails console --sandbox'
@@ -162,13 +194,12 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 source /usr/local/etc/profile.d/z.sh
-source ~/.git-completion.bash
 
-export fpath=(
-  /usr/local/share/zsh-completions/zsh-completions.plugin.zsh
-  ~/.zsh
-  $fpath
-)
+# export fpath=(
+#   # /usr/local/share/zsh-completions/zsh-completions.plugin.zsh
+#   # ~/.zsh
+#   $fpath
+# )
 
 if [ -z "$TMUX" ]
 then
@@ -187,34 +218,34 @@ cd() {
 }
 
 export EDITOR=nvim
-export PATH="$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/nick/.rvm/bin:/Users/nick/.vimpkg/bin"
-export PATH="$PATH:$HOME/.rvm/bin"
-source ~/.rvm/scripts/rvm
+export PATH="$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/nick/.vimpkg/bin"
 
-_tmuxinator() {
-  local commands projects
-  commands=(${(f)"$(tmuxinator commands zsh)"})
-  projects=(${(f)"$(tmuxinator completions start)"})
-
-  if (( CURRENT == 2 )); then
-    _alternative \
-      'commands:: _describe -t commands "tmuxinator subcommands" commands' \
-      'projects:: _describe -t projects "tmuxinator projects" projects'
-  elif (( CURRENT == 3)); then
-    case $words[2] in
-      copy|cp|c|debug|delete|rm|open|o|start|s|edit|e)
-        _arguments '*:projects:($projects)'
-      ;;
-    esac
-  fi
-
-  return
-}
-
-compdef _tmuxinator tmuxinator mux
-alias mux="tmuxinator"
-
-# bindkey '^R'  fzy-history-widget
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+if type rbenv &> /dev/null; then
+  local RBENV_SHIMS="${RBENV_ROOT:-${HOME}/.rbenv}/shims"
+  export PATH="${RBENV_SHIMS}:${PATH}"
+  source $(dirname $(greadlink -f `whence -p rbenv`))/../completions/rbenv.zsh
+  function rbenv() {
+    unset -f rbenv > /dev/null 2>&1
+    eval "$(command rbenv init -)"
+    rbenv "$@"
+  }
 fi
+
+export PYENV_ROOT="${PYENV_ROOT:=${HOME}/.pyenv}"
+if ! type pyenv > /dev/null && [ -f "${PYENV_ROOT}/bin/pyenv" ]; then
+    export PATH="${PYENV_ROOT}/bin:${PATH}"
+fi
+
+# Lazy load pyenv
+if type pyenv > /dev/null; then
+    export PATH="${PYENV_ROOT}/bin:${PYENV_ROOT}/shims:${PATH}"
+    function pyenv() {
+        unset -f pyenv
+        eval "$(command pyenv init -)"
+        if [[ -n "${ZSH_PYENV_LAZY_VIRTUALENV}" ]]; then
+            eval "$(command pyenv virtualenv-init -)"
+        fi
+        pyenv $@
+    }
+fi
+export PATH=/usr/local/bin:$PATH

@@ -24,10 +24,10 @@
 [fetch]
 	prune = true
 [core]
-	pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 	excludesfile = /Users/nick/.gitignore
 	attributesfile = /Users/nick/.gitattributes
 [diff]
+  colorMoved = default
 	compactionHeuristic = true
 [color]
 	ui = always
@@ -37,12 +37,21 @@
 	untracked = magenta
   deleted = red
 [pager]
-	branch = false
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+[delta]
+  navigate = true
+[interactive]
+  diffFilter = delta --color-only
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg2
 [init]
 	templatedir = ~/.git_template
+	defaultBranch = main
 [rebase]
 	autoStash = true
 [pull]
 	rebase = true
+  twohead = ort
