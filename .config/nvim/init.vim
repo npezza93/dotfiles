@@ -14,4 +14,4 @@ source  $HOME/.config/nvim/lsp.vimrc
 luafile $HOME/.config/nvim/complete.lua
 luafile $HOME/.config/nvim/tree.lua
 source  $HOME/.config/nvim/tree.vimrc
-" source  $HOME/.config/nvim/git.vimrc
+luafile $HOME/.config/nvim/git.lua

@@ -18,9 +18,11 @@ Plug 'christoomey/vim-tmux-navigator'                                          "
 Plug 'christoomey/vim-system-copy'                                             " Copy nad paste with clipboard. cp(copy) and cv(paste)
 Plug 'szw/vim-maximizer'                                                       " Maximize splits
 
-" Git related plugins. Slow as hell
-" Plug 'tpope/vim-fugitive'                                                      " Git support inside vim
-" Plug 'mhinz/vim-signify', {'on': []}                                           " Indicates added, modified and removed lines in a file
+" Git related plugins
+" Plug 'tpope/vim-fugitive'                                                      " Git support inside vim. slow
+Plug 'nvim-lua/plenary.nvim'                                                   " General lua functions for neovim
+Plug 'lewis6991/gitsigns.nvim'                                                 " Indicates added, modified and removed lines in a file
+
 
 " Ruby (Tags and such)
 " Plug 'craigemery/vim-autotag'                                                  " Keeps tags file up to date
