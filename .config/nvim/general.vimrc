@@ -42,8 +42,6 @@ set undoreload=10000 " maximum number lines to save for undo on a buffer reload
 
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
-let g:loaded_ruby_provider = 0
-
 let mapleader = "\<Space>"
 nnoremap <leader>R :source $MYVIMRC<CR>
 inoremap <c-x><c-]> <c-]>
@@ -62,9 +60,4 @@ vnoremap <S-Tab> <
 nmap k gk
 nmap j gj
 
-let g:ruby_default_path = "/Users/nick/.rbenv/shims/ruby"
-let g:ruby_path = "/Users/nick/.rbenv/shims/ruby"
-
 noremap <leader>f :MaximizerToggle<CR>
-
-let g:matchup_matchparen_offscreen = {}

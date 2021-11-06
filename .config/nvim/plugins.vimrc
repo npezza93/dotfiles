@@ -1,5 +1,9 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Neovim performance improvements
+Plug 'nathom/filetype.nvim'
+Plug 'lewis6991/impatient.nvim'
+
 " General
 Plug 'tpope/vim-repeat'                                                        " Makes dot work with everything
 Plug 'karb94/neoscroll.nvim'                                                   " Makes scrolling smoooooth
@@ -11,15 +15,17 @@ Plug 'pbrisbin/vim-mkdir'                                                      "
 Plug 'justinmk/vim-sneak'                                                      " Two letter motion
 Plug 'jiangmiao/auto-pairs'                                                    " Add quote, paren, etc. pairs
 Plug 'christoomey/vim-tmux-navigator'                                          " Makes navigating in tmux and vim easier
-Plug 'tpope/vim-fugitive'                                                      " Git support inside vim
-Plug 'mhinz/vim-signify'                                                       " Indicates added, modified and removed lines in a file
 Plug 'christoomey/vim-system-copy'                                             " Copy nad paste with clipboard. cp(copy) and cv(paste)
 Plug 'szw/vim-maximizer'                                                       " Maximize splits
+
+" Git related plugins. Slow as hell
+" Plug 'tpope/vim-fugitive'                                                      " Git support inside vim
+" Plug 'mhinz/vim-signify', {'on': []}                                           " Indicates added, modified and removed lines in a file
 
 " Ruby (Tags and such)
 " Plug 'craigemery/vim-autotag'                                                  " Keeps tags file up to date
 Plug 'npezza93/vim-tags'
-Plug 'vim-ruby/vim-ruby'
+Plug 'npezza93/vim-ruby'
 
 " Theme
 Plug 'tpope/vim-haml'
@@ -46,7 +52,7 @@ Plug 'honza/vim-snippets'                                                      "
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }                           " Add tabnine completions to nvim-compe
 
 " Ruby
-Plug 'tpope/vim-rails'                                                         " Bunch of rails helpers
+Plug 'npezza93/vim-rails'                                                         " Bunch of rails helpers
 " Plug 'jgdavey/vim-blockle'                                                     " Toggles ruby blocks. Rewrite with tree sitter
 
 " Searching
@@ -61,6 +67,8 @@ Plug 'rust-lang/rust.vim'                                                      "
 " Plug 'dstein64/vim-startuptime'
 
 call plug#end()
+
+lua require('impatient')
 
 let g:lazy_load_ulti_snips = 0
 function! LazyLoadUltiSnips()

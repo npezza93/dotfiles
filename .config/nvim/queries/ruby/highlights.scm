@@ -51,23 +51,27 @@
 ; Function calls
 
 (call
-   receiver: (constant)? @type
    method: [
             (identifier)
             (constant)
             ] @function
    )
 
-((identifier) @keyword (#vim-match? @keyword "^(fail|raise|require|require_relative|load|using|define_method|define_singleton_method|remove_method|undef_method|class_eval|instance_eval|module_eval|block_given\?|iterator\?|alias_method|loop|then)$"))
+((identifier) @keyword
+ (#any-of? @keyword
+  "fail" "raise" "require" "require_relative" "load" "using" "define_method"
+  "define_singleton_method" "remove_method" "undef_method" "class_eval"
+  "instance_eval" "module_eval" "block_given\?" "iterator\?" "alias_method"
+  "loop" "then"))
 
 ((identifier) @include (#vim-match? @include "^(include|extend|prepend)$"))
 ((identifier) @include (#vim-match? @include "^(attr_reader|attr_writer|attr_accessor)$"))
 
-((identifier) @RubyModelMacro (#vim-match? @keyword "^(belongs_to|has_many|has_one|accepts_nested_attributes_for|attr_readonly|attribute|enum|serialize|store|store_accessor|default_scope|scope|has_rich_text|has_secure_password|has_secure_token|has_one_attached|has_many_attached|delegated_type|with_options|delegate|delegate_missing_to)$"))
+((identifier) @RubyModelMacro (#any-of? @keyword "belongs_to" "has_many" "has_one" "accepts_nested_attributes_for" "attr_readonly" "attribute" "enum" "serialize" "store" "store_accessor" "default_scope" "scope" "has_rich_text" "has_secure_password" "has_secure_token" "has_one_attached" "has_many_attached" "delegated_type" "with_options" "delegate" "delegate_missing_to"))
 
-((identifier) @RubyModelCallback (#vim-match? @keyword "^(before_validation|after_validation|before_create|before_destroy|before_save|before_update|after_create|after_destroy|after_save|after_update|around_create|around_destroy|around_save|around_update|after_commit|after_create_commit|after_update_commit|after_save_commit|after_destroy_commit|after_rollback|after_find|after_initialize|after_touch)$"))
+((identifier) @RubyModelCallback (#any-of? @keyword "before_validation" "after_validation" "before_create" "before_destroy" "before_save" "before_update" "after_create" "after_destroy" "after_save" "after_update" "around_create" "around_destroy" "around_save" "around_update" "after_commit" "after_create_commit" "after_update_commit" "after_save_commit" "after_destroy_commit" "after_rollback" "after_find" "after_initialize" "after_touch"))
 
-((identifier) @RubyModelValidations (#vim-match? @keyword "^(validates|validates_acceptance_of|validates_associated|validates_confirmation_of|validates_each|validates_exclusion_of|validates_format_of|validates_inclusion_of|validates_length_of|validates_numericality_of|validates_presence_of|validates_absence_of|validates_size_of|validates_with|validates_associated|validates_uniqueness_of|validate)$"))
+((identifier) @RubyModelValidations (#any-of? @keyword "validates" "validates_acceptance_of" "validates_associated" "validates_confirmation_of" "validates_each" "validates_exclusion_of" "validates_format_of" "validates_inclusion_of" "validates_length_of" "validates_numericality_of" "validates_presence_of" "validates_absence_of" "validates_size_of" "validates_with" "validates_associated" "validates_uniqueness_of" "validate"))
 
 ; Function definitions
 
