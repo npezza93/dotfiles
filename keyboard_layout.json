@@ -481,10 +481,6 @@
         "0": {
           "key": "#:Layer[1]",
           "label": "ƒ1"
-        },
-        "1": {
-          "key": "CAPSLOCK",
-          "label": "CAPSLK"
         }
       }
     },
@@ -496,8 +492,8 @@
       "h": 4,
       "layers": {
         "0": {
-          "key": "A",
-          "label": "A"
+          "key": "LCTRL",
+          "label": "LCTRL"
         }
       }
     },
@@ -667,6 +663,10 @@
         "0": {
           "key": "LSHIFT",
           "label": "L⇑"
+        },
+        "1": {
+          "key": "CAPSLOCK",
+          "label": "CAPSLK"
         }
       }
     },
@@ -975,7 +975,7 @@
   ],
   "leds": [],
   "custom": {
-    "1": "\n#~~~START ANIMATION (${__NAME__}) INJECTION~~~#\n# Macro 'TMUX new pane'\nU\"C\" : U\"LCTRL\" + U\"A\", U\"C\";\n# Macro 'TMUX detach'\nU\"D\" : U\"LCTRL\" + U\"A\", U\"D\";\n#~~~END ANIMATION (${__NAME__}) INJECTION~~~#\n\n#~~~START ANIMATION (${__NAME__}) INJECTION~~~#\n# Macro 'TMUX new pane'\nU\"C\" : U\"LCTRL\" + U\"A\", U\"C\";\n# Macro 'TMUX detach'\nU\"D\" : U\"LCTRL\" + U\"A\", U\"D\";\n# Macro 'TMUX rename'\nU\",\" : U\"LCTRL\" + U\"A\", U\",\";\n# Macro 'TMUX split horizontal'\nU\"-\" : U\"LCTRL\" + U\"A\", U\"-\";\n# Macro 'TMUX split vertical 1'\nU\"LSHIFT\" + U\"\\\" : U\"LCTRL\" + U\"A\", U\"LSHIFT\" + U\"\\\";\n#~~~END ANIMATION (${__NAME__}) INJECTION~~~#\n"
+    "1": "\n#~~~START ANIMATION (${__NAME__}) INJECTION~~~#\n# Macro 'TMUX new pane'\nU\"C\" : U\"LCTRL\" + U\"A\", U\"C\";\n# Macro 'TMUX detach'\nU\"D\" : U\"LCTRL\" + U\"A\", U\"D\";\n# Macro 'TMUX rename'\nU\",\" : U\"LCTRL\" + U\"A\", U\",\";\n# Macro 'TMUX split horizontal'\nU\"-\" : U\"LCTRL\" + U\"A\", U\"-\";\n# Macro 'TMUX split vertical 1'\nU\"LSHIFT\" + U\"\\\" : U\"LCTRL\" + U\"A\", U\"LSHIFT\" + U\"\\\";\n# Macro 'TMUX split vertical 2'\nU\"RSHIFT\" + U\"\\\" : U\"LCTRL\" + U\"A\", U\"RSHIFT\" + U\"\\\";\n# Macro 'TMUX pane 1'\nU\"Q\" : U\"LCTRL\" + U\"A\", U\"1\";\n# Macro 'TMUX pane 2'\nU\"W\" : U\"LCTRL\" + U\"A\", U\"2\";\n# Macro 'TMUX pane 3'\nU\"E\" : U\"LCTRL\" + U\"A\", U\"3\";\n# Macro 'TMUX pane 4'\nU\"R\" : U\"LCTRL\" + U\"A\", U\"4\";\n# Macro 'TMUX pane 5'\nU\"T\" : U\"LCTRL\" + U\"A\", U\"5\";\n# Macro 'TMUX pane 6'\nU\"Y\" : U\"LCTRL\" + U\"A\", U\"6\";\n# Macro 'TMUX pane 7'\nU\"U\" : U\"LCTRL\" + U\"A\", U\"7\";\n# Macro 'TMUX s'\nU\"S\" : U\"LCTRL\" + U\"A\", U\"S\";\n# Macro 'TMUX new window'\nU\";\" : U\"LCTRL\" + U\"A\", U\"LSHIFT\" + U\";\", U\"N\", U\"E\", U\"W\", U\"SPACE\", U\"-\", U\"S\", U\"SPACE\";\n#~~~END ANIMATION (${__NAME__}) INJECTION~~~#\n"
   },
   "animations": {
     "all_on": {
@@ -1097,7 +1097,7 @@
         "name": "TMUX pane 1",
         "trigger": [
           [
-            "1"
+            "Q"
           ]
         ],
         "output": [
@@ -1114,7 +1114,7 @@
         "name": "TMUX pane 2",
         "trigger": [
           [
-            "2"
+            "W"
           ]
         ],
         "output": [
@@ -1131,7 +1131,7 @@
         "name": "TMUX pane 3",
         "trigger": [
           [
-            "3"
+            "E"
           ]
         ],
         "output": [
@@ -1148,7 +1148,7 @@
         "name": "TMUX pane 4",
         "trigger": [
           [
-            "4"
+            "R"
           ]
         ],
         "output": [
@@ -1165,7 +1165,7 @@
         "name": "TMUX pane 5",
         "trigger": [
           [
-            "5"
+            "T"
           ]
         ],
         "output": [
@@ -1182,7 +1182,7 @@
         "name": "TMUX pane 6",
         "trigger": [
           [
-            "6"
+            "Y"
           ]
         ],
         "output": [
@@ -1199,7 +1199,7 @@
         "name": "TMUX pane 7",
         "trigger": [
           [
-            "7"
+            "U"
           ]
         ],
         "output": [
@@ -1209,57 +1209,6 @@
           ],
           [
             "7"
-          ]
-        ]
-      },
-      {
-        "name": "TMUX pane 8",
-        "trigger": [
-          [
-            "8"
-          ]
-        ],
-        "output": [
-          [
-            "LCTRL",
-            "A"
-          ],
-          [
-            "8"
-          ]
-        ]
-      },
-      {
-        "name": "TMUX pane 9",
-        "trigger": [
-          [
-            "9"
-          ]
-        ],
-        "output": [
-          [
-            "LCTRL",
-            "A"
-          ],
-          [
-            "9"
-          ]
-        ]
-      },
-      {
-        "name": "TMUX w",
-        "trigger": [
-          [
-            "w"
-          ]
-        ],
-        "output": [
-          [
-            "LCTRL",
-            "A"
-          ],
-          [
-            "w"
           ]
         ]
       },
@@ -1277,6 +1226,45 @@
           ],
           [
             "s"
+          ]
+        ]
+      },
+      {
+        "name": "TMUX new window",
+        "trigger": [
+          [
+            ";"
+          ]
+        ],
+        "output": [
+          [
+            "LCTRL",
+            "A"
+          ],
+          [
+            "LSHIFT",
+            ";"
+          ],
+          [
+            "n"
+          ],
+          [
+            "e"
+          ],
+          [
+            "w"
+          ],
+          [
+            "SPACE"
+          ],
+          [
+            "-"
+          ],
+          [
+            "s"
+          ],
+          [
+            "SPACE"
           ]
         ]
       }
