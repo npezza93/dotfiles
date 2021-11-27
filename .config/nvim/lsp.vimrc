@@ -1,14 +1,18 @@
-sign define LspDiagnosticsSignError text=• texthl=LspDiagnosticsSignError linehl= numhl=
-sign define LspDiagnosticsSignWarning text=• texthl=LspDiagnosticsSignWarning linehl= numhl=
-sign define LspDiagnosticsSignInformation text=• texthl=LspDiagnosticsSignInformation linehl= numhl=
-sign define LspDiagnosticsSignHint text=• texthl=LspDiagnosticsSignHint linehl= numhl=
+sign define DiagnosticSignError text=• texthl=DiagnosticSignError linehl= numhl=
+sign define DiagnosticSignWarning text=• texthl=DiagnosticSignWarning linehl= numhl=
+sign define DiagnosticSignInformation text=• texthl=DiagnosticSignInformation linehl= numhl=
+sign define DiagnosticSignHint text=• texthl=DiagnosticSignHint linehl= numhl=
 
-highlight LspDiagnosticsSignError guifg=#FF6AC1
-highlight LspDiagnosticsSignWarning guifg=#FF6AC1
-highlight LspDiagnosticsSignInformation guifg=#FF6AC1
-highlight LspDiagnosticsSignHint guifg=#FF6AC1
+highlight DiagnosticError guifg=#FF5C57
+highlight DiagnosticWarn guifg=#F3F99D
+highlight DiagnosticInfo guifg=#57C7FF
+highlight DiagnosticHint guifg=#9AEDFE
+highlight DiagnosticSignError guifg=#FF6AC1
+highlight DiagnosticSignWarning guifg=#FF6AC1
+highlight DiagnosticSignInformation guifg=#FF6AC1
+highlight DiagnosticSignHint guifg=#FF6AC1
 highlight SpellCap guifg=NONE gui=undercurl guisp=#72b7b5
-highlight LspDiagnosticsUnderlineError gui=undercurl guifg=NONE guisp=#FF5C57
+highlight DiagnosticUnderlineError gui=undercurl guifg=NONE guisp=#FF5C57
 
 function! EchoCurrentDiagnosticMessage()
   let diagnostics = luaeval("current_diagnostic_messages()")

@@ -68,7 +68,7 @@ cmp.setup({
   sources = {
     { name = 'path', max_item_count = 2 },
     { name = 'tags', max_item_count = 2 },
-    -- { name = 'cmp_tabnine', priority = 5000 },
+    { name = 'cmp_tabnine', priority = 5000 },
     { name = 'ultisnips', max_item_count = 3 },
   }
 })

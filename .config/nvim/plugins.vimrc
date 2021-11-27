@@ -12,26 +12,26 @@ Plug 'tpope/vim-commentary'                                                    "
 Plug 'tpope/vim-endwise'                                                       " Auto adds end for if's or classes etc.
 Plug 'ntpeters/vim-better-whitespace'                                          " Highlights whitespace and removes on save
 Plug 'pbrisbin/vim-mkdir'                                                      " When creating a file, creates directory tree if missing
-Plug 'justinmk/vim-sneak'                                                      " Two letter motion
+Plug 'ggandor/lightspeed.nvim'                                                      " Two letter motion
 Plug 'jiangmiao/auto-pairs'                                                    " Add quote, paren, etc. pairs
 Plug 'christoomey/vim-tmux-navigator'                                          " Makes navigating in tmux and vim easier
 Plug 'christoomey/vim-system-copy'                                             " Copy nad paste with clipboard. cp(copy) and cv(paste)
 Plug 'szw/vim-maximizer'                                                       " Maximize splits
+Plug 'chrisbra/csv.vim'
 
 " Git related plugins
 " Plug 'tpope/vim-fugitive'                                                      " Git support inside vim. slow
 Plug 'nvim-lua/plenary.nvim'                                                   " General lua functions for neovim
 Plug 'lewis6991/gitsigns.nvim'                                                 " Indicates added, modified and removed lines in a file
 
-
 " Ruby (Tags and such)
 " Plug 'craigemery/vim-autotag'                                                  " Keeps tags file up to date
 Plug 'npezza93/vim-tags'
-Plug 'npezza93/vim-ruby'
+Plug 'vim-ruby/vim-ruby'
 
 " Theme
 Plug 'tpope/vim-haml'
-Plug 'joshdick/onedark.vim'                                                    " One dark theme
+Plug 'npezza93/onedark.vim'                                                    " One dark theme
 Plug 'itchyny/lightline.vim'                                                   " Adds status bar at bottom
 
 " Tree view
@@ -39,7 +39,7 @@ Plug 'kyazdani42/nvim-web-devicons'                                            "
 Plug 'kyazdani42/nvim-tree.lua'                                                " Adds tree viewer
 
 " Tree sitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}                    " Enables tree sitter features
+Plug 'npezza93/nvim-treesitter', {'do': ':TSUpdate'}                           " Enables tree sitter features
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'                             " Adds tree sitter text objects
 Plug 'andymass/vim-matchup'
 
@@ -62,7 +62,7 @@ Plug 'mileszs/ack.vim'                                                         "
 Plug 'npezza93/fozzie.vim'                                                     " Fuzzy file searching
 
 " Rust
-Plug 'rust-lang/rust.vim'                                                      " Standard rust stuff
+" Plug 'rust-lang/rust.vim'                                                      " Standard rust stuff
 
 " Debugging vim stuff
 " Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
