@@ -14,3 +14,4 @@ luafile $HOME/.config/nvim/complete.lua
 source  $HOME/.config/nvim/tree.vimrc
 luafile $HOME/.config/nvim/git.lua
 luafile $HOME/.config/nvim/treesitter.lua
+source  $HOME/.config/nvim/lazy.vim
