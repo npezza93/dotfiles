@@ -14,6 +14,7 @@ require'nvim-treesitter.configs'.setup {
       enable = true,
       -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
+      lookbehind = true,
       selection_modes = {
          ['@parameter.outer'] = 'v', -- charwise
          ['@class.inner'] = 'V',

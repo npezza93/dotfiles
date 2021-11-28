@@ -1,14 +1,21 @@
+# to profile enable the following line and the last line
+# zmodload zsh/zprof
+
 autoload -Uz compinit
 
 for dump in ~/.zcompdump(N.mh+24); do
   compinit
 done
 
-compinit -C
+# compinit -C
 
-export GIT_EDITOR='nvim'
+export GIT_EDITOR='vim'
 export LANG='en-US.UTF-8'
 export DIRENV_LOG_FORMAT=
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export EDITOR=vim
+export PATH="$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/nick/.vimpkg/bin"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -54,8 +61,11 @@ ZSH_DISABLE_COMPFIX="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 export ZSH=/Users/nick/.oh-my-zsh
-# plugins=(git rails zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions)
-plugins=(rails zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions direnv)
+if [[ -z "$TMUX" && -z "$VIM" ]]; then
+  exec /usr/local/bin/tmux new-session -As0
+fi
+
+plugins=(rails fast-syntax-highlighting zsh-autosuggestions direnv)
 source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -138,13 +148,13 @@ alias cat='bat  --theme="Sublime Snazzy" --style="numbers,changes,header"'
 alias ctags='/usr/local/bin/ctags-ripper -R --exclude=public --exclude=tmp --exclude=.git --exclude=node_modules --exclude=vendor --exclude=dist --exclude=coverage --exclude=README.md --exclude=CODE_OF_CONDUCT.md'
 alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kill -9"
 
-alias vim="nvim"
+alias vim="nvim -i NONE"
 alias vimrc="cd ~/.config/nvim; vim ~/.config/nvim/init.vim; cd -"
 alias zshrc="vim ~/.zshrc"
 function vimf() {
   emulate -L zsh
   zle -I
-  FFILE="$(fd -H -E .git --type file --color=never . | fozzie)"
+  FFILE="$(fd -H -E .git --type file --color=never --strip-cwd-prefix . | fozzie)"
   if [[ -z ${FFILE} ]] ; then
     return 1
   else
@@ -190,9 +200,6 @@ alias rt='bundle exec rails test'
 alias rmd='bundle exec rails middleware'
 alias rsts='bundle exec rails stats'
 
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
 source /usr/local/etc/profile.d/z.sh
 
 # export fpath=(
@@ -217,8 +224,6 @@ cd() {
   fi
 }
 
-export EDITOR=nvim
-export PATH="$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/nick/.vimpkg/bin"
 
 if type rbenv &> /dev/null; then
   local RBENV_SHIMS="${RBENV_ROOT:-${HOME}/.rbenv}/shims"
@@ -249,3 +254,5 @@ if type pyenv > /dev/null; then
     }
 fi
 export PATH=/usr/local/bin:$PATH
+
+# zprof

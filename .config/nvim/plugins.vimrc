@@ -30,7 +30,6 @@ Plug 'npezza93/vim-tags'
 Plug 'vim-ruby/vim-ruby'
 
 " Theme
-Plug 'tpope/vim-haml'
 Plug 'npezza93/onedark.vim'                                                    " One dark theme
 Plug 'itchyny/lightline.vim'                                                   " Adds status bar at bottom
 
@@ -40,7 +39,7 @@ Plug 'kyazdani42/nvim-tree.lua'                                                "
 
 " Tree sitter
 Plug 'npezza93/nvim-treesitter', {'do': ':TSUpdate'}                           " Enables tree sitter features
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'                             " Adds tree sitter text objects
+Plug 'npezza93/nvim-treesitter-textobjects'                             " Adds tree sitter text objects
 Plug 'andymass/vim-matchup'
 
 " LSP like features and snippets
@@ -60,9 +59,6 @@ Plug 'npezza93/vim-rails'                                                       
 " Searching
 Plug 'mileszs/ack.vim'                                                         " Search across project
 Plug 'npezza93/fozzie.vim'                                                     " Fuzzy file searching
-
-" Rust
-" Plug 'rust-lang/rust.vim'                                                      " Standard rust stuff
 
 " Debugging vim stuff
 " Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
