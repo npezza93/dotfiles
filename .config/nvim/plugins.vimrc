@@ -8,7 +8,7 @@ Plug 'lewis6991/impatient.nvim'
 Plug 'tpope/vim-repeat'                                                        " Makes dot work with everything
 Plug 'karb94/neoscroll.nvim'                                                   " Makes scrolling smoooooth
 Plug 'tpope/vim-surround'                                                      " Adds surround motion
-Plug 'tpope/vim-commentary'                                                    " Adds gcc for turning line into comment
+Plug 'numToStr/Comment.nvim'                                                   " Adds gcc for turning line into comment
 Plug 'tpope/vim-endwise'                                                       " Auto adds end for if's or classes etc.
 Plug 'ntpeters/vim-better-whitespace'                                          " Highlights whitespace and removes on save
 Plug 'pbrisbin/vim-mkdir'                                                      " When creating a file, creates directory tree if missing
@@ -47,7 +47,7 @@ Plug 'neovim/nvim-lspconfig'                                                   "
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
 Plug 'quangnguyen30192/cmp-nvim-tags'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips', { 'commit': '78a9452d61bc7f1c3aeb33f6011513760f705bdf' }
 Plug 'SirVer/ultisnips', {'on': []}                                            " Snippet engine
 Plug 'honza/vim-snippets'                                                      " Snippet collection
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }                           " Add tabnine completions to nvim-compe

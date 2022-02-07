@@ -1,13 +1,15 @@
-let s:red = [ "#FF5C57", "1" ]
-let s:green = [ "#5AF78E", "2" ]
-let s:yellow = [ "#F3F99D", "3" ]
-let s:blue = [ "#57C7FF", "4" ]
-let s:cyan = [ "#9AEDFE", "6" ]
-let s:purple = [ "#FF6AC1", "5" ]
-let s:white = [ "#F1F1F0", "7" ]
-let s:black = [ "#000000", 0 ]
-let s:grey = [ "#262626", "8" ]
-let s:grey2 = [ "#3E4452", "8" ]
+let s:colors = onedark#GetColors()
+
+let s:red =    [ s:colors.red.gui, "1" ]
+let s:green =  [ s:colors.green.gui, "2" ]
+let s:yellow = [ s:colors.yellow.gui, "3" ]
+let s:blue =   [ s:colors.blue.gui, "4" ]
+let s:cyan =   [ s:colors.cyan.gui, "6" ]
+let s:purple = [ s:colors.purple.gui, "5" ]
+let s:white =  [ s:colors.white.gui, "7" ]
+let s:black =  [ s:colors.lightline_bg.gui, 0 ]
+let s:grey =   [ s:colors.cursor_grey.gui, "8" ]
+let s:grey2 =  [ s:colors.menu_grey.gui, "8" ]
 
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}, 'command': {}}
 let s:p.normal.left = [ [ s:black, s:blue ], [ s:white, s:grey ] ]
@@ -39,17 +41,17 @@ let g:lightline = {
 \   'right': [ [ 'filetype' ] ]
 \ },
 \ 'inactive': {
-\   'left': [ ['inactive'], ['filename'] ],
+\   'left': [ ['inactive'], ['relativepath'] ],
 \   'right': [ [ 'filetype' ] ]
 \ },
 \ }
 
 function! LightlineFilename()
-  let root = fnamemodify(get(b:, 'git_dir'), ':h')
-  let path = expand('%:p')
-  let modified = &modified ? '*' : ''
-  if path[:len(root)-1] ==# root
-    return path[len(root)+1:] . modified
-  endif
+  let status = get(b:, 'gitsigns_status_dict', {})
+
+  let changes = get(status, 'removed', 0) + get(status, 'added', 0) + get(status, 'changed', 0)
+
+  let modified = changes > 0 ? '*' : ''
+
   return expand('%') . modified
 endfunction

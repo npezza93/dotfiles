@@ -1,4 +1,4 @@
-nnoremap <leader>\| :call LazyLoadTree() \| :NvimTreeFindFileToggle<CR>
+nnoremap <leader>\| :call LazyLoadTree() \| :NvimTreeFindFile<CR>
 nnoremap <leader>\ :call LazyLoadTree() \| :NvimTreeToggle<CR>
 
 let g:lazy_load_tree = 0
