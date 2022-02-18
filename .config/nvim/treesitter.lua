@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "bash", "ruby", "rust", "javascript", "c", "comment", "css", "dockerfile", "hcl", "html", "json", "lua", "python", "query", "regex", "scss", "toml", "yaml", "typescript", "vim", "embedded_template" },
+  ensure_installed = { "bash", "ruby", "rust", "javascript", "c", "comment", "css", "dockerfile", "hcl", "html", "json", "lua", "python", "query", "regex", "scss", "toml", "yaml", "typescript", "vim", "embedded_template", "markdown" },
   matchup = {
     enable = true,
   },
@@ -14,6 +14,7 @@ require'nvim-treesitter.configs'.setup {
   -- },
   highlight = {
     enable = true,
+    additional_vim_regex_highlighting = false,
   },
   endwise = {
     enable = true,
