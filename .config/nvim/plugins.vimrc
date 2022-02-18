@@ -19,7 +19,6 @@ Plug 'szw/vim-maximizer'                                                       "
 Plug 'chrisbra/csv.vim'
 
 " Git related plugins
-" Plug 'tpope/vim-fugitive'                                                      " Git support inside vim. slow
 Plug 'nvim-lua/plenary.nvim'                                                   " General lua functions for neovim
 Plug 'lewis6991/gitsigns.nvim'                                                 " Indicates added, modified and removed lines in a file
 
