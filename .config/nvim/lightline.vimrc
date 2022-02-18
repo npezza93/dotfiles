@@ -47,11 +47,6 @@ let g:lightline = {
 \ }
 
 function! LightlineFilename()
-  let status = get(b:, 'gitsigns_status_dict', {})
-
-  let changes = get(status, 'removed', 0) + get(status, 'added', 0) + get(status, 'changed', 0)
-
-  let modified = changes > 0 ? '*' : ''
-
+  let modified = &modified ? '*' : ''
   return expand('%') . modified
 endfunction

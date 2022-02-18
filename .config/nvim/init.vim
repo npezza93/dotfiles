@@ -16,3 +16,4 @@ luafile $HOME/.config/nvim/treesitter.lua
 source  $HOME/.config/nvim/lazy.vim
 source  $HOME/.config/nvim/comment.lua
 source  $HOME/.config/nvim/lightline.vimrc
+source $HOME/.config/nvim/pairs.lua

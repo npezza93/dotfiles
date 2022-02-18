@@ -29,6 +29,11 @@ vim.g.UltiSnipsSnippetDirectories = { "UltiSnips", "custom_snippets" }
 
 cmp.setup({
   mapping = {
+    ["<CR>"] = cmp.mapping(function(fallback)
+      if not cmp.confirm({ select = true }) then
+        require("pairs.enter").type()
+      end
+    end),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.get_selected_entry() == nil and vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
         press("<C-R>=UltiSnips#ExpandSnippet()<CR>")

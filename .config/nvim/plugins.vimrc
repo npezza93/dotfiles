@@ -9,11 +9,11 @@ Plug 'tpope/vim-repeat'                                                        "
 Plug 'karb94/neoscroll.nvim'                                                   " Makes scrolling smoooooth
 Plug 'tpope/vim-surround'                                                      " Adds surround motion
 Plug 'numToStr/Comment.nvim'                                                   " Adds gcc for turning line into comment
-Plug 'tpope/vim-endwise'                                                       " Auto adds end for if's or classes etc.
 Plug 'ntpeters/vim-better-whitespace'                                          " Highlights whitespace and removes on save
 Plug 'pbrisbin/vim-mkdir'                                                      " When creating a file, creates directory tree if missing
 Plug 'ggandor/lightspeed.nvim'                                                      " Two letter motion
-Plug 'jiangmiao/auto-pairs'                                                    " Add quote, paren, etc. pairs
+" Plug 'jiangmiao/auto-pairs'                                                    " Add quote, paren, etc. pairs
+Plug 'ZhiyuanLck/smart-pairs'
 Plug 'christoomey/vim-tmux-navigator'                                          " Makes navigating in tmux and vim easier
 Plug 'christoomey/vim-system-copy'                                             " Copy nad paste with clipboard. cp(copy) and cv(paste)
 Plug 'szw/vim-maximizer'                                                       " Maximize splits
@@ -40,6 +40,7 @@ Plug 'kyazdani42/nvim-tree.lua'                                                "
 " Tree sitter
 Plug 'npezza93/nvim-treesitter', {'do': ':TSUpdate'}                           " Enables tree sitter features
 Plug 'npezza93/nvim-treesitter-textobjects'                             " Adds tree sitter text objects
+Plug 'RRethy/nvim-treesitter-endwise'
 Plug 'andymass/vim-matchup'
 
 " LSP like features and snippets
