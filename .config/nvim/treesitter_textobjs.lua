@@ -16,6 +16,7 @@ require'nvim-treesitter.configs'.setup {
       lookahead = true,
       lookbehind = true,
       selection_modes = {
+         ['@parameter.inner'] = 'v', -- charwise
          ['@parameter.outer'] = 'v', -- charwise
          ['@class.inner'] = 'V',
          ['@class.outer'] = 'V',
@@ -31,6 +32,9 @@ require'nvim-treesitter.configs'.setup {
 
         ["ab"] = "@block.outer",
         ["ib"] = "@block.inner",
+
+        ["aa"] = "@parameter.outer",
+        ["ia"] = "@parameter.inner",
       },
     },
     swap = {
