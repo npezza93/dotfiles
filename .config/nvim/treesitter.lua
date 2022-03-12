@@ -19,9 +19,9 @@ require'nvim-treesitter.configs'.setup {
   endwise = {
     enable = true,
   },
-  -- indent = {
-  --   enable = false
-  -- },
+  indent = {
+    enable = true
+  },
   -- query_linter = {
   --   enable = false,
   --   use_virtual_text = true,

@@ -25,7 +25,7 @@ Plug 'lewis6991/gitsigns.nvim'                                                 "
 " Ruby (Tags and such)
 " Plug 'craigemery/vim-autotag'                                                  " Keeps tags file up to date
 Plug 'npezza93/vim-tags'                                                       " Load tag files for ruby and gems
-Plug 'vim-ruby/vim-ruby'                                                       " Ruby stuff
+Plug 'npezza93/vim-ruby'                                                       " Ruby stuff
 
 " Theme
 Plug 'npezza93/onedark.vim'                                                    " One dark theme

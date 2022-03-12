@@ -22,3 +22,4 @@ let g:ackprg = 'rg --vimgrep'
 let ruby_no_expensive = 1
 let ruby_no_special_methods = 1
 let ruby_no_comment_fold = 1
+let b:did_indent = 1

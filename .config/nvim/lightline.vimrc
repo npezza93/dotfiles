@@ -48,5 +48,5 @@ let g:lightline = {
 
 function! LightlineFilename()
   let modified = &modified ? '*' : ''
-  return expand('%') . modified
+  return expand('%:~:.') . modified
 endfunction

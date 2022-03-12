@@ -8,3 +8,8 @@ command -nargs=1 Z execute 'cd' g:Z(<f-args>)
 
 command RubocopFix call system('rubocop -A '.@%) | :checktime
 nnoremap <leader>1 :RubocopFix<cr>
+
+augroup highlight_yank
+  autocmd!
+  au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
+augroup END

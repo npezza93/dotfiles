@@ -130,6 +130,8 @@ alias gcp='git cherry-pick'
 alias gci='g commit'
 alias gco='g checkout'
 alias grbi='g rebase -i'
+alias gap='g a -p'
+alias gci='g ci'
 
 alias mb='bundle exec middleman build'
 alias md='bundle exec middleman deploy'
