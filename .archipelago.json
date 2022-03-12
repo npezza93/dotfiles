@@ -1,24 +1,48 @@
 {
-	"activeProfileId": 1,
+	"activeProfileId": 6,
 	"profiles": [
 		{
 			"id": 1,
 			"fontFamily": "FiraCode-Retina",
-			"fontSize": "16",
-			"cursorBlink": false,
+			"fontSize": 16,
+			"cursorBlink": true,
 			"singleTabMode": true,
 			"padding": "10px 0px 5px 15px",
 			"name": "Default",
 			"experimentalCharAtlas": "dynamic",
-			"useFlowControl": true,
+			"useFlowControl": false,
 			"theme": {
-				"background": "rgb(45,48,62)",
-				"windowBackground": "#2d303e"
+				"background": "rgb(45, 48, 62)",
+				"windowBackground": "#2d303e",
+				"selection": "rgba(151, 151, 155, 0.2)",
+				"foreground": "rgb(239, 240, 235)",
+				"black": "rgb(40, 42, 54)",
+				"red": "rgb(255, 92, 87)",
+				"brightRed": "rgb(255, 92, 87)",
+				"green": "rgb(90, 247, 142)",
+				"brightGreen": "rgb(90, 247, 142)",
+				"yellow": "rgb(243, 249, 157)",
+				"brightYellow": "rgb(243, 249, 157)",
+				"magenta": "rgb(255, 106, 193)",
+				"brightMagenta": "rgb(255, 106, 193)",
+				"cyan": "rgb(154, 237, 254)",
+				"brightCyan": "rgb(154, 237, 254)",
+				"blue": "rgb(87, 199, 255)",
+				"brightBlue": "rgb(87, 199, 255)",
+				"white": "rgb(241, 241, 240)",
+				"brightWhite": "rgb(239, 240, 235)",
+				"brightBlack": "rgb(104, 104, 104)",
+				"cursorAccent": "rgb(40, 42, 54)",
+				"cursor": "rgb(151, 151, 155)"
 			},
 			"windowBackground": "rgb(45,48,62)",
 			"macOptionClickForcesSelection": true,
 			"visor": {
-				"padding": "40px 0 10px 15px"
+				"padding": "10px 0 10px 15px",
+				"background": "rgba(0,0,0,0)",
+				"vibrancy": "ultra-dark",
+				"allowTransparency": true,
+				"keybinding": "f1"
 			},
 			"keybindings": [
 				{
@@ -41,7 +65,17 @@
 					"keystroke": "cmd-delete",
 					"command": "\\x10B"
 				}
-			]
+			],
+			"fontWeight": "normal",
+			"cursorStyle": "block",
+			"shellArgs": "",
+			"scrollback": 4000,
+			"copyOnSelect": true,
+			"macOptionIsMeta": true,
+			"rightClickSelectsWord": true,
+			"vibrancy": "",
+			"experimentalWebglRenderer": false,
+			"ligatures": false
 		},
 		{
 			"id": 2,
@@ -51,12 +85,32 @@
 			"allowTransparency": true,
 			"windowBackground": "rgba(45,48,62,0)",
 			"theme": {
-				"background": "rgba(0,0,0,0)"
+				"background": "rgb(0, 0, 0)",
+				"selection": "rgba(151, 151, 155, 0.2)",
+				"foreground": "rgb(239, 240, 235)",
+				"black": "rgb(40, 42, 54)",
+				"red": "rgb(255, 92, 87)",
+				"brightRed": "rgb(255, 92, 87)",
+				"green": "rgb(90, 247, 142)",
+				"brightGreen": "rgb(90, 247, 142)",
+				"yellow": "rgb(243, 249, 157)",
+				"brightYellow": "rgb(243, 249, 157)",
+				"magenta": "rgb(255, 106, 193)",
+				"brightMagenta": "rgb(255, 106, 193)",
+				"cyan": "rgb(154, 237, 254)",
+				"brightCyan": "rgb(154, 237, 254)",
+				"blue": "rgb(87, 199, 255)",
+				"brightBlue": "rgb(87, 199, 255)",
+				"white": "rgb(241, 241, 240)",
+				"brightWhite": "rgb(239, 240, 235)",
+				"brightBlack": "rgb(104, 104, 104)",
+				"cursorAccent": "rgb(40, 42, 54)",
+				"cursor": "rgb(151, 151, 155)"
 			},
 			"cursorStyle": "block",
-			"vibrancy": "ultra-dark",
+			"vibrancy": "",
 			"name": "Vibrant",
-			"fontSize": "16",
+			"fontSize": 16,
 			"cursorBlink": false,
 			"experimentalCharAtlas": "dynamic",
 			"useFlowControl": true,
@@ -82,20 +136,50 @@
 					"keystroke": "cmd-delete",
 					"command": "\\x10B"
 				}
-			]
+			],
+			"shell": "/usr/local/bin/zsh",
+			"fontWeight": "normal",
+			"shellArgs": "",
+			"scrollback": 4000,
+			"copyOnSelect": true,
+			"macOptionIsMeta": true,
+			"rightClickSelectsWord": true,
+			"macOptionClickForcesSelection": true,
+			"experimentalWebglRenderer": false,
+			"ligatures": false
 		},
 		{
 			"id": 3,
 			"fontFamily": "FiraCode-Retina",
-			"fontSize": "16",
+			"fontSize": 16,
 			"cursorBlink": false,
 			"singleTabMode": false,
 			"name": "Default (No tmux)",
 			"experimentalCharAtlas": "dynamic",
 			"useFlowControl": true,
 			"theme": {
-				"background": "rgb(45,48,62)",
-				"windowBackground": "#2d303e"
+				"background": "rgb(45, 48, 62)",
+				"windowBackground": "#2d303e",
+				"selection": "rgba(151, 151, 155, 0.2)",
+				"foreground": "rgb(239, 240, 235)",
+				"black": "rgb(40, 42, 54)",
+				"red": "rgb(255, 92, 87)",
+				"brightRed": "rgb(255, 92, 87)",
+				"green": "rgb(90, 247, 142)",
+				"brightGreen": "rgb(90, 247, 142)",
+				"yellow": "rgb(243, 249, 157)",
+				"brightYellow": "rgb(243, 249, 157)",
+				"magenta": "rgb(255, 106, 193)",
+				"brightMagenta": "rgb(255, 106, 193)",
+				"cyan": "rgb(154, 237, 254)",
+				"brightCyan": "rgb(154, 237, 254)",
+				"blue": "rgb(87, 199, 255)",
+				"brightBlue": "rgb(87, 199, 255)",
+				"white": "rgb(241, 241, 240)",
+				"brightWhite": "rgb(239, 240, 235)",
+				"brightBlack": "rgb(104, 104, 104)",
+				"cursorAccent": "rgb(40, 42, 54)",
+				"cursor": "rgb(151, 151, 155)"
 			},
 			"windowBackground": "rgb(45,48,62)",
 			"macOptionClickForcesSelection": true,
@@ -122,7 +206,17 @@
 					"keystroke": "cmd-delete",
 					"command": "\\x10B"
 				}
-			]
+			],
+			"cursorStyle": "underline",
+			"fontWeight": "normal",
+			"shellArgs": "",
+			"scrollback": 4000,
+			"copyOnSelect": true,
+			"macOptionIsMeta": true,
+			"rightClickSelectsWord": true,
+			"vibrancy": "",
+			"experimentalWebglRenderer": false,
+			"ligatures": false
 		},
 		{
 			"id": 4,
@@ -131,12 +225,32 @@
 			"allowTransparency": true,
 			"windowBackground": "rgba(45,48,62,0)",
 			"theme": {
-				"background": "rgba(0,0,0,0)"
+				"background": "rgba(0, 0, 0, 0)",
+				"selection": "rgba(151, 151, 155, 0.2)",
+				"foreground": "rgb(239, 240, 235)",
+				"black": "rgb(40, 42, 54)",
+				"red": "rgb(255, 92, 87)",
+				"brightRed": "rgb(255, 92, 87)",
+				"green": "rgb(90, 247, 142)",
+				"brightGreen": "rgb(90, 247, 142)",
+				"yellow": "rgb(243, 249, 157)",
+				"brightYellow": "rgb(243, 249, 157)",
+				"magenta": "rgb(255, 106, 193)",
+				"brightMagenta": "rgb(255, 106, 193)",
+				"cyan": "rgb(154, 237, 254)",
+				"brightCyan": "rgb(154, 237, 254)",
+				"blue": "rgb(87, 199, 255)",
+				"brightBlue": "rgb(87, 199, 255)",
+				"white": "rgb(241, 241, 240)",
+				"brightWhite": "rgb(239, 240, 235)",
+				"brightBlack": "rgb(104, 104, 104)",
+				"cursorAccent": "rgb(40, 42, 54)",
+				"cursor": "rgb(151, 151, 155)"
 			},
 			"cursorStyle": "block",
 			"vibrancy": "ultra-dark",
 			"name": "Vibrant (no tmux)",
-			"fontSize": "16",
+			"fontSize": 16,
 			"cursorBlink": false,
 			"experimentalCharAtlas": "dynamic",
 			"useFlowControl": true,
@@ -163,8 +277,139 @@
 					"keystroke": "cmd-delete",
 					"command": "\\x10B"
 				}
-			]
+			],
+			"fontWeight": "normal",
+			"shellArgs": "",
+			"scrollback": 4000,
+			"copyOnSelect": true,
+			"macOptionIsMeta": true,
+			"rightClickSelectsWord": true,
+			"macOptionClickForcesSelection": true,
+			"experimentalWebglRenderer": false,
+			"ligatures": false
+		},
+		{
+			"id": 5,
+			"keybindings": [
+				{
+					"keystroke": "cmd-right",
+					"command": "\\x1bOF"
+				},
+				{
+					"keystroke": "alt-delete",
+					"command": "\\x1bd"
+				},
+				{
+					"keystroke": "cmd-backspace",
+					"command": "\\x1bw"
+				},
+				{
+					"keystroke": "cmd-delete",
+					"command": "\\x10B"
+				},
+				{
+					"keystroke": "cmd-left",
+					"command": "\\x1bOH"
+				}
+			],
+			"theme": {
+				"background": "rgb(0, 0, 0)",
+				"cursor": "rgb(151, 151, 155)",
+				"selection": "rgba(151, 151, 155, 0.3)",
+				"foreground": "rgb(239, 240, 235)",
+				"black": "rgb(40, 42, 54)",
+				"red": "rgb(255, 92, 87)",
+				"brightRed": "rgb(255, 92, 87)",
+				"green": "rgb(90, 247, 142)",
+				"brightGreen": "rgb(90, 247, 142)",
+				"yellow": "rgb(243, 249, 157)",
+				"brightYellow": "rgb(243, 249, 157)",
+				"magenta": "rgb(255, 106, 193)",
+				"brightMagenta": "rgb(255, 106, 193)",
+				"cyan": "rgb(154, 237, 254)",
+				"brightCyan": "rgb(154, 237, 254)",
+				"blue": "rgb(87, 199, 255)",
+				"brightBlue": "rgb(87, 199, 255)",
+				"white": "rgb(241, 241, 240)",
+				"brightWhite": "rgb(239, 240, 235)",
+				"brightBlack": "rgb(104, 104, 104)",
+				"cursorAccent": "rgb(40, 42, 54)"
+			},
+			"visor": {},
+			"name": "Black",
+			"fontFamily": "JetBrainsMono Nerd Font Mono",
+			"fontSize": "15",
+			"padding": "10px 0px 5px 15px",
+			"singleTabMode": true,
+			"cursorWidth": "2",
+			"experimentalWebglRenderer": true,
+			"useFlowControl": false,
+			"ligatures": false,
+			"shell": "",
+			"cursorStyle": "block",
+			"shellArgs": "",
+			"cursorBlink": true,
+			"fontWeight": "normal",
+			"scrollback": 4000,
+			"copyOnSelect": true,
+			"macOptionIsMeta": true,
+			"rightClickSelectsWord": true,
+			"macOptionClickForcesSelection": true,
+			"vibrancy": ""
+		},
+		{
+			"id": 6,
+			"keybindings": [
+				{
+					"keystroke": "cmd-left",
+					"command": "\\x1bOH"
+				},
+				{
+					"keystroke": "cmd-right",
+					"command": "\\x1bOF"
+				},
+				{
+					"keystroke": "alt-delete",
+					"command": "\\x1bd"
+				},
+				{
+					"keystroke": "cmd-backspace",
+					"command": "\\x1bw"
+				},
+				{
+					"keystroke": "cmd-delete",
+					"command": "\\x10B"
+				}
+			],
+			"theme": {
+				"green": "rgb(171, 233, 179)",
+				"brightGreen": "rgb(171, 233, 179)",
+				"black": "rgb(110, 108, 126)",
+				"brightBlack": "rgb(152, 139, 162)",
+				"red": "rgb(242, 143, 173)",
+				"brightRed": "rgb(242, 143, 173)",
+				"yellow": "rgb(250, 227, 176)",
+				"brightYellow": "rgb(250, 227, 176)",
+				"blue": "rgb(150, 205, 251)",
+				"brightBlue": "rgb(150, 205, 251)",
+				"magenta": "rgb(245, 194, 231)",
+				"brightMagenta": "rgb(245, 194, 231)",
+				"cyan": "rgb(137, 220, 235)",
+				"brightCyan": "rgb(137, 220, 235)",
+				"white": "rgb(217, 224, 238)",
+				"brightWhite": "rgb(217, 224, 238)",
+				"cursor": "rgb(248, 189, 150)",
+				"cursorAccent": "rgb(30, 29, 47)",
+				"selection": "rgba(217, 224, 238, 0.2)",
+				"foreground": "rgb(217, 224, 238)",
+				"background": "rgb(30, 29, 47)"
+			},
+			"name": "Catpuccin",
+			"shell": "",
+			"padding": "10px 0px 5px 15px",
+			"experimentalWebglRenderer": true,
+			"fontFamily": "JetBrainsMono Nerd Font Mono"
 		}
 	],
-	"version": "3.2.2"
+	"version": "4.0.0-rc11"
 }
