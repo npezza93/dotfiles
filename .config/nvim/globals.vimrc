@@ -15,6 +15,7 @@ let g:loaded_netrw             = 1
 let g:loaded_netrwPlugin       = 1
 let g:loaded_tutor_mode_plugin = 1
 let g:loaded_remote_plugins    = 1
+let g:vim_tags_skip_bundle     = 1
 let g:ruby_default_path = "/Users/nick/.rbenv/shims/ruby"
 let g:ruby_path = "/Users/nick/.rbenv/shims/ruby"
 let g:matchup_matchparen_offscreen = {}

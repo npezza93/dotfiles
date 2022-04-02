@@ -7,7 +7,6 @@ brew "fd"
 brew "gh"
 brew "git"
 brew "make"
-brew "mysql"
 brew "neovim"
 brew "postgresql", restart_service: true
 brew "ruby-build"

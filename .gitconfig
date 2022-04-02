@@ -37,14 +37,7 @@
 	untracked = magenta
   deleted = red
 [pager]
-  diff = delta
-  log = delta
-  reflog = delta
-  show = delta
-[delta]
-  navigate = true
-[interactive]
-  diffFilter = delta --color-only
+  branch = false
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg2
 [init]

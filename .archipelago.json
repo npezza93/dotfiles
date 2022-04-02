@@ -407,9 +407,10 @@
 			"name": "Catpuccin",
 			"shell": "",
 			"padding": "10px 0px 5px 15px",
-			"experimentalWebglRenderer": true,
-			"fontFamily": "JetBrainsMono Nerd Font Mono"
+			"experimentalWebglRenderer": false,
+			"fontFamily": "JetBrainsMono Nerd Font Mono",
+			"ligatures": true
 		}
 	],
-	"version": "4.0.0-rc11"
+	"version": "4.0.0-rc12"
 }
