@@ -16,7 +16,8 @@ export DIRENV_LOG_FORMAT=
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export EDITOR=vim
-export PATH="$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/nick/.vimpkg/bin"
+export N_PREFIX=$HOME/.n
+export PATH="$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/nick/.vimpkg/bin:$N_PREFIX/bin"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
