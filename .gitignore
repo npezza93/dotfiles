@@ -1,3 +1,4 @@
 .DS_Store
 dump.rdb
 tags
+.config/nvim/language-servers/node_modules/
