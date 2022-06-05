@@ -2,7 +2,7 @@ source  $HOME/.config/nvim/globals.vimrc
 source  $HOME/.config/nvim/general.vimrc
 source  $HOME/.config/nvim/commands.vimrc
 source  $HOME/.config/nvim/plugins.vimrc
-source  $HOME/.config/nvim/theme.vimrc
+luafile $HOME/.config/nvim/theme.lua
 source  $HOME/.config/nvim/surround.vimrc
 source  $HOME/.config/nvim/whitespace.vimrc
 source  $HOME/.config/nvim/fuzzy_file.vimrc
@@ -16,4 +16,4 @@ luafile $HOME/.config/nvim/treesitter.lua
 source  $HOME/.config/nvim/lazy.vim
 source  $HOME/.config/nvim/comment.lua
 source  $HOME/.config/nvim/lightline.vimrc
-source $HOME/.config/nvim/pairs.lua
+source  $HOME/.config/nvim/pairs.lua

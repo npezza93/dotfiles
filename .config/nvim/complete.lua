@@ -1,5 +1,6 @@
 local cmp = require('cmp')
 local tabnine = require('cmp_tabnine.config')
+local lspkind = require('lspkind')
 
 tabnine:setup({
   max_lines = 1000;
@@ -75,5 +76,18 @@ cmp.setup({
     { name = 'tags', max_item_count = 2 },
     { name = 'cmp_tabnine', priority = 5000 },
     { name = 'ultisnips', max_item_count = 3 }
-  }
+  },
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = "symbol_text",
+      menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        ultisnips = "[Snip]",
+        path = "[Path]",
+        tags = "[Tag]",
+        cmp_tabnine = "[TN]",
+      })
+    })
+  },
 })

@@ -15,7 +15,6 @@ Plug 'ggandor/lightspeed.nvim'                                                 "
 Plug 'ZhiyuanLck/smart-pairs'                                                  " Auto close parens, quote, etc.
 Plug 'christoomey/vim-tmux-navigator'                                          " Makes navigating in tmux and vim easier
 Plug 'christoomey/vim-system-copy'                                             " Copy nad paste with clipboard. cp(copy) and cv(paste)
-Plug 'szw/vim-maximizer'                                                       " Maximize splits
 Plug 'chrisbra/csv.vim'
 
 " Git related plugins
@@ -25,11 +24,12 @@ Plug 'lewis6991/gitsigns.nvim'                                                 "
 " Ruby (Tags and such)
 " Plug 'craigemery/vim-autotag'                                                  " Keeps tags file up to date
 Plug 'npezza93/vim-tags'                                                       " Load tag files for ruby and gems
+Plug 'npezza93/vim-rails'                                                      " Bunch of rails helpers
 Plug 'npezza93/vim-ruby'                                                       " Ruby stuff
-Plug 'AndrewRadev/splitjoin.vim'
+Plug 'AndrewRadev/splitjoin.vim'                                               " Toggles ruby blocks. Rewrite with tree sitter
 
 " Theme
-Plug 'npezza93/onedark.vim'                                                    " One dark theme
+Plug 'npezza93/catppuccin.vim', {'as': 'catppuccin'}
 Plug 'itchyny/lightline.vim'                                                   " Adds status bar at bottom
 
 " Tree view
@@ -44,6 +44,7 @@ Plug 'andymass/vim-matchup'                                                    "
 
 " LSP like features and snippets
 Plug 'neovim/nvim-lspconfig'                                                   " Quickstart configurations for the LSP client
+Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
 Plug 'quangnguyen30192/cmp-nvim-tags'
@@ -52,16 +53,12 @@ Plug 'SirVer/ultisnips', {'on': []}                                            "
 Plug 'honza/vim-snippets'                                                      " Snippet collection
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }                           " Add tabnine completions to nvim-compe
 
-" Ruby
-Plug 'npezza93/vim-rails'                                                      " Bunch of rails helpers
-" Plug 'jgdavey/vim-blockle'                                                     " Toggles ruby blocks. Rewrite with tree sitter
-
 " Searching
 Plug 'mileszs/ack.vim'                                                         " Search across project
 Plug 'npezza93/fozzie.vim'                                                     " Fuzzy file searching
 
 " Debugging vim stuff
-" Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
+Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
 " Plug 'dstein64/vim-startuptime'
 
 call plug#end()

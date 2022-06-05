@@ -70,7 +70,7 @@ if [[ -z "$TMUX" && -z "$VIM" ]]; then
   exec /opt/homebrew/bin/tmux new-session -As0
 fi
 
-plugins=(rails fast-syntax-highlighting zsh-autosuggestions direnv)
+plugins=(rails fast-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -225,19 +225,17 @@ cd() {
   fi
 }
 
+if type rbenv &> /dev/null; then
+  local RBENV_SHIMS="${RBENV_ROOT:-${HOME}/.rbenv}/shims"
+  export PATH="${RBENV_SHIMS}:${PATH}"
+  source $(dirname $(greadlink -f `whence -p rbenv`))/../completions/rbenv.zsh
+  function rbenv() {
+    unset -f rbenv > /dev/null 2>&1
+    eval "$(command rbenv init -)"
+    rbenv "$@"
+  }
+fi
 
-eval "$(rbenv init - zsh)"
-# if type rbenv &> /dev/null; then
-#   local RBENV_SHIMS="${RBENV_ROOT:-${HOME}/.rbenv}/shims"
-#   export PATH="${RBENV_SHIMS}:${PATH}"
-#   source $(dirname $(greadlink -f `whence -p rbenv`))/../completions/rbenv.zsh
-#   function rbenv() {
-#     unset -f rbenv > /dev/null 2>&1
-#     eval "$(command rbenv init -)"
-#     rbenv "$@"
-#   }
-# fi
-#
 # export PYENV_ROOT="${PYENV_ROOT:=${HOME}/.pyenv}"
 # if ! type pyenv > /dev/null && [ -f "${PYENV_ROOT}/bin/pyenv" ]; then
 #     export PATH="${PYENV_ROOT}/bin:${PATH}"
