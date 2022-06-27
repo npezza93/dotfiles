@@ -8,3 +8,4 @@ IRB.conf[:PROMPT][:CUSTOM] = {
   RETURN: "=> %s\n"
 }
 IRB.conf[:PROMPT_MODE] = :CUSTOM
+IRB.conf[:USE_AUTOCOMPLETE] = false

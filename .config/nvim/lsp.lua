@@ -52,6 +52,7 @@ require'lspconfig'.diagnosticls.setup {
           "DiagnosticlsFormatter",
           "--require",
           "/Users/nick/.config/nvim/language-servers/diagnosticls_formatter.rb",
+          "--server",
           "--force-exclusion",
           "%filepath"
         },
