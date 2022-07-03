@@ -1,50 +1,51 @@
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
 [user]
-	name = Nick Pezza
-	email = pezza@hey.com
-	signingkey = DD16D8FE96F6761D
+  name = Nick Pezza
+  email = pezza@hey.com
+  signingkey = DD16D8FE96F6761D
 [alias]
-	co = checkout
-	br = branch
-	st = status
-	a  = add
-	ci = commit
-	d  = diff --color-moved --patience -w
-	can = commit --amend --no-edit
+  co = checkout
+  br = branch
+  st = status
+  a  = add
+  ci = commit
+  d  = diff --color-moved --patience -w
+  can = commit --amend --no-edit
   sw = switch
-	ctags = !.git/hooks/ctags
+  ctags = !.git/hooks/ctags
 [push]
-	default = simple
+  default = simple
 [commit]
-	gpgsign = true
+  gpgsign = true
 [fetch]
-	prune = true
+  prune = true
 [core]
-	excludesfile = /Users/nick/.gitignore
-	attributesfile = /Users/nick/.gitattributes
+  excludesfile = /Users/nick/.gitignore
+  attributesfile = /Users/nick/.gitattributes
+  fsmonitor = true
 [diff]
   colorMoved = default
-	compactionHeuristic = true
+  compactionHeuristic = true
 [color]
-	ui = always
+  ui = always
 [color "status"]
-	added = green
-	changed = yellow
-	untracked = magenta
+  added = green
+  changed = yellow
+  untracked = magenta
   deleted = red
 [pager]
   branch = false
 [gpg]
-	program = /usr/local/MacGPG2/bin/gpg2
+  program = /usr/local/MacGPG2/bin/gpg2
 [init]
-	templatedir = ~/.git_template
-	defaultBranch = main
+  templatedir = ~/.git_template
+  defaultBranch = main
 [rebase]
-	autoStash = true
+  autoStash = true
 [pull]
-	rebase = true
+  rebase = true
   twohead = ort
