@@ -1,5 +1,6 @@
 let g:did_load_filetypes = 1
 let g:use_tree_sitter = 1
+let g:rails_no_alternate_commands = 1
 let g:loaded_ruby_provider = 0
 let g:loaded_matchparen        = 1
 let g:loaded_matchit           = 1

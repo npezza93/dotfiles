@@ -168,6 +168,7 @@ function vimf() {
     vim $FFILE
   fi
 }
+alias v="vimf"
 alias vimm="vim \$(git ls-files --others --exclude-standard -m | fozzie)"
 alias kp="ps -ef | sed 1d | eval "fozzie" | awk '{print $2}' | xargs kill $1"
 
