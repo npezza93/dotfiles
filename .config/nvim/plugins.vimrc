@@ -12,7 +12,7 @@ Plug 'numToStr/Comment.nvim'                                                   "
 Plug 'ntpeters/vim-better-whitespace'                                          " Highlights whitespace and removes on save
 Plug 'pbrisbin/vim-mkdir'                                                      " When creating a file, creates directory tree if missing
 Plug 'ggandor/lightspeed.nvim'                                                 " Two letter motion
-Plug 'ZhiyuanLck/smart-pairs'                                                  " Auto close parens, quote, etc.
+" Plug 'ZhiyuanLck/smart-pairs'                                                  " Auto close parens, quote, etc.
 Plug 'christoomey/vim-tmux-navigator'                                          " Makes navigating in tmux and vim easier
 Plug 'christoomey/vim-system-copy'                                             " Copy nad paste with clipboard. cp(copy) and cv(paste)
 Plug 'chrisbra/csv.vim'
@@ -48,9 +48,8 @@ Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
 Plug 'quangnguyen30192/cmp-nvim-tags'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips', { 'commit': '78a9452d61bc7f1c3aeb33f6011513760f705bdf' }
-Plug 'SirVer/ultisnips', {'on': []}                                            " Snippet engine
-Plug 'honza/vim-snippets'                                                      " Snippet collection
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }                           " Add tabnine completions to nvim-compe
 
 " Searching
@@ -58,7 +57,7 @@ Plug 'mileszs/ack.vim'                                                         "
 Plug 'npezza93/fozzie.vim'                                                     " Fuzzy file searching
 
 " Debugging vim stuff
-Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
+" Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
 " Plug 'dstein64/vim-startuptime'
 
 call plug#end()

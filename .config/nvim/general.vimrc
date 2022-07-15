@@ -59,5 +59,4 @@ vnoremap <leader><Tab> >
 vnoremap <S-Tab> <
 nmap k gk
 nmap j gj
-
-noremap <leader>f :MaximizerToggle<CR>
+imap <silent><expr> <leader>j luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<leader>j'

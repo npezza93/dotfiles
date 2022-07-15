@@ -1,6 +1,7 @@
-local cmp = require('cmp')
+local cmp     = require('cmp')
 local tabnine = require('cmp_tabnine.config')
 local lspkind = require('lspkind')
+local luasnip = require('luasnip')
 
 tabnine:setup({
   max_lines = 1000;
@@ -9,83 +10,55 @@ tabnine:setup({
   run_on_every_keystroke = true;
 })
 
-local has_any_words_before = function()
-  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
-    return false
-  end
+local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
-local check_back_space = function()
-  local col = vim.fn.col(".") - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
-end
-
-local press = function(key)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "n", true)
-end
-
-vim.g.UltiSnipsRemoveSelectModeMappings = 0
-vim.g.UltiSnipsSnippetDirectories = { "UltiSnips", "custom_snippets" }
 
 cmp.setup({
   mapping = {
-    ["<CR>"] = cmp.mapping(function(fallback)
-      if not cmp.confirm({ select = false }) then
-        require("pairs.enter").type()
-      end
-    end),
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.get_selected_entry() == nil and vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-        press("<C-R>=UltiSnips#ExpandSnippet()<CR>")
-      elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-        press("<ESC>:call UltiSnips#JumpForwards()<CR>")
+      if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
       elseif cmp.visible() then
         cmp.select_next_item()
-      elseif check_back_space() then
-      -- elseif has_any_words_before() then
-        press("<Tab>")
+      elseif has_words_before() then
+        cmp.complete()
       else
-        -- fallback()
-        cmp.mapping.confirm({ select = true })
+        fallback()
       end
-    end, {
-      "i",
-      "s",
-    }),
+    end, { "i", "s", }),
+
     ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-        press("<ESC>:call UltiSnips#JumpBackwards()<CR>")
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       elseif cmp.visible() then
         cmp.select_prev_item()
       else
         fallback()
       end
-    end, {
-      "i",
-      "s",
-    }),
+    end, { "i", "s", }),
   },
   snippet = {
     expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body)
+      require'luasnip'.lsp_expand(args.body)
     end,
   },
   sources = {
     { name = 'path', max_item_count = 2 },
     { name = 'tags', max_item_count = 2 },
     { name = 'cmp_tabnine', priority = 5000 },
-    { name = 'ultisnips', max_item_count = 3 }
+    { name = 'luasnip', max_item_count = 3 }
   },
   formatting = {
     format = lspkind.cmp_format({
       mode = "symbol_text",
       menu = ({
-        buffer = "[Buffer]",
+        buffer = "[BUF]",
         nvim_lsp = "[LSP]",
-        ultisnips = "[Snip]",
-        path = "[Path]",
-        tags = "[Tag]",
+        luasnip = "[SN]",
+        path = "[PTH]",
+        tags = "[TAG]",
         cmp_tabnine = "[TN]",
       })
     })
