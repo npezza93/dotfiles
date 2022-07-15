@@ -22,7 +22,7 @@ set incsearch
 set cc=80
 set cursorline
 set termguicolors
-set completeopt=menuone,noselect
+set completeopt=menuone
 set wrap
 
 syntax off
