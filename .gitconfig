@@ -19,7 +19,7 @@
   ctags = !.git/hooks/ctags
 [push]
   default = simple
-	autoSetupRemote = true
+  autoSetupRemote = true
 [commit]
   gpgsign = true
 [fetch]
