@@ -1,6 +1,8 @@
 function! s:load_plugins(t) abort
   luafile $HOME/.config/nvim/treesitter_textobjs.lua
   luafile $HOME/.config/nvim/tree.lua
+  luafile $HOME/.config/nvim/lsp.lua
+  :LspStart
 endfunction
 
 augroup user_cmds

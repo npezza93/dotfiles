@@ -59,4 +59,5 @@ vnoremap <leader><Tab> >
 vnoremap <S-Tab> <
 nmap k gk
 nmap j gj
-imap <silent><expr> <leader>j luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<leader>j'
+imap <silent><expr> <C-N> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<down>'
+smap <silent><expr> <C-N> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<down>'

@@ -9,7 +9,7 @@ function! s:StripWhiteSpaces()
     call setreg('/', old_query)
 endfunction
 
-let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=0
 
+match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd BufWritePre * call s:StripWhiteSpaces()

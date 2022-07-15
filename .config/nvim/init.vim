@@ -7,7 +7,6 @@ source  $HOME/.config/nvim/surround.vimrc
 source  $HOME/.config/nvim/whitespace.vimrc
 source  $HOME/.config/nvim/fuzzy_file.vimrc
 luafile $HOME/.config/nvim/scrolling.lua
-luafile $HOME/.config/nvim/lsp.lua
 source  $HOME/.config/nvim/lsp.vimrc
 luafile $HOME/.config/nvim/complete.lua
 source  $HOME/.config/nvim/tree.vimrc
