@@ -103,6 +103,7 @@ ls.add_snippets("ruby", {
   s({trig = "rw", description = "attr_accessor"}, fmt("attr_accessor {}", { i(1) })),
   s({trig = "mod", description = "module"}, fmt("module {}\n  {}\nend", { d(1, modulename), i(0) })),
   s({trig = "cla", description = "class"}, fmt("class {}\n  {}\nend", { d(1, classname("Super")), i(0) })),
+  s({trig = "controller", description = "controller"}, fmt("class {}\n  {}\nend", { d(1, classname("ApplicationController")), i(2) })),
   s({trig = "testcla", description = "test class"}, fmt("require \"test_helper\"\n\nclass {}\n  {}\nend", { d(1, classname("ActiveSupport::TestCase")), d(2, testsnippet("  ")) })),
   s({trig = "testclai", description = "integration test"}, fmt("require \"test_helper\"\n\nclass {}\n  {}\nend", { d(1, classname("ActionDispatch::IntegrationTest")), d(2, testsnippet("  ")) })),
   s({trig = "testclah", description = "helper test"}, fmt("require \"test_helper\"\n\nclass {}\n  {}\nend", { d(1, classname("ActionView::TestCase")), d(2, testsnippet("  ")) })),
