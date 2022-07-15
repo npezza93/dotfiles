@@ -13,6 +13,6 @@ source  $HOME/.config/nvim/tree.vimrc
 luafile $HOME/.config/nvim/git.lua
 luafile $HOME/.config/nvim/treesitter.lua
 source  $HOME/.config/nvim/lazy.vim
-source  $HOME/.config/nvim/comment.lua
+luafile $HOME/.config/nvim/comment.lua
 source  $HOME/.config/nvim/lightline.vimrc
 luafile $HOME/.config/nvim/snippets.lua
