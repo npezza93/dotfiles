@@ -42,7 +42,7 @@ Plug 'RRethy/nvim-treesitter-endwise'                                          "
 Plug 'andymass/vim-matchup'                                                    " Enhances % jumping
 
 " LSP like features and snippets
-Plug 'neovim/nvim-lspconfig'                                                   " Quickstart configurations for the LSP client
+Plug 'neovim/nvim-lspconfig', {'on': []}                                       " Quickstart configurations for the LSP client
 Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
