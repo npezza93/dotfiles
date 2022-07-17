@@ -28,7 +28,7 @@ Plug 'npezza93/vim-ruby'                                                       "
 Plug 'AndrewRadev/splitjoin.vim'                                               " Toggles ruby blocks. Rewrite with tree sitter
 
 " Theme
-Plug 'npezza93/catppuccin.vim', {'as': 'catppuccin'}
+Plug 'npezza93/catppuccin.vim', {'as': 'catppuccin', 'do': 'CatppuccinCompile'}
 Plug 'itchyny/lightline.vim'                                                   " Adds status bar at bottom
 
 " Tree view
