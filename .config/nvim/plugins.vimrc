@@ -23,7 +23,7 @@ Plug 'lewis6991/gitsigns.nvim'                                                 "
 " Ruby (Tags and such)
 " Plug 'craigemery/vim-autotag'                                                  " Keeps tags file up to date
 Plug 'npezza93/vim-tags'                                                       " Load tag files for ruby and gems
-Plug 'npezza93/vim-rails', {'on': []}                                          " Bunch of rails helpers
+Plug 'npezza93/vim-rails'
 Plug 'npezza93/vim-ruby'                                                       " Ruby stuff
 Plug 'AndrewRadev/splitjoin.vim'                                               " Toggles ruby blocks. Rewrite with tree sitter
 
