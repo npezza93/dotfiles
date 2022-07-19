@@ -24,6 +24,7 @@ set cursorline
 set termguicolors
 set completeopt=menuone
 set wrap
+set laststatus=3
 
 syntax off
 

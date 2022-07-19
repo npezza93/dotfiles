@@ -10,7 +10,7 @@ done
 # compinit -C
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-export GIT_EDITOR='nvim -i NONE'
+export GIT_EDITOR='vim'
 export LANG='en-US.UTF-8'
 export DIRENV_LOG_FORMAT=
 export LC_CTYPE=en_US.UTF-8
@@ -155,7 +155,7 @@ alias cat='bat  --theme="Catppuccin" --style="numbers,changes,header"'
 alias ctags='ctags -R --exclude=public --exclude=tmp --exclude=.git --exclude=node_modules --exclude=vendor --exclude=dist --exclude=coverage --exclude=README.md --exclude=CODE_OF_CONDUCT.md'
 alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kill -9"
 
-alias vim="nvim -i NONE"
+alias vim="nvim8 -i NONE"
 alias vimrc="cd ~/.config/nvim; vim ~/.config/nvim/init.vim; cd -"
 alias zshrc="vim ~/.zshrc"
 function vimf() {

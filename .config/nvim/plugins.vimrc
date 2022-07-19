@@ -1,7 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Neovim performance improvements
-Plug 'nathom/filetype.nvim'
+" Plug 'nathom/filetype.nvim'
 Plug 'lewis6991/impatient.nvim'
 
 " General
