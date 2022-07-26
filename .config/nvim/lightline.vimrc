@@ -21,11 +21,11 @@ function! LightlineFilename()
   return expand('%:~:.') . modified
 endfunction
 
-set winbar=%=%#WinbarContent#%{Winbar()}
+" set winbar=%=%#WinbarContent#%{Winbar()}
 
 function! Winbar()
   let modified = &modified ? '*' : ''
-  let icon = luaeval("require'nvim-web-devicons'.get_icon('" . expand("%p") . "', '" . expand('%:e') . "', { default = true })")
+  let icon = luaeval("require'nvim-web-devicons'.get_icon_by_filetype('" . &ft . "')")
 
   return '  ' . icon . ' ' . expand('%:t') . modified . '  '
 endfunction

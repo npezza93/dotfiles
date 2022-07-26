@@ -25,6 +25,7 @@ set termguicolors
 set completeopt=menuone
 set wrap
 set laststatus=3
+" set cmdheight=0
 
 syntax off
 
