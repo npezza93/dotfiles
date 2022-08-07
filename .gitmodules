@@ -7,6 +7,3 @@
   url = https://github.com/zsh-users/zsh-autosuggestions
 
 
-[submodule "fast-syntax-highlighting"]
-  path = .oh-my-zsh/custom/plugins/fast-syntax-highlighting
-  url = https://github.com/zdharma/fast-syntax-highlighting
