@@ -10,9 +10,8 @@ done
 # compinit -C
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-export GIT_EDITOR='vim'
+export GIT_EDITOR='nvim8'
 export LANG='en-US.UTF-8'
-export DIRENV_LOG_FORMAT=
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export EDITOR=vim
@@ -120,6 +119,7 @@ alias gll="g log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]'
 alias gcleanup="g remote prune origin && git br -vv | grep gone | cut -d' ' -f3 | sed -e 's/'\$(echo \"\033\[m\")'//g' | xargs -n 1 git branch -D"
 alias gcleanuplocals="g branch -vv | cut -c 3- | awk '\$3 !~/\[/ { print \$1 }' | xargs -n 1 git branch -D"
 alias gd='g diff --color-moved --patience'
+alias ga='g a'
 alias gcan="g ci --amend --no-edit"
 alias gsw="g switch"
 alias grs="g restore"
@@ -154,10 +154,12 @@ alias cat='bat  --theme="Catppuccin-mocha" --style="numbers,changes,header"'
 
 alias ctags='ctags -R --exclude=public --exclude=tmp --exclude=.git --exclude=node_modules --exclude=vendor --exclude=dist --exclude=coverage --exclude=README.md --exclude=CODE_OF_CONDUCT.md'
 alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kill -9"
+alias killvim="ps -ax | grep vim | grep -v grep | awk '{print $1}' | xargs kill -9"
 
 alias vim="nvim8 -i NONE"
 alias vimrc="cd ~/.config/nvim; vim ~/.config/nvim/init.vim; cd -"
 alias zshrc="vim ~/.zshrc"
+alias dotfiles="cd ~/.dotfiles"
 function vimf() {
   emulate -L zsh
   zle -I
@@ -208,15 +210,8 @@ alias rt='bundle exec rails test'
 alias rmd='bundle exec rails middleware'
 alias rsts='bundle exec rails stats'
 
-. /opt/homebrew/etc/profile.d/z.sh
-
-# export fpath=(
-#   # /usr/local/share/zsh-completions/zsh-completions.plugin.zsh
-#   # ~/.zsh
-#   $fpath
-# )
-
-PROMPT=$'\n'"%(?.%F{magenta}.%F{red})❯%f "
+export PROMPT=$'\n'"%(?.%F{magenta}.%F{red})❯%f "
+export CDPATH=.:~:~/Documents
 
 cd() {
   builtin cd $1
