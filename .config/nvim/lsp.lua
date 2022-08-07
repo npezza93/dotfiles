@@ -14,14 +14,7 @@ require'lspconfig'.yamlls.setup {
 }
 
 -- Rust language server setup
-require'lspconfig'.rls.setup {
-  settings = {
-    rust = {
-      unstable_features = true,
-      clippy_preference = "on",
-    },
-  },
-}
+require'lspconfig'.rust_analyzer.setup({})
 
 -- Diagnostic language server setup for linters
 require'lspconfig'.diagnosticls.setup {
@@ -46,7 +39,7 @@ require'lspconfig'.diagnosticls.setup {
         rootPatterns = { '.git' },
         command = "rubocop",
         sourceName = "rubocop",
-        debounce = 10000,
+        debounce = 100,
         args = {
           "--format",
           "DiagnosticlsFormatter",

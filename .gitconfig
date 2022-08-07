@@ -50,3 +50,5 @@
 [pull]
   rebase = true
   twohead = ort
+[credential]
+  helper = store

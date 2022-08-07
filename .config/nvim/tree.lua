@@ -35,12 +35,12 @@ require'nvim-tree'.setup {
   view = {
     width = 30,
     height = 30,
-    hide_root_folder = false,
+    hide_root_folder = true,
     side = 'right',
     mappings = {
       custom_only = false,
       list = {}
-    }
+    },
   },
   git = {
     enable = true,
