@@ -16,7 +16,7 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export EDITOR=vim
 export N_PREFIX=$HOME/.n
-export PATH="$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:$N_PREFIX/bin"
+export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/nick/.vimpkg/bin:$N_PREFIX/bin"
 source ~/.dotfiles/catppuccin-zsh-syntax-highlighting.zsh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -65,9 +65,9 @@ export SAVEHIST=$HISTSIZE
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 export ZSH=/Users/nick/.oh-my-zsh
-if [[ -z "$TMUX" && -z "$VIM" ]]; then
-  exec /opt/homebrew/bin/tmux new-session -As0
-fi
+# if [[ -z "$TMUX" && -z "$VIM" ]]; then
+#   exec /opt/homebrew/bin/tmux new-session -As0
+# fi
 
 plugins=(rails zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh

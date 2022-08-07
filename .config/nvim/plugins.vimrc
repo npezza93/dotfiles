@@ -56,9 +56,10 @@ Plug 'mileszs/ack.vim'                                                         "
 Plug 'npezza93/fozzie.vim'                                                     " Fuzzy file searching
 
 " Debugging vim stuff
-" Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
+Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
 " Plug 'dstein64/vim-startuptime'
 
+Plug 'slim-template/vim-slim'
 call plug#end()
 
 lua require('impatient')

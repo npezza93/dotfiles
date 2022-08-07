@@ -121,4 +121,7 @@ ls.add_snippets("javascript", {
 ls.add_snippets("eruby", {
   s({trig = "bi", description = "binding.b"}, t("<% binding.b %>")),
   s({trig = "link_to", description = "link_to"}, fmt("<%= link_to {} %>", { i(1) })),
+  s({trig = "end", description = "end"}, fmt("<% end %>", {})),
+  s({trig = "else", description = "else"}, fmt("<% else %>", {})),
+  s({trig = "if", description = "if"}, fmt("<% if {} %>", { i(0) })),
 })

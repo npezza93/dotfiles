@@ -14,7 +14,6 @@
 			"theme": {
 				"background": "rgb(45, 48, 62)",
 				"windowBackground": "#2d303e",
-				"selection": "rgba(151, 151, 155, 0.2)",
 				"foreground": "rgb(239, 240, 235)",
 				"black": "rgb(40, 42, 54)",
 				"red": "rgb(255, 92, 87)",
@@ -33,7 +32,8 @@
 				"brightWhite": "rgb(239, 240, 235)",
 				"brightBlack": "rgb(104, 104, 104)",
 				"cursorAccent": "rgb(40, 42, 54)",
-				"cursor": "rgb(151, 151, 155)"
+				"cursor": "rgb(151, 151, 155)",
+				"selectionBackground": "rgba(151, 151, 155, 0.2)"
 			},
 			"windowBackground": "rgb(45,48,62)",
 			"macOptionClickForcesSelection": true,
@@ -86,7 +86,6 @@
 			"windowBackground": "rgba(45,48,62,0)",
 			"theme": {
 				"background": "rgb(0, 0, 0)",
-				"selection": "rgba(151, 151, 155, 0.2)",
 				"foreground": "rgb(239, 240, 235)",
 				"black": "rgb(40, 42, 54)",
 				"red": "rgb(255, 92, 87)",
@@ -105,7 +104,8 @@
 				"brightWhite": "rgb(239, 240, 235)",
 				"brightBlack": "rgb(104, 104, 104)",
 				"cursorAccent": "rgb(40, 42, 54)",
-				"cursor": "rgb(151, 151, 155)"
+				"cursor": "rgb(151, 151, 155)",
+				"selectionBackground": "rgba(151, 151, 155, 0.2)"
 			},
 			"cursorStyle": "block",
 			"vibrancy": "",
@@ -160,7 +160,6 @@
 			"theme": {
 				"background": "rgb(45, 48, 62)",
 				"windowBackground": "#2d303e",
-				"selection": "rgba(151, 151, 155, 0.2)",
 				"foreground": "rgb(239, 240, 235)",
 				"black": "rgb(40, 42, 54)",
 				"red": "rgb(255, 92, 87)",
@@ -179,7 +178,8 @@
 				"brightWhite": "rgb(239, 240, 235)",
 				"brightBlack": "rgb(104, 104, 104)",
 				"cursorAccent": "rgb(40, 42, 54)",
-				"cursor": "rgb(151, 151, 155)"
+				"cursor": "rgb(151, 151, 155)",
+				"selectionBackground": "rgba(151, 151, 155, 0.2)"
 			},
 			"windowBackground": "rgb(45,48,62)",
 			"macOptionClickForcesSelection": true,
@@ -226,7 +226,6 @@
 			"windowBackground": "rgba(45,48,62,0)",
 			"theme": {
 				"background": "rgba(0, 0, 0, 0)",
-				"selection": "rgba(151, 151, 155, 0.2)",
 				"foreground": "rgb(239, 240, 235)",
 				"black": "rgb(40, 42, 54)",
 				"red": "rgb(255, 92, 87)",
@@ -245,7 +244,8 @@
 				"brightWhite": "rgb(239, 240, 235)",
 				"brightBlack": "rgb(104, 104, 104)",
 				"cursorAccent": "rgb(40, 42, 54)",
-				"cursor": "rgb(151, 151, 155)"
+				"cursor": "rgb(151, 151, 155)",
+				"selectionBackground": "rgba(151, 151, 155, 0.2)"
 			},
 			"cursorStyle": "block",
 			"vibrancy": "ultra-dark",
@@ -315,7 +315,6 @@
 			"theme": {
 				"background": "rgb(0, 0, 0)",
 				"cursor": "rgb(151, 151, 155)",
-				"selection": "rgba(151, 151, 155, 0.3)",
 				"foreground": "rgb(239, 240, 235)",
 				"black": "rgb(40, 42, 54)",
 				"red": "rgb(255, 92, 87)",
@@ -333,7 +332,8 @@
 				"white": "rgb(241, 241, 240)",
 				"brightWhite": "rgb(239, 240, 235)",
 				"brightBlack": "rgb(104, 104, 104)",
-				"cursorAccent": "rgb(40, 42, 54)"
+				"cursorAccent": "rgb(40, 42, 54)",
+				"selectionBackground": "rgba(151, 151, 155, 0.3)"
 			},
 			"visor": {},
 			"name": "Black",
@@ -400,17 +400,19 @@
 				"brightWhite": "rgb(217, 224, 238)",
 				"cursor": "rgb(248, 189, 150)",
 				"cursorAccent": "rgb(30, 29, 47)",
-				"selection": "rgba(217, 224, 238, 0.2)",
 				"foreground": "rgb(217, 224, 238)",
-				"background": "rgb(30, 29, 47)"
+				"background": "rgb(30, 29, 47)",
+				"selectionBackground": "rgba(217, 224, 238, 0.2)"
 			},
 			"name": "Catpuccin",
 			"shell": "",
 			"padding": "10px 0px 5px 15px",
-			"experimentalWebglRenderer": false,
-			"fontFamily": "JetBrainsMono Nerd Font Mono",
-			"ligatures": true
+			"experimentalWebglRenderer": true,
+			"fontFamily": "FiraCode Nerd Font Mono",
+			"ligatures": false,
+			"cursorStyle": "block",
+			"fontWeight": "normal"
 		}
 	],
-	"version": "4.2.2"
+	"version": "5.0.0-beta4"
 }

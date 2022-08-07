@@ -47,13 +47,13 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 let mapleader = "\<Space>"
 nnoremap <leader>R :source $MYVIMRC<CR>
 inoremap <c-x><c-]> <c-]>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-nnoremap <silent><esc> :noh<return><esc>
-nnoremap <C-S> :w<cr>
-inoremap <C-S> <esc>:w<cr>
+nnoremap <silent> <C-J> <C-W><C-J>
+nnoremap <silent> <C-K> <C-W><C-K>
+nnoremap <silent> <C-L> <C-W><C-L>
+nnoremap <silent> <C-H> <C-W><C-H>
+nnoremap <silent> <esc> :silent! noh<return><esc>
+nnoremap <silent> <C-S> :silent! w<cr>
+inoremap <silent> <C-S> <esc>:silent! w<cr>
 map <leader>gf :e <cfile><cr>
 nnoremap <leader><Tab> >>
 nnoremap <S-Tab> <<
