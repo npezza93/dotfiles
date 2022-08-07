@@ -47,6 +47,7 @@ Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
 Plug 'quangnguyen30192/cmp-nvim-tags'
+Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }                           " Add tabnine completions to nvim-compe

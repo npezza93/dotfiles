@@ -1,3 +1,6 @@
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 -- JSON language server setup
 require'lspconfig'.jsonls.setup {
   cmd = { "/Users/nick/.config/nvim/language-servers/node_modules/.bin/vscode-json-languageserver", "--stdio" },
@@ -13,8 +16,15 @@ require'lspconfig'.yamlls.setup {
   cmd = { "/Users/nick/.config/nvim/language-servers/node_modules/.bin/yaml-language-server", "--stdio" }
 }
 
+-- Tailwind language server setup
+require'lspconfig'.tailwindcss.setup {
+  cmd = { "/Users/nick/.config/nvim/language-servers/node_modules/.bin/tailwindcss-language-server", "--stdio" }
+}
+
 -- Rust language server setup
-require'lspconfig'.rust_analyzer.setup({})
+require'lspconfig'.rust_analyzer.setup({
+  capabilities = capabilities,
+})
 
 -- Diagnostic language server setup for linters
 require'lspconfig'.diagnosticls.setup {

@@ -61,7 +61,8 @@ cmp.setup({
     { name = 'path', max_item_count = 2 },
     { name = 'tags', max_item_count = 2 },
     { name = 'cmp_tabnine', priority = 5000 },
-    { name = 'luasnip', max_item_count = 3 }
+    { name = 'luasnip', max_item_count = 3 },
+    { name = 'nvim_lsp', max_item_count = 2, priority = 5001 }
   },
   formatting = {
     format = lspkind.cmp_format({
