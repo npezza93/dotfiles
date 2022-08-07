@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-
-cp ~/.gitconfig .gitconfig
-cp ~/.gitignore .gitignore
-cp ~/.pryrc .pryrc
-cp ~/.tmux.conf .tmux.conf
-cp ~/.zshrc .zshrc
-cp /Users/nick/Library/Application\ Support/Archipelago/config.json .archipelago.json
