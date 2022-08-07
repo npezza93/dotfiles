@@ -150,7 +150,7 @@ alias l='exa -lah --git'
 alias ll='exa -lh --git'
 alias ls='exa -G'
 alias lsa='exa -lah --git'
-alias cat='bat  --theme="Catppuccin" --style="numbers,changes,header"'
+alias cat='bat  --theme="Catppuccin-mocha" --style="numbers,changes,header"'
 
 alias ctags='ctags -R --exclude=public --exclude=tmp --exclude=.git --exclude=node_modules --exclude=vendor --exclude=dist --exclude=coverage --exclude=README.md --exclude=CODE_OF_CONDUCT.md'
 alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kill -9"
