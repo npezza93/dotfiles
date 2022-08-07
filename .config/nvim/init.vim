@@ -13,4 +13,3 @@ luafile $HOME/.config/nvim/treesitter.lua
 source  $HOME/.config/nvim/lazy.vim
 luafile $HOME/.config/nvim/comment.lua
 source  $HOME/.config/nvim/lightline.vimrc
-" luafile $HOME/.config/nvim/lightline.lua
