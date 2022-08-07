@@ -2,97 +2,7 @@
 
 gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 
-\curl -sSL https://get.rvm.io | bash -s stable --ruby
-
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-brew cask install archipelago
-brew install adns
-brew install autoconf
-brew install automake
-brew install bat
-brew install cmake
-brew install colordiff
-brew install coreutils
-brew install dfu-util
-brew install elasticsearch
-brew install exa
-brew install fd
-brew install freetype
-brew install fzy
-brew install gdbm
-brew install gettext
-brew install git
-brew install git-standup
-brew install gmp
-brew install gnupg
-brew install gnutls
-brew install heroku
-brew install heroku-node
-brew install highlight
-brew install hub
-brew install icu4c
-brew install jansson
-brew install jemalloc
-brew install jpeg
-brew install libassuan
-brew install libevent
-brew install libffi
-brew install libgcrypt
-brew install libgpg-error
-brew install libidn2
-brew install libksba
-brew install libpng
-brew install libsodium
-brew install libtasn1
-brew install libtermkey
-brew install libtiff
-brew install libtool
-brew install libunistring
-brew install libusb
-brew install libuv
-brew install libvterm
-brew install libyaml
-brew install libzip
-brew install little-cms2
-brew install lua
-brew install luajit
-brew install msgpack
-brew install mupdf-tools
-brew install mysql@5.7
-brew install ncurses
-brew install neo4j
-brew install nettle
-brew install node
-brew install npth
-brew install openjpeg
-brew install openssl
-brew install openssl@1.1
-brew install p11-kit
-brew install pcre
-brew install pcre2
-brew install pinentry
-brew install pkg-config
-brew install postgresql
-brew install python
-brew install python@2
-brew install readline
-brew install reattach-to-user-namespace
-brew install redis
-brew install s3cmd
-brew install sqlite
-brew install tldr
-brew install tmux
-brew install unbound
-brew install unibilium
-brew install universal-ctags
-brew install wget
-brew install xz
-brew install yarn
-brew install z
-brew install zsh
-brew install zsh-completions
-brew install zsh-syntax-highlighting
 
 cp .gitignore ~/.gitignore
 cp .gitconfig ~/.gitconfig
@@ -103,12 +13,4 @@ cp .archipelago.json /Users/nick/Library/Application\ Support/Archipelago/config
 
 chsh -s /bin/zsh
 
-brew tap caskroom/fonts
-brew cask install font-fira-code
-
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-git clone https://github.com/zdharma/fast-syntax-highlighting.git \
-  ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
-
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
