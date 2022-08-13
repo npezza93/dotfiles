@@ -1,16 +1,23 @@
 #!/usr/bin/env sh
 
-gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-cp .gitignore ~/.gitignore
-cp .gitconfig ~/.gitconfig
-cp .tmux.conf ~/.tmux.conf
-cp .zshrc ~/.zshrc
-cp .pryrc ~/.pryrc
-cp .archipelago.json /Users/nick/Library/Application\ Support/Archipelago/config.json
-
-chsh -s /bin/zsh
-
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+ln -s ~/.dotfiles/.git_template ~/.git_template
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/.gitignore ~/.gitignore
+ln -s ~/.dotfiles/.irbrc ~/.irbrc
+ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/.config/bat ~/.config/bat
+ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
+ln -s ~/.dotfiles/.archipelago.json /Users/nick/Library/Application\ Support/Archipelago/config.json
+ln -s ~/.dotfiles/.oh-my-zsh/custom ~/.oh-my-zsh/custom
+
+mkdir -p ~/.rbenv/plugins
+git clone https://github.com/tpope/rbenv-ctags.git ~/.rbenv/plugins/rbenv-ctags
+rbenv ctags
+git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/rbenv-default-gems
+
+echo "gem-ctags\nripper-tags" > $(rbenv root)/default-gems
