@@ -4,10 +4,10 @@ require'nvim-treesitter.configs'.setup {
       enable = true,
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
-        ["<leader>m"] = "@function.outer",
+        ["<leader>m"] = {"@function.outer"},
       },
       goto_previous_start = {
-        ["<leader>M"] = "@function.outer",
+        ["<leader>M"] = {"@function.outer"},
       },
     },
     select = {
@@ -40,12 +40,12 @@ require'nvim-treesitter.configs'.setup {
     swap = {
       enable = true,
       swap_next = {
-        ["<leader>j"] = "@function.outer",
-        ["<leader>l"] = "@parameter.inner",
+        ["<leader>j"] = {"@function.outer"},
+        ["<leader>l"] = {"@parameter.inner"},
       },
       swap_previous = {
-        ["<leader>k"] = "@function.outer",
-        ["<leader>h"] = "@parameter.inner",
+        ["<leader>k"] = {"@function.outer"},
+        ["<leader>h"] = {"@parameter.inner"},
       },
     },
   },

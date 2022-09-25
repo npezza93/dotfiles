@@ -30,11 +30,10 @@ require'nvim-tree'.setup {
   },
   filters = {
     dotfiles = false,
-    custom = {}
+    custom = {'.DS_STORE', 'git'}
   },
   view = {
     width = 30,
-    height = 30,
     hide_root_folder = true,
     side = 'right',
     mappings = {
@@ -47,4 +46,19 @@ require'nvim-tree'.setup {
     ignore = false,
     timeout = 500,
   },
+  sort_by = function(nodes)
+    table.sort(nodes, function(a, b)
+      a_name = a.name
+      if a_name:sub(1, 1) == "." then
+        a_name = a_name:sub(2)
+      end
+
+      b_name = b.name
+      if b_name:sub(1, 1) == "." then
+        b_name = b_name:sub(2)
+      end
+
+      return a_name:lower() < b_name:lower()
+    end)
+  end
 }
