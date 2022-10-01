@@ -6,7 +6,7 @@
 [user]
   name = Nick Pezza
   email = pezza@hey.com
-  signingkey = DD16D8FE96F6761D
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILfOggYNJzAF+NgT/+fJewX0uiUubgkpBOMMM5vgpl0u pezza@hey.com
 [alias]
   co = checkout
   br = branch
@@ -41,7 +41,7 @@
 [pager]
   branch = false
 [gpg]
-  program = /usr/local/MacGPG2/bin/gpg2
+  format = ssh
 [init]
   templatedir = ~/.git_template
   defaultBranch = main
