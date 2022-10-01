@@ -9,7 +9,6 @@ Plug 'tpope/vim-repeat'                                                        "
 Plug 'karb94/neoscroll.nvim'                                                   " Makes scrolling smoooooth
 Plug 'tpope/vim-surround'                                                      " Adds surround motion
 Plug 'numToStr/Comment.nvim'                                                   " Adds gcc for turning line into comment
-Plug 'pbrisbin/vim-mkdir'                                                      " When creating a file, creates directory tree if missing
 Plug 'ggandor/lightspeed.nvim'                                                 " Two letter motion
 " Plug 'ZhiyuanLck/smart-pairs'                                                  " Auto close parens, quote, etc.
 Plug 'christoomey/vim-tmux-navigator'                                          " Makes navigating in tmux and vim easier

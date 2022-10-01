@@ -27,6 +27,7 @@ set wrap
 set laststatus=3
 set ignorecase
 set smartcase
+set signcolumn=yes:1
 " set cmdheight=0
 
 syntax off
