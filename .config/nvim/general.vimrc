@@ -66,3 +66,5 @@ nmap k gk
 nmap j gj
 imap <silent><expr> <C-N> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<down>'
 smap <silent><expr> <C-N> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<down>'
+vmap J :m '>+1<CR>gv=gv
+vmap K :m '<-2<CR>gv=gv

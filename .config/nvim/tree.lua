@@ -30,7 +30,7 @@ require'nvim-tree'.setup {
   },
   filters = {
     dotfiles = false,
-    custom = {'.DS_STORE', 'git'}
+    custom = {'.DS_STORE', '.git$', '.keep', 'tags$', 'coverage$'}
   },
   view = {
     width = 30,
