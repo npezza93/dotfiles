@@ -48,7 +48,6 @@ Plug 'quangnguyen30192/cmp-nvim-tags'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }                           " Add tabnine completions to nvim-compe
 
 " Searching
 Plug 'mileszs/ack.vim'                                                         " Search across project

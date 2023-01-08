@@ -1,14 +1,6 @@
 local cmp     = require('cmp')
-local tabnine = require('cmp_tabnine.config')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
-
-tabnine:setup({
-  max_lines = 1000;
-  max_num_results = 2;
-  sort = false;
-  run_on_every_keystroke = true;
-})
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -60,7 +52,6 @@ cmp.setup({
   sources = {
     { name = 'path', max_item_count = 2 },
     { name = 'tags', max_item_count = 2 },
-    { name = 'cmp_tabnine', priority = 5000 },
     { name = 'luasnip', max_item_count = 3 },
     { name = 'nvim_lsp', max_item_count = 2, priority = 5001 }
   },
@@ -73,7 +64,6 @@ cmp.setup({
         luasnip = "[SN]",
         path = "[PTH]",
         tags = "[TAG]",
-        cmp_tabnine = "[TN]",
       })
     })
   },
