@@ -8,7 +8,8 @@ Plug 'tpope/vim-repeat'                                                        "
 Plug 'karb94/neoscroll.nvim'                                                   " Makes scrolling smoooooth
 Plug 'tpope/vim-surround'                                                      " Adds surround motion
 Plug 'numToStr/Comment.nvim'                                                   " Adds gcc for turning line into comment
-Plug 'ggandor/lightspeed.nvim'                                                 " Two letter motion
+Plug 'ggandor/leap.nvim'                                                 " Two letter motion
+Plug 'ggandor/flit.nvim'
 " Plug 'ZhiyuanLck/smart-pairs'                                                  " Auto close parens, quote, etc.
 Plug 'christoomey/vim-tmux-navigator'                                          " Makes navigating in tmux and vim easier
 Plug 'christoomey/vim-system-copy'                                             " Copy nad paste with clipboard. cp(copy) and cv(paste)
