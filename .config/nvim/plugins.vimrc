@@ -35,13 +35,13 @@ Plug 'kyazdani42/nvim-web-devicons'                                            "
 Plug 'kyazdani42/nvim-tree.lua'                                                " Adds tree viewer
 
 " Tree sitter
-Plug 'npezza93/nvim-treesitter', {'do': ':TSUpdate'}                           " Enables tree sitter features
+Plug 'npezza93/nvim-treesitter', {'commit': '4e245c8a', 'do': ':TSUpdate'}                           " Enables tree sitter features
 Plug 'npezza93/nvim-treesitter-textobjects'                                    " Adds tree sitter text objects
 Plug 'RRethy/nvim-treesitter-endwise'                                          " Auto adds end when using if, class, etc
 Plug 'andymass/vim-matchup'                                                    " Enhances % jumping
 
 " LSP like features and snippets
-Plug 'neovim/nvim-lspconfig', {'on': []}                                       " Quickstart configurations for the LSP client
+Plug 'neovim/nvim-lspconfig', {'commit': 'da7461b', 'on': []}                                       " Quickstart configurations for the LSP client
 Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
@@ -55,7 +55,7 @@ Plug 'mileszs/ack.vim'                                                         "
 Plug 'npezza93/fozzie.vim'                                                     " Fuzzy file searching
 
 " Debugging vim stuff
-" Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
+Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
 " Plug 'dstein64/vim-startuptime'
 
 call plug#end()
