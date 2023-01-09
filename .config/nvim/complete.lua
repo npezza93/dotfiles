@@ -10,10 +10,12 @@ end
 cmp.setup({
   mapping = {
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
+      if luasnip.expandable() then
+        luasnip.expand()
       elseif cmp.visible() then
         cmp.select_next_item()
+      elseif luasnip.jumpable(1) then
+        luasnip.jump(1)
       elseif has_words_before() then
         cmp.complete()
       else
@@ -42,6 +44,7 @@ cmp.setup({
         end
       end
     }),
+    ['<C-e>'] = cmp.mapping.abort(),
 
   },
   snippet = {
