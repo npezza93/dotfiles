@@ -154,7 +154,7 @@ alias lsa='exa -lah --git'
 alias la='exa -Glah'
 alias cat='bat  --theme="Catppuccin-mocha" --style="numbers,changes,header"'
 
-alias ctags='ctags -R --exclude=public --exclude=tmp --exclude=.git --exclude=node_modules --exclude=vendor --exclude=dist --exclude=coverage --exclude=README.md --exclude=CODE_OF_CONDUCT.md --exclude=tailwind.css --exclude=.bundle --exclude=structure.sql --exclude=schema.rb'
+alias ttags-all='ttags $({ g ls-files; g ls-files -o --exclude-standard; } | rg -v "(.*\.(pdf|json|md|css|svg|sql|keep|yml|csv|key|ru|txt|png|jpg|jpeg|webp|ttf|woff2|otf|woff)$)|(db/schema.rb)|(^public.*)|(db/migrate/.*)|(^bin.*)|(^\..*)|Gemfile.*|Rakefile")'
 alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kill -9"
 alias killvim="ps -ax | grep vim | grep -v grep | awk '{print $1}' | xargs kill -9"
 
