@@ -78,3 +78,10 @@ function current_diagnostic_messages()
 
   return vim.lsp.diagnostic.get_line_diagnostics(0, line_nr, {}, nil)
 end
+
+vim.lsp.start({
+  name = 'ttags',
+  cmd = { "/Users/nick/Documents/ttags/target/debug/ttags", "lsp" },
+  filetypes = { 'ruby', 'rust', 'javascript' },
+  root_dir = vim.fn.getcwd()
+})

@@ -35,7 +35,7 @@ Plug 'kyazdani42/nvim-web-devicons'                                            "
 Plug 'kyazdani42/nvim-tree.lua'                                                " Adds tree viewer
 
 " Tree sitter
-Plug 'npezza93/nvim-treesitter', {'commit': '4e245c8a', 'do': ':TSUpdate'}                           " Enables tree sitter features
+Plug 'npezza93/nvim-treesitter', {'commit': '10488b15a426429b24cc5373e10783550378aea6', 'do': ':TSUpdate'}                           " Enables tree sitter features
 Plug 'npezza93/nvim-treesitter-textobjects'                                    " Adds tree sitter text objects
 Plug 'RRethy/nvim-treesitter-endwise'                                          " Auto adds end when using if, class, etc
 Plug 'andymass/vim-matchup'                                                    " Enhances % jumping
