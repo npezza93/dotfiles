@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+PATH="/usr/local/bin:$PATH"
+dir="`git rev-parse --git-dir`"
+parent="`git rev-parse --show-toplevel`"
+trap 'rm -f "$dir/$$.tags"' EXIT
+ttags $({ git ls-files; git ls-files -o --exclude-standard; } | rg -v "(.*\.(pdf|json|md|css|svg|sql|keep|yml|csv|key|ru|txt|png|jpg|jpeg|webp|ttf|woff2|otf|woff)$)|(db/schema.rb)|(^public.*)|(db/migrate/.*)|(^bin.*)|(^\..*)|Gemfile.*|Rakefile") --relative -f"$dir/$$.tags"
+mv "$dir/$$.tags" "$parent/tags"
