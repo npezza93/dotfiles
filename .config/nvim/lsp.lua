@@ -81,7 +81,7 @@ end
 
 vim.lsp.start({
   name = 'ttags',
-  cmd = { "/Users/nick/Documents/ttags/target/debug/ttags", "lsp" },
+  cmd = { "ttags", "lsp" },
   filetypes = { 'ruby', 'rust', 'javascript' },
   root_dir = vim.fn.getcwd()
 })
