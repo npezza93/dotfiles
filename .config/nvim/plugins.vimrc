@@ -36,7 +36,7 @@ Plug 'kyazdani42/nvim-tree.lua'                                                "
 
 " Tree sitter
 Plug 'npezza93/nvim-treesitter', {'do': ':TSUpdate'}                           " Enables tree sitter features
-Plug 'npezza93/nvim-treesitter-textobjects'                                    " Adds tree sitter text objects
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'                                    " Adds tree sitter text objects
 Plug 'RRethy/nvim-treesitter-endwise'                                          " Auto adds end when using if, class, etc
 Plug 'andymass/vim-matchup'                                                    " Enhances % jumping
 

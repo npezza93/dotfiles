@@ -21,8 +21,17 @@ require'nvim-treesitter.configs'.setup {
          ['@class.inner'] = 'V',
          ['@class.outer'] = 'V',
          ['@function.inner'] = 'V',
-         ['@function.outer'] = 'V',
+         ['@function.outer'] = 'v',
       },
+      include_surrounding_whitespace = function (a)
+        if a.query_string == "@function.outer" or
+          a.query_string == "@class.outer" or
+          a.query_string == "@class.inner" then
+          return true
+        else
+          return false
+        end
+      end,
       keymaps = {
         ["iM"] = "@class.inner",
         ["aM"] = "@class.outer",
@@ -40,12 +49,12 @@ require'nvim-treesitter.configs'.setup {
     swap = {
       enable = true,
       swap_next = {
-        ["<leader>j"] = {"@function.outer"},
-        ["<leader>l"] = {"@parameter.inner"},
+        ["<leader>j"] = "@function.outer",
+        ["<leader>l"] = "@parameter.inner",
       },
       swap_previous = {
-        ["<leader>k"] = {"@function.outer"},
-        ["<leader>h"] = {"@parameter.inner"},
+        ["<leader>k"] = "@function.outer",
+        ["<leader>h"] = "@parameter.inner",
       },
     },
   },
