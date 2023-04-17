@@ -10,9 +10,7 @@ Plug 'tpope/vim-surround'                                                      "
 Plug 'numToStr/Comment.nvim'                                                   " Adds gcc for turning line into comment
 Plug 'ggandor/leap.nvim'                                                 " Two letter motion
 Plug 'ggandor/flit.nvim'
-" Plug 'ZhiyuanLck/smart-pairs'                                                  " Auto close parens, quote, etc.
 Plug 'christoomey/vim-tmux-navigator'                                          " Makes navigating in tmux and vim easier
-Plug 'christoomey/vim-system-copy'                                             " Copy nad paste with clipboard. cp(copy) and cv(paste)
 Plug 'chrisbra/csv.vim'
 
 " Git related plugins
@@ -20,7 +18,6 @@ Plug 'nvim-lua/plenary.nvim'                                                   "
 Plug 'lewis6991/gitsigns.nvim'                                                 " Indicates added, modified and removed lines in a file
 
 " Ruby (Tags and such)
-" Plug 'craigemery/vim-autotag'                                                  " Keeps tags file up to date
 Plug 'npezza93/vim-tags'                                                       " Load tag files for ruby and gems
 Plug 'npezza93/vim-rails'
 Plug 'npezza93/vim-ruby'                                                       " Ruby stuff

@@ -69,3 +69,7 @@ imap <silent><expr> <C-N> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 smap <silent><expr> <C-N> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<down>'
 vmap J :m '>+1<CR>gv=gv
 vmap K :m '<-2<CR>gv=gv
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
