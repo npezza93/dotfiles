@@ -39,7 +39,7 @@
           },
           "to": [
             {
-              "key_code": "fast_forward"
+              "key_code": "fastforward"
             }
           ],
           "conditions": [
@@ -62,7 +62,11 @@
           },
           "to": [
             {
-              "key_code": "volume_increment"
+              "key_code": "volume_increment",
+              "modifiers": [
+                "left_alt",
+                "left_shift"
+              ]
             }
           ],
           "conditions": [
@@ -85,7 +89,34 @@
           },
           "to": [
             {
-              "key_code": "volume_decrement"
+              "key_code": "volume_decrement",
+              "modifiers": [
+                "left_alt",
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "caps_lock pressed",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "key_code": "space"
+          },
+          "to": [
+            {
+              "key_code": "play_or_pause"
             }
           ],
           "conditions": [
