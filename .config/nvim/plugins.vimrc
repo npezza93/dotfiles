@@ -38,7 +38,7 @@ Plug 'RRethy/nvim-treesitter-endwise'                                          "
 Plug 'andymass/vim-matchup'                                                    " Enhances % jumping
 
 " LSP like features and snippets
-Plug 'neovim/nvim-lspconfig', {'commit': 'da7461b', 'on': []}                                       " Quickstart configurations for the LSP client
+Plug 'npezza93/nvim-lspconfig'
 Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
@@ -52,7 +52,7 @@ Plug 'mileszs/ack.vim'                                                         "
 Plug 'npezza93/fozzie.vim'                                                     " Fuzzy file searching
 
 " Debugging vim stuff
-Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
+" Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
 " Plug 'dstein64/vim-startuptime'
 
 call plug#end()

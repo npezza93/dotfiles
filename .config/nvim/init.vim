@@ -15,3 +15,6 @@ luafile $HOME/.config/nvim/comment.lua
 luafile $HOME/.config/nvim/leap.lua
 source  $HOME/.config/nvim/lightline.vimrc
 luafile $HOME/.config/nvim/mkdir.lua
+luafile $HOME/.config/nvim/cmdline.lua
+luafile $HOME/.config/nvim/lsp.lua
+source  $HOME/.config/nvim/lsp.vimrc

@@ -407,7 +407,7 @@
 			"name": "Catpuccin",
 			"shell": "",
 			"padding": "10px 0px 5px 15px",
-			"experimentalWebglRenderer": false,
+			"experimentalWebglRenderer": true,
 			"fontFamily": "FiraCode Nerd Font Mono",
 			"ligatures": true,
 			"cursorStyle": "block",
@@ -415,5 +415,5 @@
 			"fontSize": "16"
 		}
 	],
-	"version": "5.0.0-beta19"
+	"version": "5.0.2"
 }

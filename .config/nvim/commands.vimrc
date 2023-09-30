@@ -6,8 +6,7 @@ endfunction
 
 command -nargs=1 Z execute 'cd' g:Z(<f-args>)
 
-command RubocopFix call system('rubocop -A '.@%) | :checktime
-nnoremap <leader>1 :RubocopFix<cr>
+nnoremap <leader>1 :lua vim.lsp.buf.format()<cr>
 
 augroup highlight_yank
   autocmd!
