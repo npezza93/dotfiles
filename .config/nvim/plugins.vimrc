@@ -1,14 +1,11 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Neovim performance improvements
-Plug 'lewis6991/impatient.nvim'
-
 " General
 Plug 'tpope/vim-repeat'                                                        " Makes dot work with everything
 Plug 'karb94/neoscroll.nvim'                                                   " Makes scrolling smoooooth
 Plug 'tpope/vim-surround'                                                      " Adds surround motion
 Plug 'numToStr/Comment.nvim'                                                   " Adds gcc for turning line into comment
-Plug 'ggandor/leap.nvim'                                                 " Two letter motion
+Plug 'ggandor/leap.nvim'                                                       " Two letter motion
 Plug 'ggandor/flit.nvim'
 Plug 'christoomey/vim-tmux-navigator'                                          " Makes navigating in tmux and vim easier
 Plug 'chrisbra/csv.vim'
@@ -51,10 +48,8 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'mileszs/ack.vim'                                                         " Search across project
 Plug 'npezza93/fozzie.vim'                                                     " Fuzzy file searching
 
-" Debugging vim stuff
-" Plug 'nvim-treesitter/playground'                                              " Tree sitter tree explorer
-" Plug 'dstein64/vim-startuptime'
+" cmd line stuff
+Plug 'npezza93/fine-cmdline.nvim'
+Plug 'MunifTanjim/nui.nvim'
 
 call plug#end()
-
-lua require('impatient')

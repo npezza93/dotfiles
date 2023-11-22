@@ -28,7 +28,7 @@ set laststatus=3
 set ignorecase
 set smartcase
 set signcolumn=yes:1
-" set cmdheight=0
+set cmdheight=0
 
 syntax off
 
@@ -47,6 +47,7 @@ set undoreload=10000 " maximum number lines to save for undo on a buffer reload
 
 au BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd FileType ruby setlocal indentkeys-=.
+autocmd FileType swift setlocal shiftwidth=2 tabstop=2
 
 let mapleader = "\<Space>"
 nnoremap <leader>R :source $MYVIMRC<CR>
@@ -73,3 +74,5 @@ vnoremap  <leader>y  "+y
 nnoremap  <leader>Y  "+yg_
 nnoremap  <leader>y  "+y
 nnoremap  <leader>yy  "+yy
+
+lua vim.loader.enable()

@@ -15,6 +15,7 @@ require'lspconfig'.jsonls.setup {
 require'lspconfig'.yamlls.setup {
   cmd = { "/Users/nick/.config/nvim/language-servers/node_modules/.bin/yaml-language-server", "--stdio" }
 }
+require'lspconfig'.sourcekit.setup {}
 
 -- Tailwind language server setup
 require'lspconfig'.tailwindcss.setup {
