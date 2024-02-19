@@ -96,8 +96,8 @@ subscribers = {
 
 reader.read do |request|
   result = subscribers[request[:method]]&.call(request)
-    File.write('/Users/nick/Documents/locals-log.log', request[:method], mode: 'a')
-    File.write('/Users/nick/Documents/locals-log.log', "\n", mode: 'a')
+    # File.write('/Users/nick/Documents/locals-log.log', request[:method], mode: 'a')
+    # File.write('/Users/nick/Documents/locals-log.log', "\n", mode: 'a')
 
   writer.write({ id: request[:id], result: }) if result
 end
