@@ -1,0 +1,103 @@
+#!/usr/bin/env /Users/nick/.rbenv/shims/ruby
+
+require "language_server-protocol"
+require "prism"
+require "strscan"
+
+class Collector
+  def initialize
+    @tokens = []
+    @current_row = 0
+    @current_column = 0
+  end
+
+  attr_reader :tokens
+
+  def sorted_tokens
+    tokens.flatten
+  end
+
+  def visit(node)
+    if node.is_a?(Prism::CallNode) && node.variable_call?
+      @tokens << add_token(node.location, 13)
+    end
+
+    node.child_nodes.compact.each { |child| visit(child) if child.is_a?(Prism::Node) }
+    tokens
+  end
+
+  def add_token(location, token_type)
+    length = location.end_offset - location.start_offset
+
+    row = location.start_line - 1
+    column = location.start_column
+
+    begin
+      delta_line = row - @current_row
+
+      delta_column = column
+      delta_column -= @current_column if delta_line == 0
+
+      [delta_line, delta_column, length, token_type, 0]
+    ensure
+      @current_row = row
+      @current_column = column
+    end
+  end
+end
+
+LSP = LanguageServer::Protocol
+writer = LSP::Transport::Stdio::Writer.new
+reader = LSP::Transport::Stdio::Reader.new
+
+subscribers = {
+  "initialize" => ->(request) {
+    LSP::Interface::InitializeResult.new(
+      capabilities: LSP::Interface::ServerCapabilities.new(
+        semantic_tokens_provider: LSP::Interface::SemanticTokensRegistrationOptions.new(
+          document_selector: { scheme: "file", language: "ruby" },
+          legend: {:tokenTypes=>[:namespace, :type, :class, :enum, :interface, :struct, :typeParameter, :parameter, :variable, :property, :enumMember, :event, :function, :method, :macro, :keyword, :modifier, :comment, :string, :number, :regexp, :operator, :decorator], :tokenModifiers=>[]},
+          range: true,
+          full: { delta: false },
+        ).to_hash
+      ).to_hash
+    )
+  },
+  "textDocument/semanticTokens/full" => ->(request) {
+    file = request.dig(:params, :textDocument, :uri)[7..]
+    contents = File.read(file)
+
+    ast =
+      if file.end_with?(".erb")
+        scanner = StringScanner.new(contents)
+        output = +""
+
+        until scanner.eos?
+          non_ruby_code = scanner.scan_until(/<%(-|=)?/)
+          break unless non_ruby_code
+
+          output << non_ruby_code.gsub(/[^\n]/, " ")
+
+          ruby_code = scanner.scan_until(/(-)?%>/)
+          break unless ruby_code
+
+          output << ruby_code[...-2] + "  "
+        end
+
+        Prism.parse(output)
+      else
+        Prism.parse(contents)
+      end.value
+
+    { data: Collector.new.tap { |c| c.visit(ast) }.sorted_tokens }
+  },
+  "shutdown" => ->(request) { exit }
+}
+
+reader.read do |request|
+  result = subscribers[request[:method]]&.call(request)
+    File.write('/Users/nick/Documents/locals-log.log', request[:method], mode: 'a')
+    File.write('/Users/nick/Documents/locals-log.log', "\n", mode: 'a')
+
+  writer.write({ id: request[:id], result: }) if result
+end

@@ -1,3 +1,5 @@
+local configs = require('lspconfig.configs')
+local util = require('lspconfig.util')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
@@ -29,3 +31,15 @@ require'lspconfig'.rust_analyzer.setup({
 
 require'lspconfig'.rubocop.setup({})
 require'lspconfig'.ttags.setup({})
+
+if not configs.ruby_locals then
+  configs.ruby_locals = {
+    default_config = {
+      cmd = { "/Users/nick/.config/nvim/language-servers/ruby_locals" },
+      filetypes = {"ruby", "eruby"},
+      root_dir = util.root_pattern('.git')
+    },
+  }
+end
+
+require'lspconfig'.ruby_locals.setup({})

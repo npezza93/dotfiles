@@ -89,7 +89,7 @@ local testsnippet = function(indent)
 end
 
 ls.add_snippets("ruby", {
-	s("bi", { t("binding.b") }),
+	s("bi", { t("binding.irb") }),
 	s("irb", { t("binding.irb") }),
 	s("pr", { t("private") }),
 	s("inc", fmt("include {}", { i(1, "Module") })),
@@ -124,4 +124,5 @@ ls.add_snippets("eruby", {
   s({trig = "end", description = "end"}, fmt("<% end %>", {})),
   s({trig = "else", description = "else"}, fmt("<% else %>", {})),
   s({trig = "if", description = "if"}, fmt("<% if {} %>", { i(0) })),
+  s({trig = "frame", description = "turbo_frame_tag"}, fmt("<%= turbo_frame_tag {} do %>\n  {}\n<% end %>", { i(1), i(2) })),
 })
