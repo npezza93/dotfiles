@@ -49,11 +49,19 @@ end
 LSP = LanguageServer::Protocol
 writer = LSP::Transport::Stdio::Writer.new
 reader = LSP::Transport::Stdio::Reader.new
+documents = {}
 
 subscribers = {
   "initialize" => ->(request) {
     LSP::Interface::InitializeResult.new(
       capabilities: LSP::Interface::ServerCapabilities.new(
+        text_document_sync: LSP::Interface::TextDocumentSyncOptions.new(
+          open_close: true,
+          change: LSP::Constant::TextDocumentSyncKind::FULL,
+          will_save: false,
+          will_save_wait_until: false,
+          save: LSP::Interface::SaveOptions.new(include_text: true)
+        ),
         semantic_tokens_provider: LSP::Interface::SemanticTokensRegistrationOptions.new(
           document_selector: { scheme: "file", language: "ruby" },
           legend: {:tokenTypes=>[:namespace, :type, :class, :enum, :interface, :struct, :typeParameter, :parameter, :variable, :property, :enumMember, :event, :function, :method, :macro, :keyword, :modifier, :comment, :string, :number, :regexp, :operator, :decorator], :tokenModifiers=>[]},
@@ -63,12 +71,30 @@ subscribers = {
       ).to_hash
     )
   },
+  "textDocument/didOpen" => ->(request) {
+    uri = request.dig(:params, :textDocument, :uri)
+    text = request.dig(:params, :textDocument, :text)
+    documents[uri] = text
+    nil
+  },
+  "textDocument/didChange" => ->(request) {
+    uri = request.dig(:params, :textDocument, :uri)
+    changes = request.dig(:params, :contentChanges)
+
+    documents[uri] = changes.first[:text]
+    nil
+  },
+  "textDocument/didClose" => ->(request) {
+    uri = request.dig(:params, :textDocument, :uri)
+    documents.delete(uri)
+    nil
+  },
   "textDocument/semanticTokens/full" => ->(request) {
-    file = request.dig(:params, :textDocument, :uri)[7..]
-    contents = File.read(file)
+    uri = request.dig(:params, :textDocument, :uri)
+    contents = documents[uri]
 
     ast =
-      if file.end_with?(".erb")
+      if uri.to_s.end_with?(".erb")
         scanner = StringScanner.new(contents)
         output = +""
 
@@ -96,8 +122,8 @@ subscribers = {
 
 reader.read do |request|
   result = subscribers[request[:method]]&.call(request)
-    # File.write('/Users/nick/Documents/locals-log.log', request[:method], mode: 'a')
-    # File.write('/Users/nick/Documents/locals-log.log', "\n", mode: 'a')
+  # File.write('/Users/nick/Documents/locals-log.log', request, mode: 'a')
+  # File.write('/Users/nick/Documents/locals-log.log', "\n", mode: 'a')
 
   writer.write({ id: request[:id], result: }) if result
 end

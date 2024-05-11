@@ -52,3 +52,6 @@
   twohead = ort
 [credential]
   helper = store
+[diff "lockb"]
+	textconv = bun
+	binary = true
