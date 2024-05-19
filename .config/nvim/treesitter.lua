@@ -3,15 +3,6 @@ require'nvim-treesitter.configs'.setup {
   matchup = {
     enable = true,
   },
-  -- incremental_selection = {
-  --   enable = true,
-  --   keymaps = {
-  --     init_selection = "gnt",
-  --     node_incremental = "grn",
-  --     scope_incremental = "grc",
-  --     node_decremental = "grm",
-  --   },
-  -- },
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
@@ -21,12 +12,7 @@ require'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true
-  },
-  -- query_linter = {
-  --   enable = false,
-  --   use_virtual_text = true,
-  --   lint_events = {"BufWrite", "CursorHold"},
-  -- },
+  }
 }
 
 local tsj = require('treesj')
