@@ -17,7 +17,7 @@ Plug 'lewis6991/gitsigns.nvim'                                                 "
 Plug 'npezza93/vim-tags'                                                       " Load tag files for ruby and gems
 Plug 'npezza93/vim-rails'
 Plug 'npezza93/vim-ruby'                                                       " Ruby stuff
-Plug 'AndrewRadev/splitjoin.vim'                                               " Toggles ruby blocks. Rewrite with tree sitter
+Plug 'Wansmer/treesj'                                                          " Toggles ruby blocks. Rewrite with tree sitter
 
 " Theme
 Plug 'npezza93/catppuccin.vim', {'as': 'catppuccin', 'do': 'CatppuccinCompile'}
