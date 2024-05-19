@@ -18,7 +18,7 @@ class Collector
   end
 
   def visit(node)
-    if node.is_a?(Prism::CallNode) && node.variable_call?
+    if node.is_a?(Prism::CallNode) && node.variable_call? && !%i(private public protected).include?(node.name)
       @tokens << add_token(node.location, 13)
     end
 
