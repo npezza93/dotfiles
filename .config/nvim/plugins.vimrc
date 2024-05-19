@@ -4,7 +4,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-repeat'                                                        " Makes dot work with everything
 Plug 'karb94/neoscroll.nvim'                                                   " Makes scrolling smoooooth
 Plug 'tpope/vim-surround'                                                      " Adds surround motion
-Plug 'numToStr/Comment.nvim'                                                   " Adds gcc for turning line into comment
 Plug 'ggandor/leap.nvim'                                                       " Two letter motion
 Plug 'ggandor/flit.nvim'
 Plug 'christoomey/vim-tmux-navigator'                                          " Makes navigating in tmux and vim easier
