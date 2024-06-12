@@ -15,10 +15,10 @@ export LANG='en-US.UTF-8'
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export EDITOR=vim
-export N_PREFIX=$HOME/.n
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=true
-export PATH="$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:$N_PREFIX/bin:/Users/nick/.dotfiles/bin"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:$N_PREFIX/bin:/Users/nick/.dotfiles/bin:/usr/local/go/bin:/Users/nick/go/bin"
 source ~/.dotfiles/catppuccin-zsh-syntax-highlighting.zsh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
