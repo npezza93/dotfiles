@@ -29,7 +29,11 @@ require'lspconfig'.rust_analyzer.setup({
   capabilities = capabilities,
 })
 
-require'lspconfig'.rubocop.setup({})
+require'lspconfig'.rubocop.setup({
+  init_options = {
+    safeAutocorrect = false,
+  }
+})
 require'lspconfig'.ttags.setup({})
 
 if not configs.ruby_locals then

@@ -14,7 +14,7 @@ export GIT_EDITOR='nvim'
 export LANG='en-US.UTF-8'
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export EDITOR=vim
+export EDITOR=nvim
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=true
 export BUN_INSTALL="$HOME/.bun"
@@ -148,11 +148,11 @@ alias tl='tmux list-sessions'
 alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
 
-alias l='exa -lah --git'
-alias ll='exa -lh --git'
-alias ls='exa -G'
-alias lsa='exa -lah --git'
-alias la='exa -Glah'
+alias l='eza -lah --git'
+alias ll='eza -lh --git'
+alias ls='eza -G'
+alias lsa='eza -lah --git'
+alias la='eza -Glah'
 alias cat='bat  --theme="Catppuccin-mocha" --style="numbers,changes,header"'
 
 alias ttags-all='ttags $({ g ls-files; g ls-files -o --exclude-standard; } | rg -v "(.*\.(pdf|json|md|css|svg|sql|keep|yml|csv|key|ru|txt|png|jpg|jpeg|webp|ttf|woff2|otf|woff)$)|(db/schema.rb)|(^public.*)|(db/migrate/.*)|(^bin.*)|(^\..*)|Gemfile.*|Rakefile")'

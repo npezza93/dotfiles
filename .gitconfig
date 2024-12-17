@@ -44,7 +44,7 @@
   format = ssh
 [init]
   templatedir = ~/.git_template
-  defaultBranch = main
+	defaultBranch = main
 [rebase]
   autoStash = true
 [pull]
@@ -55,3 +55,5 @@
 [diff "lockb"]
 	textconv = bun
 	binary = true
+[rerere]
+	enabled = true
