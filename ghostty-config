@@ -1,0 +1,58 @@
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 18
+font-feature=calt
+font-thicken=true
+
+cursor-style = block
+shell-integration-features = no-cursor
+cursor-style-blink = true
+adjust-cursor-thickness=3
+adjust-underline-thickness=2
+
+macos-titlebar-style = hidden
+
+background=#1e1d2f
+foreground=#d9e0ee
+cursor-color=#f8bd96
+palette = 0=#6e6c7e
+palette = 8=#988ba2
+
+# red
+palette = 1=#e590a8
+palette = 9=#e590a8
+
+# green
+palette = 2=#beedbd
+palette = 10=#beedbd
+
+# yellow
+palette = 3=#e9d8ad
+palette = 11=#e9d8ad
+
+# blue
+palette = 4=#96cdfb
+palette = 12=#96cdfb
+
+# pink
+palette = 5=#e7bfdf
+palette = 13=#e7bfdf
+
+# cyan
+palette = 6=#89dceb
+palette = 14=#89dceb
+
+palette = 7=#d9e0ee
+palette = 15=#d9e0ee
+
+window-padding-x=13,10
+window-padding-y=5,0
+window-colorspace=display-p3
+
+clipboard-read=allow
+clipboard-write=allow
+copy-on-select=true
+confirm-close-surface=false
+
+shell-integration = zsh
+
+keybind = cmd+backspace=text:\x15

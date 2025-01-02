@@ -14,10 +14,14 @@ ln -s ~/.dotfiles/.config/bat ~/.config/bat
 ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
 ln -s ~/.dotfiles/.archipelago.json /Users/nick/Library/Application\ Support/Archipelago/config.json
 ln -s ~/.dotfiles/.oh-my-zsh/custom ~/.oh-my-zsh/custom
+ln -s ~/.dotfiles/ghostty-config /Users/nick/Library/Application\ Support/com.mitchelh.ghostty/config
 
 mkdir -p ~/.rbenv/plugins
 git clone https://github.com/tpope/rbenv-ctags.git ~/.rbenv/plugins/rbenv-ctags
 rbenv ctags
 git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/rbenv-default-gems
 
-echo "gem-ctags\nripper-tags" > $(rbenv root)/default-gems
+cargo install fozzie
+cargo install ttags
+
+echo "gem-ttags\nripper-tags\nlanguage_server-protocol\nprism\nneovim\ntty-cursor\ntty-reader\ntty-screen\npastel" > $(rbenv root)/default-gems

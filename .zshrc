@@ -134,7 +134,7 @@ alias gcp='git cherry-pick'
 alias gci='g commit'
 alias gco='g checkout'
 alias grbi='g rebase -i'
-alias gap='g a -p'
+alias gap='git add --intent-to-add . && git add --patch'
 alias gci='g ci'
 
 alias mb='bundle exec middleman build'
@@ -227,7 +227,6 @@ cd() {
 if type rbenv &> /dev/null; then
   local RBENV_SHIMS="${RBENV_ROOT:-${HOME}/.rbenv}/shims"
   export PATH="${RBENV_SHIMS}:${PATH}"
-  source $(dirname $(greadlink -f `whence -p rbenv`))/../completions/rbenv.zsh
   function rbenv() {
     unset -f rbenv > /dev/null 2>&1
     eval "$(command rbenv init -)"
