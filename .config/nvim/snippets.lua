@@ -92,15 +92,15 @@ ls.add_snippets("ruby", {
 	s("bi", { t("binding.irb") }),
 	s("irb", { t("binding.irb") }),
 	s("pr", { t("private") }),
-	s("inc", fmt("include {}", { i(1, "Module") })),
+	s("inc", fmt("include {}", { i(0, "Module") })),
 	s("rb", t({"#!/usr/bin/env ruby -wKU", "", ""})),
   s("defi", fmt("def initialize({args})\n  {instance_vars}\nend", { args = i(1), instance_vars = argparse(1) })),
   s({trig = "def", description = "def <name>..."}, fmt("def {}{}\n  {}\nend{}", { i(1, "method_name"), c(2, { sn(nil, { t("("), i(1, "*args"), t(")") }), i(nil) }), i(3), i(0) })),
   s({trig = "do", description = "do block"}, fmt("do {}\n  {}\nend{}", { c(1, { sn(nil, { t("|"), i(1, "args"), t("|") }), i(nil) }), i(2), i(0) })),
   s({trig = "{", description = "{} block"}, fmt("{{ {} {} }}{}", { c(1, { sn(nil, { t("|"), i(1, "args"), t("|") }), i(nil) }), i(2), i(0) })),
-  s({trig = "r", description = "attr_reader"}, fmt("attr_reader {}", { i(1) })),
-  s({trig = "w", description = "attr_writer"}, fmt("attr_writer {}", { i(1) })),
-  s({trig = "rw", description = "attr_accessor"}, fmt("attr_accessor {}", { i(1) })),
+  s({trig = "r", description = "attr_reader"}, fmt("attr_reader {}", { i(0) })),
+  s({trig = "w", description = "attr_writer"}, fmt("attr_writer {}", { i(0) })),
+  s({trig = "rw", description = "attr_accessor"}, fmt("attr_accessor {}", { i(0) })),
   s({trig = "mod", description = "module"}, fmt("module {}\n  {}\nend", { d(1, modulename), i(0) })),
   s({trig = "cla", description = "class"}, fmt("class {}\n  {}\nend", { d(1, classname("Super")), i(0) })),
   s({trig = "controller", description = "controller"}, fmt("class {}\n  {}\nend", { d(1, classname("ApplicationController")), i(2) })),
@@ -115,12 +115,13 @@ ls.add_snippets("ruby", {
 })
 
 ls.add_snippets("javascript", {
-  s({trig = "log", description = "console.log()"}, fmt("console.log({})", { i(1) })),
+  s({trig = "log", description = "console.log()"}, fmt("console.log({})", { i(0) })),
 })
 
 ls.add_snippets("eruby", {
-  s({trig = "bi", description = "binding.b"}, t("<% binding.b %>")),
-  s({trig = "link_to", description = "link_to"}, fmt("<%= link_to {} %>", { i(1) })),
+  s({trig = "bi", description = "binding.irb"}, t("<% binding.irb %>")),
+  s({trig = "link_to", description = "link_to"}, fmt("<%= link_to {} %>", { i(0) })),
+  s({trig = "render", description = "render"}, fmt("<%= render \"{}\" %>", { i(0) })),
   s({trig = "end", description = "end"}, fmt("<% end %>", {})),
   s({trig = "else", description = "else"}, fmt("<% else %>", {})),
   s({trig = "if", description = "if"}, fmt("<% if {} %>", { i(0) })),
