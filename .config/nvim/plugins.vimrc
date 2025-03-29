@@ -51,4 +51,6 @@ Plug 'npezza93/fozzie.vim'                                                     "
 Plug 'npezza93/fine-cmdline.nvim'
 Plug 'MunifTanjim/nui.nvim'
 
+Plug 'supermaven-inc/supermaven-nvim'
+
 call plug#end()

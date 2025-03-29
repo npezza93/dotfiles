@@ -1,6 +1,9 @@
 local cmp     = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
+local suggestion = require('supermaven-nvim.completion_preview')
+
+require("supermaven-nvim").setup({})
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -14,6 +17,8 @@ cmp.setup({
         luasnip.expand()
       elseif luasnip.jumpable(1) then
         luasnip.jump(1)
+      elseif suggestion.has_suggestion() then
+        suggestion.on_accept_suggestion()
       elseif cmp.visible() then
         cmp.select_next_item()
       elseif has_words_before() then
