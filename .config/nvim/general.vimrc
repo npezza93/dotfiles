@@ -47,6 +47,15 @@ set undoreload=10000 " maximum number lines to save for undo on a buffer reload
 
 au BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd FileType ruby setlocal indentkeys-=.
+autocmd FileType ruby nnoremap <buffer> <C-]> :<C-u>call TagJumpRuby()<CR>
+
+function! TagJumpRuby()
+	let l:orig_keyword = &iskeyword
+	set iskeyword+=:
+	let l:word = expand("<cword>")
+	let &iskeyword = l:orig_keyword
+	execute "tjump " . l:word
+endfunction
 autocmd FileType swift setlocal shiftwidth=2 tabstop=2
 
 let mapleader = "\<Space>"
