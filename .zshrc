@@ -81,35 +81,6 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/id_rsa"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-# function _rails_command () {
-#   if [ -e "bin/rails" ]; then
-#     bin/rails $@
-#   else
-#     command rails $@
-#   fi
-# }
-
-# function _rake_command () {
-#   if [ -e "bin/rake" ]; then
-#     bin/rake $@
-#   elif type bundle &> /dev/null && ([ -e "Gemfile" ] || [ -e "gems.rb" ]); then
-#     bundle exec rake $@
-#   else
-#     command rake $@
-#   fi
-# }
-
-# alias rails='_rails_command'
-# compdef _rails_command=rails
-# compdef _rails=rails
-
-# alias rake='_rake_command'
-# compdef _rake_command=rake
-
 alias r="rails"
 alias rgmo="rails generate model"
 
@@ -238,3 +209,4 @@ fi
 
 # bun completions
 [ -s "/Users/nick/.bun/_bun" ] && source "/Users/nick/.bun/_bun"
+fpath=(~/.zsh/completions $fpath)

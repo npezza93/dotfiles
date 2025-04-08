@@ -2,6 +2,8 @@ local configs = require('lspconfig.configs')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+vim.diagnostic.config({ virtual_text = true })
+
 vim.lsp.config.tailwindcss = {
   cmd = { "/Users/nick/.config/nvim/language-servers/node_modules/.bin/tailwindcss-language-server", "--stdio" },
   filetypes = {
