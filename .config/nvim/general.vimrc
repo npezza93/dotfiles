@@ -52,8 +52,14 @@ autocmd FileType ruby nnoremap <buffer> <C-]> :<C-u>call TagJumpRuby()<CR>
 function! TagJumpRuby()
 	let l:orig_keyword = &iskeyword
 	set iskeyword+=:
+	set iskeyword+=?
 	let l:word = expand("<cword>")
 	let &iskeyword = l:orig_keyword
+
+  if l:word[0] ==# ':'
+    let l:word = l:word[1:]
+  endif
+
 	execute "tjump " . l:word
 endfunction
 autocmd FileType swift setlocal shiftwidth=2 tabstop=2
