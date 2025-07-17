@@ -21,7 +21,6 @@ Plug 'Wansmer/treesj'                                                          "
 
 " Theme
 Plug 'npezza93/catppuccin.vim', {'as': 'catppuccin', 'do': 'CatppuccinCompile'}
-Plug 'itchyny/lightline.vim'                                                   " Adds status bar at bottom
 
 " Tree view
 Plug 'kyazdani42/nvim-web-devicons'                                            " Adds devicon integration on tree viewer
