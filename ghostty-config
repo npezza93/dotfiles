@@ -11,6 +11,8 @@ adjust-underline-thickness=2
 
 macos-titlebar-style = hidden
 
+background-opacity = 0.95
+background-blur-radius = 15
 background=#1e1d2f
 foreground=#d9e0ee
 cursor-color=#f8bd96
