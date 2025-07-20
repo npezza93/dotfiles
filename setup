@@ -23,5 +23,9 @@ git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/
 
 cargo install fozzie
 cargo install ttags
+cargo install fd-find
+cargo install bat
+cargo install eza
+cargo install ripgrep
 
 echo "gem-ttags\nripper-tags\nlanguage_server-protocol\nprism\nneovim\ntty-cursor\ntty-reader\ntty-screen\npastel" > $(rbenv root)/default-gems
