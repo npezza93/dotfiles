@@ -6,6 +6,7 @@ catppuccin.setup({
     path = vim.fn.stdpath "cache" .. "/catppuccin",
     suffix = "_compiled"
   },
+  transparent_background = true,
 })
 
 vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
@@ -13,6 +14,7 @@ vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 vim.cmd[[colorscheme catppuccin]]
 
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'NormalNC', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })

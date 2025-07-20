@@ -1,4 +1,10 @@
-require('nvim-treesitter').install({ "cpp", "bash", "ruby", "rust", "javascript", "c", "comment", "css", "dockerfile", "hcl", "html", "json", "lua", "python", "query", "regex", "scss", "toml", "yaml", "typescript", "vim", "embedded_template", "markdown", "swift" })
+vim.filetype.add({
+  extension = {
+    ino = "cpp",
+  },
+})
+
+require('nvim-treesitter').install({ "cpp", "bash", "ruby", "rust", "javascript", "c", "comment", "css", "dockerfile", "hcl", "html", "json", "lua", "python", "query", "regex", "scss", "toml", "yaml", "typescript", "vim", "embedded_template", "markdown", "swift", "make" })
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = {
@@ -24,6 +30,7 @@ vim.api.nvim_create_autocmd('FileType', {
     "typescript",
     "vim",
     "yaml",
+    "make",
     "embedded_template", -- might be for erb or ejs; depends on your setup
   },
   callback = function() vim.treesitter.start() end,
