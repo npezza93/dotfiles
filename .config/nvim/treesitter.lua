@@ -1,19 +1,38 @@
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "cpp", "bash", "ruby", "rust", "javascript", "c", "comment", "css", "dockerfile", "hcl", "html", "json", "lua", "python", "query", "regex", "scss", "toml", "yaml", "typescript", "vim", "embedded_template", "markdown", "swift" },
-  matchup = {
-    enable = true,
+require('nvim-treesitter').install({ "cpp", "bash", "ruby", "rust", "javascript", "c", "comment", "css", "dockerfile", "hcl", "html", "json", "lua", "python", "query", "regex", "scss", "toml", "yaml", "typescript", "vim", "embedded_template", "markdown", "swift" })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {
+    "bash",
+    "c",
+    "cpp",
+    "css",
+    "dockerfile",
+    "hcl",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "markdown",
+    "python",
+    "query",
+    "regex",
+    "ruby",
+    "rust",
+    "scss",
+    "swift",
+    "toml",
+    "typescript",
+    "vim",
+    "yaml",
+    "embedded_template", -- might be for erb or ejs; depends on your setup
   },
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-  endwise = {
-    enable = true,
-  },
-  indent = {
-    enable = true
-  }
-}
+  callback = function() vim.treesitter.start() end,
+})
+
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+require('match-up').setup({})
 
 local tsj = require('treesj')
 tsj.setup({

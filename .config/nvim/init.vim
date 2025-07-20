@@ -1,7 +1,7 @@
 source  $HOME/.config/nvim/globals.vimrc
 source  $HOME/.config/nvim/general.vimrc
 source  $HOME/.config/nvim/commands.vimrc
-source  $HOME/.config/nvim/plugins.vimrc
+luafile  $HOME/.config/nvim/plugins.lua
 luafile $HOME/.config/nvim/theme.lua
 source  $HOME/.config/nvim/surround.vimrc
 source  $HOME/.config/nvim/whitespace.vimrc
@@ -10,6 +10,7 @@ luafile $HOME/.config/nvim/scrolling.lua
 source  $HOME/.config/nvim/tree.vimrc
 luafile $HOME/.config/nvim/git.lua
 luafile $HOME/.config/nvim/treesitter.lua
+luafile $HOME/.config/nvim/treesitter_textobjs.lua
 source  $HOME/.config/nvim/lazy.vim
 luafile $HOME/.config/nvim/leap.lua
 luafile $HOME/.config/nvim/statusline.lua
