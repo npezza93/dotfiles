@@ -24,7 +24,7 @@ vim.pack.add({
 
   -- Tree sitter
   { src = 'https://github.com/andymass/vim-matchup' },            -- Enhances % jumping
-  { src = 'https://github.com/npezza93/nvim-treesitter', version = 'main' },
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
   { src = 'https://github.com/AbaoFromCUG/nvim-treesitter-endwise', version = 'main' },
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects', version = 'main' },
 
