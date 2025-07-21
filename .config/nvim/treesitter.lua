@@ -31,6 +31,8 @@ vim.api.nvim_create_autocmd('FileType', {
     "vim",
     "yaml",
     "make",
+    "eruby",
+    "eruby.html",
     "embedded_template", -- might be for erb or ejs; depends on your setup
   },
   callback = function() vim.treesitter.start() end,
