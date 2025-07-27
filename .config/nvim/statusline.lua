@@ -47,10 +47,11 @@ function StatuslineFilename()
   return path .. modified
 end
 
+vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
 vim.api.nvim_set_hl(0, "StatusLineMode", { fg = cp.mantle, bg = cp.blue })
 vim.api.nvim_set_hl(0, "StatusLineFilename", { fg = cp.text, bg = cp.surface0 })
 vim.api.nvim_set_hl(0, "StatusLineFiletype", { fg = cp.overlay0, bg = cp.base })
-vim.api.nvim_set_hl(0, "StatusLineMiddle", { bg = cp.base })
+vim.api.nvim_set_hl(0, "StatusLineMiddle", { bg = "none" })
 
 local function update_statusline_mode_highlight()
   local mode = vim.api.nvim_get_mode().mode

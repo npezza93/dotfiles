@@ -27,7 +27,6 @@ cmp.setup({
         fallback()
       end
     end, { "i", "s", }),
-
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if luasnip.jumpable(-1) then
         luasnip.jump(-1)
@@ -76,3 +75,11 @@ cmp.setup({
     })
   },
 })
+
+vim.keymap.set("i", "<Right>", function()
+  if suggestion and suggestion.has_suggestion() then
+    suggestion.on_accept_suggestion()
+  else
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Right>", true, false, true), "n", true)
+  end
+end, { silent = true })
