@@ -35,11 +35,12 @@ vim.api.nvim_create_autocmd('FileType', {
     "eruby.html",
     "embedded_template", -- might be for erb or ejs; depends on your setup
   },
-  callback = function() vim.treesitter.start() end,
+  callback = function()
+    vim.treesitter.start()
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+  end,
 })
-
-vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
 require('match-up').setup({})
 
