@@ -1,44 +1,52 @@
-vim.filetype.add({
-  extension = {
-    ino = "cpp",
-  },
-})
+vim.filetype.add({ pattern = { ['.*%.js%.erb'] = 'eruby.javascript' } })
+vim.treesitter.language.register('embedded_template', 'eruby.javascript')
 
-require('nvim-treesitter').install({ "cpp", "bash", "ruby", "rust", "javascript", "c", "comment", "css", "dockerfile", "hcl", "html", "json", "lua", "python", "query", "regex", "scss", "toml", "yaml", "typescript", "vim", "embedded_template", "markdown", "swift", "make" })
+require('nvim-treesitter').install({ "cpp", "bash", "ruby", "rust", "javascript", "c", "comment", "css", "dockerfile", "hcl", "html", "json", "lua", "python", "query", "regex", "scss", "toml", "yaml", "typescript", "vim", "embedded_template", "markdown", "swift", "make", "arduino", "git_config", "git_rebase", "gitignore" })
+
+local patterns = {
+  "bash",
+  "c",
+  "cpp",
+  "css",
+  "dockerfile",
+  "hcl",
+  "html",
+  "javascript",
+  "json",
+  "lua",
+  "markdown",
+  "python",
+  "query",
+  "regex",
+  "ruby",
+  "rust",
+  "scss",
+  "swift",
+  "toml",
+  "typescript",
+  "vim",
+  "yaml",
+  "make",
+  "eruby",
+  "eruby.javascript",
+  "eruby.html",
+  "embedded_template"
+}
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = {
-    "bash",
-    "c",
-    "cpp",
-    "css",
-    "dockerfile",
-    "hcl",
-    "html",
-    "javascript",
-    "json",
-    "lua",
-    "markdown",
-    "python",
-    "query",
-    "regex",
-    "ruby",
-    "rust",
-    "scss",
-    "swift",
-    "toml",
-    "typescript",
-    "vim",
-    "yaml",
-    "make",
-    "eruby",
-    "eruby.html",
-    "embedded_template", -- might be for erb or ejs; depends on your setup
-  },
-  callback = function()
-    vim.treesitter.start()
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+  pattern = "*",
+  callback = function(args)
+    local buf = args.buf
+    local ft  = vim.bo[buf].filetype
+
+    if vim.tbl_contains(patterns, ft) then
+      vim.treesitter.start(buf)
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    else
+      vim.treesitter.stop(buf)
+      vim.cmd("syntax enable")
+    end
   end,
 })
 
