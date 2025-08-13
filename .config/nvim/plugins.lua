@@ -10,7 +10,6 @@ vim.pack.add({
   { src = 'https://github.com/ggandor/leap.nvim' },               -- Two letter motion
   { src = 'https://github.com/ggandor/flit.nvim' },
   { src = 'https://github.com/christoomey/vim-tmux-navigator' },  -- Makes navigating in tmux and vim easier
-  { src = 'https://github.com/chrisbra/csv.vim' },
 
   -- Git related plugins
   { src = 'https://github.com/nvim-lua/plenary.nvim' },           -- General lua functions for neovim

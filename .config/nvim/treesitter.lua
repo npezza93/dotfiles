@@ -3,19 +3,30 @@ vim.filetype.add({ pattern = { ['.*%.json%.erb'] = 'eruby.json' } })
 vim.treesitter.language.register('embedded_template', 'eruby.javascript')
 vim.treesitter.language.register('embedded_template', 'eruby.json')
 
-require('nvim-treesitter').install({ "cpp", "bash", "ruby", "rust", "javascript", "c", "comment", "css", "dockerfile", "hcl", "html", "json", "lua", "python", "query", "regex", "scss", "toml", "yaml", "typescript", "vim", "embedded_template", "markdown", "swift", "make", "arduino", "git_config", "git_rebase", "gitignore" })
+require('nvim-treesitter').install({ "cpp", "bash", "ruby", "rust", "javascript", "c", "comment", "css", "dockerfile", "hcl", "html", "json", "lua", "python", "query", "regex", "scss", "toml", "yaml", "typescript", "vim", "embedded_template", "markdown", "swift", "make", "arduino", "git_config", "git_rebase", "gitignore", "gitcommit", "csv" })
 
 local patterns = {
   "bash",
   "c",
   "cpp",
   "css",
+  "csv",
   "dockerfile",
+  "embedded_template",
+  "eruby",
+  "eruby.html",
+  "eruby.javascript",
+  "eruby.json",
+  "gitcommit",
+  "gitconfig",
+  "gitignore",
+  "gitrebase",
   "hcl",
   "html",
   "javascript",
   "json",
   "lua",
+  "make",
   "markdown",
   "python",
   "query",
@@ -28,12 +39,6 @@ local patterns = {
   "typescript",
   "vim",
   "yaml",
-  "make",
-  "eruby",
-  "eruby.javascript",
-  "eruby.json",
-  "eruby.html",
-  "embedded_template"
 }
 
 vim.api.nvim_create_autocmd('FileType', {
