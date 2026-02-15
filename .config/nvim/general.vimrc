@@ -19,7 +19,7 @@ set ttimeout
 set ttimeoutlen=100
 set autoread
 set incsearch
-set cc=80
+set cc=90
 set cursorline
 set termguicolors
 set completeopt=menuone
@@ -48,6 +48,7 @@ set undoreload=10000 " maximum number lines to save for undo on a buffer reload
 au BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd FileType ruby setlocal indentkeys-=.
 autocmd FileType ruby nnoremap <buffer> <C-]> :<C-u>call TagJumpRuby()<CR>
+autocmd FileType yaml nnoremap <buffer> <C-]> :<C-u>call TagJumpRuby()<CR>
 
 function! TagJumpRuby()
 	let l:orig_keyword = &iskeyword

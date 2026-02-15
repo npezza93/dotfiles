@@ -177,4 +177,10 @@ vim.lsp.config.ruby_locals = {
   root_markers = {"Gemfile", "Gemfile.lock"},
 }
 
-vim.lsp.enable({'ruby_locals', 'ttags', 'rubocop', 'jsonls', 'yamlls', 'sourcekit', 'tailwindcss'})
+vim.lsp.config.herb = {
+  cmd = { "/Users/nick/.config/nvim/language-servers/node_modules/.bin/herb-language-server", "--stdio" },
+  filetypes = {"html", "eruby"},
+  root_markers = {".git", "Gemfile", "Gemfile.lock"},
+}
+
+vim.lsp.enable({'ruby_locals', 'ttags', 'rubocop', 'jsonls', 'yamlls', 'sourcekit', 'tailwindcss', 'herb'})
