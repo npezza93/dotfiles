@@ -1,7 +1,7 @@
 source  $HOME/.config/nvim/globals.vimrc
 source  $HOME/.config/nvim/general.vimrc
 source  $HOME/.config/nvim/commands.vimrc
-luafile  $HOME/.config/nvim/plugins.lua
+luafile $HOME/.config/nvim/plugins.lua
 luafile $HOME/.config/nvim/theme.lua
 source  $HOME/.config/nvim/surround.vimrc
 source  $HOME/.config/nvim/whitespace.vimrc

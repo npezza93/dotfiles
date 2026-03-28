@@ -3,3 +3,4 @@ dump.rdb
 tags
 .config/nvim/language-servers/node_modules/
 storage/
+.crush/
