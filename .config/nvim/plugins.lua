@@ -7,8 +7,7 @@ vim.pack.add({
   -- General
   { src = 'https://github.com/tpope/vim-repeat' },                -- Makes dot work with everything
   { src = 'https://github.com/tpope/vim-surround' },              -- Adds surround motion
-  { src = 'https://github.com/ggandor/leap.nvim' },               -- Two letter motion
-  { src = 'https://github.com/ggandor/flit.nvim' },
+  { src = 'https://codeberg.org/andyg/leap.nvim' },               -- Two letter motion
   { src = 'https://github.com/christoomey/vim-tmux-navigator' },  -- Makes navigating in tmux and vim easier
 
   -- Git related plugins
@@ -24,8 +23,8 @@ vim.pack.add({
   -- Tree sitter
   { src = 'https://github.com/andymass/vim-matchup' },            -- Enhances % jumping
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
-  { src = 'https://github.com/RRethy/nvim-treesitter-endwise', version = 'main' },
-  { src = 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects', version = 'main' },
+  { src = 'https://github.com/RRethy/nvim-treesitter-endwise' },
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects' },
 
   -- Tree view
   { src = 'https://github.com/kyazdani42/nvim-web-devicons' },    -- Adds devicon integration on tree viewer

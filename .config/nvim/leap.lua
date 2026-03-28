@@ -1,14 +1,64 @@
 local leap = require('leap')
 leap.opts.case_sensitive = true
 leap.opts.highlight_unlabeled_phase_one_targets = true
-leap.add_default_mappings()
 
-require('flit').setup {
-  keys = { f = 'f', F = 'F', t = 't', T = 'T' },
-  -- A string like "nv", "nvo", "o", etc.
-  labeled_modes = "v",
-  multiline = true,
-  -- Like `leap`s similar argument (call-specific overrides).
-  -- E.g.: opts = { equivalence_classes = {} }
-  opts = {}
-}
+vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
+vim.keymap.set('n',             'S', '<Plug>(leap-from-window)')
+
+vim.keymap.set({'n', 'o'}, 'gs', function()
+  require('leap.remote').action {
+    -- Automatically enter Visual mode when coming from Normal.
+    input = vim.fn.mode(true):match('o') and '' or 'v'
+  }
+end)
+
+do
+  local function ft(key_specific_args)
+    require('leap').leap(
+      vim.tbl_deep_extend('keep', key_specific_args, {
+        inputlen = 1,
+        inclusive = true,
+        opts = {
+          -- Force autojump.
+          labels = '',
+          -- Match the modes where you don't need labels (`:h mode()`).
+          safe_labels = vim.fn.mode(1):match('o') and '' or nil,
+        },
+      })
+    )
+  end
+
+  -- A helper function making it easier to set "clever-f" behavior
+  -- (using f/F or t/T instead of ;/, - see the plugin clever-f.vim).
+  local clever = require('leap.user').with_traversal_keys
+  local clever_f, clever_t = clever('f', 'F'), clever('t', 'T')
+
+  vim.keymap.set({ 'n', 'x', 'o' }, 'f', function()
+    ft { opts = clever_f }
+  end)
+  vim.keymap.set({ 'n', 'x', 'o' }, 'F', function()
+    ft { backward = true, opts = clever_f }
+  end)
+  vim.keymap.set({ 'n', 'x', 'o' }, 't', function()
+    ft { offset = -1, opts = clever_t }
+  end)
+  vim.keymap.set({ 'n', 'x', 'o' }, 'T', function()
+    ft { backward = true, offset = 1, opts = clever_t }
+  end)
+end
+
+do
+  local clever = require('leap.user').with_traversal_keys
+  -- For relative directions, set the `backward` flags according to:
+  -- local prev_backward = require('leap').state['repeat'].backward
+  vim.keymap.set({ 'n', 'x', 'o' }, '<cr>', function()
+    require('leap').leap {
+      ['repeat'] = true, opts = clever('<cr>', '<bs>'),
+    }
+  end)
+  vim.keymap.set({ 'n', 'x', 'o' }, '<bs>', function()
+    require('leap').leap {
+      ['repeat'] = true, opts = clever('<bs>', '<cr>'), backward = true,
+    }
+  end)
+end
