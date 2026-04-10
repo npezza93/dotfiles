@@ -1,20 +1,19 @@
 local leap = require('leap')
-leap.opts.case_sensitive = true
-leap.opts.highlight_unlabeled_phase_one_targets = true
+leap.opts.vim_opts['go.ignorecase'] = true
 
-vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
-vim.keymap.set('n',             'S', '<Plug>(leap-from-window)')
-
-vim.keymap.set({'n', 'o'}, 'gs', function()
-  require('leap.remote').action {
-    -- Automatically enter Visual mode when coming from Normal.
-    input = vim.fn.mode(true):match('o') and '' or 'v'
-  }
-end)
+do
+  local clever_s = require('leap.user').with_traversal_keys('s', 'S')
+  vim.keymap.set({ 'n', 'x', 'o' }, 's', function()
+    leap.leap { opts = clever_s }
+  end)
+  vim.keymap.set({ 'n', 'x', 'o' }, 'S', function()
+    leap.leap { backward = true, opts = clever_s }
+  end)
+end
 
 do
   local function ft(key_specific_args)
-    require('leap').leap(
+    leap.leap(
       vim.tbl_deep_extend('keep', key_specific_args, {
         inputlen = 1,
         inclusive = true,
@@ -52,12 +51,12 @@ do
   -- For relative directions, set the `backward` flags according to:
   -- local prev_backward = require('leap').state['repeat'].backward
   vim.keymap.set({ 'n', 'x', 'o' }, '<cr>', function()
-    require('leap').leap {
+    leap.leap {
       ['repeat'] = true, opts = clever('<cr>', '<bs>'),
     }
   end)
   vim.keymap.set({ 'n', 'x', 'o' }, '<bs>', function()
-    require('leap').leap {
+    leap.leap {
       ['repeat'] = true, opts = clever('<bs>', '<cr>'), backward = true,
     }
   end)
