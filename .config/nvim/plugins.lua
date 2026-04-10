@@ -1,6 +1,4 @@
 vim.pack.add({
-  { src = 'https://github.com/karb94/neoscroll.nvim' },           -- Makes scrolling smoooooth
-
   -- Theme
   { src = 'https://github.com/npezza93/catppuccin.vim', name = 'catppuccin' },
 
@@ -9,9 +7,9 @@ vim.pack.add({
   { src = 'https://github.com/tpope/vim-surround' },              -- Adds surround motion
   { src = 'https://codeberg.org/andyg/leap.nvim' },               -- Two letter motion
   { src = 'https://github.com/christoomey/vim-tmux-navigator' },  -- Makes navigating in tmux and vim easier
+  { src = 'https://github.com/karb94/neoscroll.nvim' },           -- Makes scrolling smoooooth
 
   -- Git related plugins
-  { src = 'https://github.com/nvim-lua/plenary.nvim' },           -- General lua functions for neovim
   { src = 'https://github.com/lewis6991/gitsigns.nvim' },         -- Indicates added, modified and removed lines in a file
 
   -- Ruby (Tags and such)
@@ -31,7 +29,6 @@ vim.pack.add({
   { src = 'https://github.com/kyazdani42/nvim-tree.lua' },        -- Adds tree viewer
 
   -- LSP like features and snippets
-  { src = 'https://github.com/npezza93/nvim-lspconfig' },
   { src = 'https://github.com/onsails/lspkind.nvim' },
   { src = 'https://github.com/hrsh7th/nvim-cmp' },
   { src = 'https://github.com/hrsh7th/cmp-path' },
@@ -39,6 +36,7 @@ vim.pack.add({
   { src = 'https://github.com/hrsh7th/cmp-nvim-lsp' },
   { src = 'https://github.com/L3MON4D3/LuaSnip' },
   { src = 'https://github.com/saadparwaiz1/cmp_luasnip' },
+  { src = 'https://github.com/supermaven-inc/supermaven-nvim' },
 
   -- Searching
   { src = 'https://github.com/mileszs/ack.vim' },                 -- Search across project
@@ -47,6 +45,4 @@ vim.pack.add({
   -- cmd line stuff
   { src = 'https://github.com/VonHeikemen/fine-cmdline.nvim' },
   { src = 'https://github.com/MunifTanjim/nui.nvim' },
-
-  { src = 'https://github.com/supermaven-inc/supermaven-nvim' },
 })

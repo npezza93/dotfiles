@@ -1,4 +1,3 @@
-local configs = require('lspconfig.configs')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
@@ -114,9 +113,24 @@ vim.lsp.config.tailwindcss = {
 }
 
 -- Rust language server setup
-require'lspconfig'.rust_analyzer.setup({
+vim.lsp.config.rust_analyzer = {
+  cmd = { "rust-analyzer" },
+  filetypes = { 'rust' },
+  root_markers = { "Config.toml", ".git" },
   capabilities = capabilities,
-})
+  settings = {
+      files = { watcher = "server" },
+      cargo = { targetDir = true },
+      check = { command = "clippy" },
+      inlayHints = {
+        bindingModeHints = { enabled = true },
+        closureCaptureHints = { enabled = true },
+        closureReturnTypeHints = { enable = "always" },
+        maxLength = 100,
+      },
+      rustc = { source = "discover" },
+    },
+}
 
 vim.lsp.config.sourcekit = {
   cmd = { 'sourcekit-lsp' },
@@ -183,4 +197,4 @@ vim.lsp.config.herb = {
   root_markers = {".git", "Gemfile", "Gemfile.lock"},
 }
 
-vim.lsp.enable({'ruby_locals', 'ttags', 'rubocop', 'jsonls', 'yamlls', 'sourcekit', 'tailwindcss', 'herb'})
+vim.lsp.enable({'ruby_locals', 'ttags', 'rubocop', 'jsonls', 'yamlls', 'sourcekit', 'tailwindcss', 'herb', 'rust_analyzer'})
