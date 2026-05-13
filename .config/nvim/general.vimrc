@@ -61,7 +61,33 @@ function! TagJumpRuby()
     let l:word = l:word[1:]
   endif
 
-	execute "tjump " . l:word
+  let l:cmd = [
+    \ '/Users/nick/.config/nvim/language-servers/const_lookup',
+    \ '--file', expand('%:p'),
+    \ '--line', line('.'),
+    \ '--column', col('.'),
+    \ ]
+
+  let l:output = systemlist(l:cmd)
+
+  if v:shell_error != 0 || empty(l:output)
+    execute 'tjump ' . l:word
+    return
+  endif
+
+  try
+    let l:result = json_decode(join(l:output, "\n"))
+  catch
+    echoerr 'Ruby declaration lookup returned invalid JSON'
+    return
+  endtry
+  normal! m'
+
+  execute 'edit +' . l:result.line . ' ' . fnameescape(l:result.file)
+
+  if has_key(l:result, 'column')
+    call cursor(l:result.line, l:result.column)
+  endif
 endfunction
 autocmd FileType swift setlocal shiftwidth=2 tabstop=2
 

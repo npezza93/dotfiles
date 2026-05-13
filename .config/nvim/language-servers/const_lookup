@@ -1,0 +1,43 @@
+#!/usr/bin/env /Users/nick/.rbenv/shims/ruby
+
+require "rubydex"
+require "optparse"
+require "pathname"
+require "json"
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: example.rb [options]"
+
+  opts.on("-f", "--file FILE") do |file|
+    options[:file] = file
+  end
+
+  opts.on("-l", "--line LINE") do |line|
+    options[:line] = line
+  end
+
+  opts.on("-c", "--column COLUMN") do |column|
+    options[:column] = column
+  end
+end.parse!
+
+graph = Rubydex::Graph.new
+graph.index_workspace
+graph.resolve
+
+def location_match?(location, file, options)
+  location.uri == file &&
+    (location.start_line..location.end_line).include?(options[:line].to_i - 1) &&
+    (location.start_column..location.end_column).include?(options[:column].to_i - 1)
+end
+
+file = URI::File.build({path: options[:file]}).to_s
+location = graph.constant_references.
+  select { location_match?(it.location, file, options) }.
+  flat_map { it.declaration.definitions.to_a }.first&.location
+
+if location
+  path = Pathname.new(location.to_file_path).relative_path_from(graph.workspace_path).to_s
+  puts({line: location.start_line + 1, column: location.start_column + 1, file: path }.to_json)
+end
