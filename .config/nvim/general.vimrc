@@ -61,6 +61,11 @@ function! TagJumpRuby()
     let l:word = l:word[1:]
   endif
 
+  if l:word =~# '^\l'
+    execute 'tjump ' . l:word
+    return
+  endif
+
   let l:cmd = [
     \ '/Users/nick/.config/nvim/language-servers/const_lookup',
     \ '--file', expand('%:p'),
