@@ -9,3 +9,4 @@ IRB.conf[:PROMPT][:CUSTOM] = {
 }
 IRB.conf[:PROMPT_MODE] = :CUSTOM
 IRB.conf[:USE_AUTOCOMPLETE] = false
+IRB.conf[:SHOW_BANNER] = false

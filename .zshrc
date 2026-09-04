@@ -18,7 +18,7 @@ export EDITOR=nvim
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=true
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:$N_PREFIX/bin:/Users/nick/.dotfiles/bin:/usr/local/go/bin:/Users/nick/go/bin"
+export PATH="$BUN_INSTALL/bin:$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:$N_PREFIX/bin:/Users/nick/.dotfiles/bin:/usr/local/go/bin:/Users/nick/go/bin:/Users/nick/.local/bin"
 source ~/.dotfiles/catppuccin-zsh-syntax-highlighting.zsh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
