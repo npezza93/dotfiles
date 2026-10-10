@@ -18,7 +18,7 @@ export EDITOR=nvim
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=true
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:$N_PREFIX/bin:/Users/nick/.dotfiles/bin:/usr/local/go/bin:/Users/nick/go/bin:/Users/nick/.local/bin"
+export PATH="$BUN_INSTALL/bin:$PATH:/Users/nick/.yarn/bin:/Users/nick/.cargo/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:$N_PREFIX/bin:/Users/nick/.dotfiles/bin:/usr/local/go/bin:/Users/nick/go/bin:/Users/nick/.local/bin:/Users/nick/.hunk/bin"
 source ~/.dotfiles/catppuccin-zsh-syntax-highlighting.zsh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -126,7 +126,7 @@ alias lsa='eza -lah --git'
 alias la='eza -Glah'
 alias cat='bat  --theme="Catppuccin-mocha" --style="numbers,changes,header"'
 
-alias ttags-all='ttags $({ g ls-files; g ls-files -o --exclude-standard; } | rg -v "(.*\.(pdf|json|md|css|svg|sql|keep|yml|csv|key|ru|txt|png|jpg|jpeg|webp|ttf|woff2|otf|woff)$)|(db/schema.rb)|(^public.*)|(db/migrate/.*)|(^bin.*)|(^\..*)|Gemfile.*|Rakefile")'
+alias ttags-all="{ g ls-files -z; g ls-files -z -o --exclude-standard; } | rg --null-data -v '[.](pdf|json|md|css|svg|sql|keep|yml|csv|key|ru|txt|png|jpg|jpeg|webp|ttf|woff2|otf|woff)$|db/schema[.]rb|^public|db/migrate/|^bin|^[.]|Gemfile|Rakefile|^vendor/javascript/' | ttags --null --files-from -"
 alias killruby="ps -ax | grep ruby | grep -v grep | awk '{print $1}' | xargs kill -9"
 alias killvim="ps -ax | grep vim | grep -v grep | awk '{print $1}' | xargs kill -9"
 

@@ -28,7 +28,7 @@
   excludesfile = /Users/nick/.gitignore
   attributesfile = /Users/nick/.gitattributes
   fsmonitor = true
-  pager = delta
+  pager = hunk pager
 [diff]
   colorMoved = default
   compactionHeuristic = true
